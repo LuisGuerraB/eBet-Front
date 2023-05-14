@@ -1,0 +1,29 @@
+<div class="content">
+  <div class="teams" *ngIf="match">
+    <div class="team">
+      <img src="{{match.localTeam.img}}">
+      <h2>{{match.localTeam.acronym}}</h2>
+    </div>
+    <div class="center">
+      <span>{{planDate}}</span>
+      <h1 class="vs">VS</h1>
+      <div class="league">
+        <img src="{{match.season.league.img}}">
+        <span class="league__name">{{match.season.league.acronym}}</span>
+        <span class="league__name accent">{{match.season.name}}</span>
+      </div>
+    </div>
+    <div class="team__opposing">
+      <img src="{{match.awayTeam.img}}">
+      <h2>{{match.awayTeam.acronym}}</h2>
+    </div>
+  </div>
+  <div class="bets" *ngIf="awayBettingOdd && localBettingOdd">
+    <div class="bet" *ngFor="let type of SimpleOdds">
+      <app-simple-bet [localTeamOdd]="localBettingOdd[type]" [awayTeamOdd]="awayBettingOdd[type]" [type]="type"></app-simple-bet>
+    </div>
+    <div class="bet" *ngFor="let type of CompoundOdds">
+      <app-compound-bet [localTeamOdd]="localBettingOdd[type]" [awayTeamOdd]="awayBettingOdd[type]" [type]="type"></app-compound-bet>
+    </div>
+  </div>
+</div>

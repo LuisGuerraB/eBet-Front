@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
+
+
+$primary-color: #F89233;
+$accent-color: #1CC9BF;
+$background-color: #151515;
+$backgroud-item-color:#3C3C3C;
+$font-color: #ffffff;
+$contrast-font-color:#000000;
+
+body{
+  background-color: $background-color;
+}
+
+* {
+  color: $font-color;
+  font-family: 'Oswald', sans-serif;
+}
+
+.accent {
+  color: $accent-color;
+}
+
+
+.primary{
+  color: $primary-color;
+}

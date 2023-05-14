@@ -1,0 +1,67 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .teams {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width:90%;
+    margin:20px;
+    img {
+      height: 130px;
+    }
+
+    .team {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+
+      &__opposing {
+        @extend .team;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+      }
+    }
+
+    .center {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .vs {
+        align-self: center;
+      }
+
+      .league {
+        @extend .center;
+        flex-direction: row;
+        gap: 4px;
+
+
+        img {
+          height: 30px;
+        }
+
+        .league__name {
+          align-self: center;
+        }
+
+      }
+    }
+  }
+
+  .bets {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap:8px;
+    .bet{
+      width: 100%;
+    }
+  }
+}
+

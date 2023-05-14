@@ -1,0 +1,14 @@
+{
+  "winOdds" : "WINNER",
+  "goldOdds" : "Gold Advantage > 50%",
+  "expOdds" : "Exp Advantage > 50%",
+  "drakesOdds" : "DRAKES",
+  "baronsOdds" : "BARON",
+  "towersOdds" : "TOWERS",
+  "eldersOdds" : "ELDERS",
+  "heraldsOdds" : "HERALDS",
+  "inhibitorsOdds" : "INHIBITORS",
+  "killsOdds" : "KILLS",
+  "deathsOdds": "DEATHS",
+  "assistsOdds": "ASSISTS"
+}

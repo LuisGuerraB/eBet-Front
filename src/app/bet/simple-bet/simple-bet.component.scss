@@ -1,0 +1,27 @@
+@import '../../../styles.scss';
+
+.content {
+  display: grid;
+  grid-template-columns: 26% 48% 26%;
+  background-color: $backgroud-item-color;
+  height: 40px;
+
+  * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .odd {
+    border: 0.5px solid $background-color;
+  }
+
+  .type {
+    background-color: $primary-color;
+    border: 0.5px solid $background-color;
+
+    span {
+      color: $contrast-font-color;
+    }
+  }
+}
