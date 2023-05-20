@@ -1,21 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 
+$grey-palette-100: #151515;
+$grey-palette-200: #262626;
+$grey-palette-300: #2d2d2d;
+$grey-palette-400: #3c3c3c;
+$grey-palette-500: #4f4f4f;
+$grey-palette-600: #5a5a5a;
+$grey-palette-700: #7a7a7a;
 
 $primary-color: #F89233;
 $accent-color: #1CC9BF;
-$background-color: #151515;
-$backgroud-item-color:#3C3C3C;
 $font-color: #ffffff;
-$contrast-font-color:#000000;
+$contrast-font-color: #000000;
 
-body{
+
+$background-color: $grey-palette-100;
+$backgroud-item-color: $grey-palette-400;
+
+body {
   background-color: $background-color;
+  margin: 0;
 }
 
 * {
   color: $font-color;
   font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+}
+
+button {
+  border: none;
+}
+
+input {
+  border: none;
 }
 
 .accent {
@@ -23,6 +42,56 @@ body{
 }
 
 
-.primary{
+.primary {
   color: $primary-color;
+}
+
+
+.eBet-input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+
+  label {
+    font-size: 18px;
+    margin-left: 10px;
+  }
+
+  input{
+    width: 100%;
+    border-radius: 5px;
+    background-color: $grey-palette-700;
+    font-size: 16px;
+    line-height: 2px;
+    padding-left: 5px;
+  }
+
+  input:focus {
+    outline: 2px solid $accent-color;
+  }
+
+  hr {
+    position: absolute;
+    margin-left: 2%;
+    margin-right: 1%;
+    margin-bottom: 3px;
+    bottom: 0;
+    width: 98%;
+    height: 1px;
+    background-color: $grey-palette-400;
+    border: none;
+  }
+}
+
+
+.eBet-button {
+  width: 100%;
+  max-width: 110px;
+  height: 32px;
+  border-radius: 5px;
+  font-size:18px;
+  background-color: $accent-color;
+  color: $contrast-font-color;
 }
