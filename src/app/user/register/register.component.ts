@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {TranslateModule} from "@ngx-translate/core";
-import {UserService} from "../../../service/user.service";
+import {AuthService} from "../../../service/auth.service";
 import {
   FormControl,
   FormGroup,
@@ -26,7 +26,7 @@ export class RegisterComponent {
   password = new FormControl('', [Validators.required, Validators.minLength(6)]);
   repassword = new FormControl('', [Validators.required, Validators.minLength(6)]);
 
-  constructor(private userService: UserService) {
+  constructor(private authService: AuthService) {
     this.form = new FormGroup({
       username: this.username,
       email: this.email,
@@ -36,9 +36,9 @@ export class RegisterComponent {
   }
 
   submitForm() {
-    console.log("cosito", this.form.value);
     if (this.form.valid) {
-      this.userService.register(this.username.value!, this.email.value!, this.password.value!);
+      this.authService.register(this.username.value!, this.email.value!, this.password.value!);
+      //TODO redirect to login page
     } else {
       alert("Invalid Form");
     }
@@ -53,7 +53,6 @@ function validateMatchPassword(form: FormGroup) : ValidationErrors |null {
   if (password === repassword) {
     return null;
   } else {
-    console.log("no match");
     return {noMatch: true};
   }
 }

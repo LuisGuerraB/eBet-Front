@@ -1,0 +1,24 @@
+<div class="content">
+
+  <div class="logo">
+    <a href="/"><img src="/assets/img/Logo-1.svg" alt="logo eBet"></a>
+  </div>
+  <h1>{{"Log-in" | translate}}</h1>
+  <form [formGroup]="form" (ngSubmit)="submitForm()">
+    <div class="eBet-input">
+      <label>{{"Username" | translate}}</label>
+      <input type="text" class="input" formControlName="username" name="username">
+      <hr>
+    </div>
+    <div class="eBet-input">
+      <label>{{"Password" | translate}}</label>
+      <input type="password" class="input" formControlName="password" name="password">
+      <hr>
+    </div>
+    <div class="buttons-container">
+      <a href="/user/register">{{"Sing-up" |translate}}></a>
+      <button type=submit class="eBet-button">{{"Confirm"|translate}}</button>
+    </div>
+  </form>
+
+</div>

@@ -3,6 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {BetComponent} from "./bet/bet.component";
 import {UserComponent} from "./user/user.component";
 import {RegisterComponent} from "./user/register/register.component";
+import {LoginComponent} from "./user/login/login.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/bet', pathMatch: 'full'},
@@ -10,6 +11,7 @@ const routes: Routes = [
   {path: 'user', component: UserComponent,
     children: [
       {path: 'register', component: RegisterComponent},
+      {path: 'login', component: LoginComponent}
     ]
   }
 ];
