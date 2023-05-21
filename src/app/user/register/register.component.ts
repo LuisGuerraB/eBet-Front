@@ -10,11 +10,16 @@ import {
   ValidatorFn,
   Validators
 } from "@angular/forms";
+import {Router} from "@angular/router";
+import {NgIf} from "@angular/common";
+import {FormErrorMessagesComponent} from "../form-error-messages/form-error-messages.component";
+import {ConfirmationModalComponent} from "../confirmation-modal/confirmation-modal.component";
+import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [TranslateModule, ReactiveFormsModule, FormsModule],
+  imports: [MatDialogModule,TranslateModule, ReactiveFormsModule, FormsModule, NgIf, FormErrorMessagesComponent],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
@@ -26,7 +31,9 @@ export class RegisterComponent {
   password = new FormControl('', [Validators.required, Validators.minLength(6)]);
   repassword = new FormControl('', [Validators.required, Validators.minLength(6)]);
 
-  constructor(private authService: AuthService) {
+  error?: string;
+
+  constructor(private authService: AuthService, private router: Router,private dialog: MatDialog) {
     this.form = new FormGroup({
       username: this.username,
       email: this.email,
@@ -37,16 +44,28 @@ export class RegisterComponent {
 
   submitForm() {
     if (this.form.valid) {
-      this.authService.register(this.username.value!, this.email.value!, this.password.value!);
-      //TODO redirect to login page
+      this.authService.register(this.username.value!, this.email.value!, this.password.value!).subscribe(
+        () => {
+          this.dialog.open(ConfirmationModalComponent, {
+            data: {
+              message: "register-successful"
+            }
+          }).afterClosed().subscribe(
+            () => this.router.navigate(['/'])
+          )
+        },
+        (err) => {
+          this.error = err.message;
+        }
+      );
     } else {
-      alert("Invalid Form");
+      this.error = "control-error.match-password";
     }
   }
 
 }
 
-function validateMatchPassword(form: FormGroup) : ValidationErrors |null {
+function validateMatchPassword(form: FormGroup): ValidationErrors | null {
   const password = form.get('password')!.value;
   const repassword = form.get('repassword')!.value;
 

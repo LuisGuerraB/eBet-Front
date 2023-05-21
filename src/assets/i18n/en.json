@@ -1,14 +1,38 @@
 {
-  "winOdds" : "WINNER",
-  "goldOdds" : "Gold Advantage > 50%",
-  "expOdds" : "Exp Advantage > 50%",
-  "drakesOdds" : "DRAKES",
-  "baronsOdds" : "BARON",
-  "towersOdds" : "TOWERS",
-  "eldersOdds" : "ELDERS",
-  "heraldsOdds" : "HERALDS",
-  "inhibitorsOdds" : "INHIBITORS",
-  "killsOdds" : "KILLS",
-  "deathsOdds": "DEATHS",
-  "assistsOdds": "ASSISTS"
+  "control-error": {
+    "already-logged-in": "Already logged in",
+    "email-format": "Invalid email format",
+    "email-registered": "This email is already registered",
+    "invalid-credentials": "Password or username incorrect",
+    "match-password": "Passwords doesn't match",
+    "min-length": "Must be at least 6 characters",
+    "required-field": "This is a required field",
+    "unexpected": "Unexpected error",
+    "username-taken": "This username is already taken"
+  },
+  "confirm": "Confirm",
+  "form": {
+    "email": "Email",
+    "password": "Password",
+    "repassword": "Repeat password",
+    "username": "Username"
+  },
+  "log-in": "Log in",
+  "login-successful": "Log in successfully",
+  "odd": {
+    "assistsOdds": "ASSISTS",
+    "baronsOdds": "BARON",
+    "deathsOdds": "DEATHS",
+    "drakesOdds": "DRAKES",
+    "eldersOdds": "ELDERS",
+    "expOdds": "Exp Advantage > 50%",
+    "goldOdds": "Gold Advantage > 50%",
+    "heraldsOdds": "HERALDS",
+    "inhibitorsOdds": "INHIBITORS",
+    "killsOdds": "KILLS",
+    "towersOdds": "TOWERS",
+    "winOdds": "WINNER"
+  },
+  "register-successful": "Register successfully",
+  "sign-in": "Sign in"
 }

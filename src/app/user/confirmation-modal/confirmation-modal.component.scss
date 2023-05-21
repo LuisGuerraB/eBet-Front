@@ -1,0 +1,9 @@
+@import '../../../styles';
+
+.modal{
+  background-color: $background-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

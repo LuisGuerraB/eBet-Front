@@ -1,6 +1,3 @@
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
-
-
 import {importProvidersFrom} from '@angular/core';
 import {AppComponent} from './app/app.component';
 import {AppRoutingModule} from './app/app-routing.module';
@@ -8,6 +5,8 @@ import {BrowserModule, bootstrapApplication} from '@angular/platform-browser';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import {MatDialogModule} from "@angular/material/dialog";
+
 
 
 bootstrapApplication(AppComponent, {
@@ -15,6 +14,7 @@ bootstrapApplication(AppComponent, {
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    MatDialogModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

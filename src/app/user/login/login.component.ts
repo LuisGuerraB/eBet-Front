@@ -3,11 +3,15 @@ import { CommonModule } from '@angular/common';
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, ValidatorFn, Validators} from "@angular/forms";
 import {AuthService} from "../../../service/auth.service";
 import {TranslateModule} from "@ngx-translate/core";
+import {Router} from "@angular/router";
+import {FormErrorMessagesComponent} from "../form-error-messages/form-error-messages.component";
+import {ConfirmationModalComponent} from "../confirmation-modal/confirmation-modal.component";
+import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, TranslateModule],
+    imports: [MatDialogModule,CommonModule, FormsModule, ReactiveFormsModule, TranslateModule, FormErrorMessagesComponent],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
@@ -16,7 +20,8 @@ export class LoginComponent {
   username = new FormControl('', [Validators.required]);
   password = new FormControl('', [Validators.required, Validators.minLength(6)]);
 
-  constructor(private authService: AuthService) {
+  error? : string;
+  constructor(private authService: AuthService,private router : Router,private dialog: MatDialog) {
     this.form = new FormGroup({
       username: this.username,
       password: this.password
@@ -25,10 +30,20 @@ export class LoginComponent {
 
   submitForm() {
     if (this.form.valid) {
-      this.authService.login(this.username.value!, this.password.value!);
-      //TODO redirect to main page
-    } else {
-      alert("Invalid Form");
+      this.authService.login(this.username.value!, this.password.value!).subscribe(
+        () => {
+          this.dialog.open(ConfirmationModalComponent, {
+            data: {
+              message: "login-successful"
+            }
+          }).afterClosed().subscribe(
+            () => this.router.navigate(['/'])
+          )
+        },
+        (err) => {
+          this.error = err.message;
+        }
+      )
     }
   }
 }

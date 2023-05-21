@@ -3,30 +3,34 @@
   <div class="logo">
     <a href="/"><img src="/assets/img/Logo-1.svg" alt="logo eBet"></a>
   </div>
-  <h1>{{"Sing-up" | translate}}</h1>
+  <h1>{{"sign-in" | translate}}</h1>
+  <div *ngIf="error" class="input-error">
+    <div>{{error | translate}}</div>
+  </div>
   <form [formGroup]="form" (ngSubmit)="submitForm()">
     <div class="eBet-input">
-      <label>{{"Username" | translate}}</label>
-      <input type="text" class="input" formControlName="username" name="username">
-      <hr>
+      <label>{{"form.username" | translate}}</label>
+      <div><input type="text" formControlName="username" name="username"><hr></div>
+      <app-form-error-messages [control]="form.get('username')!"></app-form-error-messages>
     </div>
     <div class="eBet-input">
-      <label>{{"Email" | translate}}</label>
-      <input type="email" class="input" formControlName="email" name="email">
+      <label>{{"form.email" | translate}}</label>
+      <div><input type="email" formControlName="email" name="email"><hr></div>
+      <app-form-error-messages [control]="form.get('email')!"></app-form-error-messages>
     </div>
     <div class="eBet-input">
-      <label>{{"Password" | translate}}</label>
-      <input type="password" class="input" formControlName="password" name="password">
-      <hr>
+      <label>{{"form.password" | translate}}</label>
+      <div><input type="password" formControlName="password" name="password"><hr></div>
+      <app-form-error-messages [control]="form.get('password')!"></app-form-error-messages>
     </div>
     <div class="eBet-input">
-      <label>{{"Repeat-password" | translate}}</label>
-      <input type="password" class="input" formControlName="repassword" name="repassword">
-      <hr>
+      <label>{{"form.repassword" | translate}}</label>
+      <div><input type="password" formControlName="repassword" name="repassword"><hr></div>
+      <app-form-error-messages [control]="form.get('repassword')!"></app-form-error-messages>
     </div>
     <div class="buttons-container">
-      <a href="/user/login">{{"Log-in" |translate}}></a>
-      <button type=submit class="eBet-button">{{"Confirm"|translate}}</button>
+      <a href="/user/login">{{"log-in" |translate}} ></a>
+      <button type=submit class="eBet-button">{{"confirm"|translate}}</button>
     </div>
   </form>
 

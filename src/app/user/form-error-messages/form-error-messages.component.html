@@ -1,0 +1,5 @@
+<div *ngIf="shouldShowErrors()" class="input-error">
+  <div *ngFor="let errorKey of getErrors()">
+    {{ getErrorMessage(errorKey) | translate }}
+  </div>
+</div>

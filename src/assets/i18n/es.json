@@ -1,14 +1,38 @@
 {
-  "winOdds" : "GANADOR",
-  "goldOdds" : "Ventaja de Oro > 50%",
-  "expOdds" : "Ventaja de Exp > 50%",
-  "drakesOdds" : "DRAGONES",
-  "baronsOdds" : "BARONES",
-  "towersOdds" : "TORRETAS",
-  "eldersOdds" : "ANCIANOS",
-  "heraldsOdds" : "HERALDOS",
-  "inhibitorsOdds" : "INHIBIDORES",
-  "killsOdds" : "ASESINATOS",
-  "deathsOdds": "MUERTES",
-  "assistsOdds": "ASISTENCIAS"
+  "control-error": {
+    "already-logged-in": "Ya tienes la sesión iniciada",
+    "email-format": "Formato del correo incorrecto",
+    "email-registered": "El email ya está registrado",
+    "invalid-credentials": "Contraseña o nombre de usuario incorrectos",
+    "match-password": "Las contraseñas no coinciden",
+    "min-length": "Debe tener mínimo 6 caracteres",
+    "required-field": "Este campo es obligatorio",
+    "unexpected": "Error inesperado",
+    "username-taken": "El nombre de usuario ya existe"
+  },
+  "confirm": "Confirmar",
+  "form": {
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "repassword": "Repetir contraseña",
+    "username": "Nombre de usuario"
+  },
+  "log-in": "Inicio de sesión",
+  "login-successful": "Inicio de sesion con éxito",
+  "odd": {
+    "assistsOdds": "ASISTENCIAS",
+    "baronsOdds": "BARONES",
+    "deathsOdds": "MUERTES",
+    "drakesOdds": "DRAGONES",
+    "eldersOdds": "ANCIANOS",
+    "expOdds": "Ventaja de Exp > 50%",
+    "goldOdds": "Ventaja de Oro > 50%",
+    "heraldsOdds": "HERALDOS",
+    "inhibitorsOdds": "INHIBIDORES",
+    "killsOdds": "ASESINATOS",
+    "towersOdds": "TORRETAS",
+    "winOdds": "GANADOR"
+  },
+  "register-successful": "Registrado con éxito",
+  "sign-in": "Registro"
 }
