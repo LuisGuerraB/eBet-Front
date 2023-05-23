@@ -94,11 +94,11 @@ input {
 }
 
 .input-error {
-    margin-top: 4px;
-    border-radius: 5px;
-    border: 2px solid $error-color;
-    padding: 0 5px 0 5px;
-  }
+  margin-top: 4px;
+  border-radius: 5px;
+  border: 2px solid $error-color;
+  padding: 0 5px 0 5px;
+}
 
 .eBet-button {
   width: 100%;
@@ -106,7 +106,30 @@ input {
   height: 32px;
   border-radius: 5px;
   font-size: 18px;
-  border:none;
+  border: none;
   background-color: $primary-color;
   color: $contrast-font-color;
+}
+
+.eBet-modal {
+  background-color: $grey-palette-300;
+  width:100%;
+
+  .mdc-dialog {
+    &__content {
+      overflow: hidden;
+      display: flex;
+      gap: 4px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &__actions {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  }
 }

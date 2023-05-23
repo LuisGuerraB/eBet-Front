@@ -1,0 +1,27 @@
+<div class="eBet-modal">
+  <mat-dialog-content>
+    <h2>{{'make-bet'|translate}}</h2>
+    <div class="bet-info">
+      <span>{{'team'|translate}} : {{team}}</span>
+      <div>
+        <span>{{'odd.'+type | translate}}</span>
+        <span *ngIf="subtype"> - {{subtype}}</span>
+      </div>
+    </div>
+    <hr>
+    <div class="bet-amount">
+      <span>{{odd |  number:'.2'}}</span>
+      <span>X</span>
+      <form [formGroup]="form">
+        <div class="eBet-input">
+          <div><input type="number" formControlName="amount"><hr></div>
+          <app-form-error-messages [control]="form.get('amount')!"></app-form-error-messages>
+        </div>
+      </form>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button class="eBet-button" (click)="onCancel()">{{'cancel'|translate}}</button>
+    <button class="eBet-button" (click)="onAccept()">{{'accept'|translate}}</button>
+  </mat-dialog-actions>
+</div>

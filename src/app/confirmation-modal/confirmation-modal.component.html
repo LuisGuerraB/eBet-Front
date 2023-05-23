@@ -1,0 +1,10 @@
+<div class="eBet-modal">
+  <mat-dialog-content>
+    <p>{{ data.message | translate }}</p>
+    <span *ngIf="data.content">{{data.content}}</span>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button *ngIf="data.cancel" class="eBet-button" (click)="onCancel()">{{'cancel'|translate}}</button>
+    <button class="eBet-button" (click)="onAccept()">{{'accept'|translate}}</button>
+  </mat-dialog-actions>
+</div>

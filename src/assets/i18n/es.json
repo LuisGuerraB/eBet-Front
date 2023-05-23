@@ -34,5 +34,11 @@
     "winOdds": "GANADOR"
   },
   "register-successful": "Registrado con éxito",
-  "sign-in": "Registro"
+  "sign-in": "Registro",
+  "make-bet": "Haz tu apuesta",
+  "team": "Equipo",
+  "cancel": "Cancelar",
+  "accept": "Aceptar",
+  "sure-bet": "¿Estas seguro que quieres apostar?",
+  "bet-successful": "Apuesta realizada con exito"
 }

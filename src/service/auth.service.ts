@@ -32,7 +32,6 @@ export class AuthService {
       password: password
     }, {withCredentials: true}).pipe(
       tap(response => {
-
         sessionStorage.setItem('user', JSON.stringify(response));
       }),
       catchError(err => {

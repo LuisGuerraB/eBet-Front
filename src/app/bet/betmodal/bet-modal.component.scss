@@ -1,0 +1,24 @@
+.mdc-dialog__content {
+  .bet-info {
+    display: flex;
+    gap: 30px;
+    flex-direction: row;
+  }
+
+  hr {
+    width: 100%;
+  }
+
+  .bet-amount {
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+}
+
+.eBet-modal {
+  width: 300px;
+}
+

@@ -34,5 +34,12 @@
     "winOdds": "WINNER"
   },
   "register-successful": "Register successfully",
-  "sign-in": "Sign in"
+  "sign-in": "Sign in",
+  "make-bet": "Make your bet",
+  "team": "Team",
+  "cancel": "Cancel",
+  "accept": "Accept",
+  "sure-bet": "Are you sure you want to bet?",
+  "bet-successful": "Bet successfully created"
+
 }

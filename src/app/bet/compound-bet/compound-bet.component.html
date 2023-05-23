@@ -2,7 +2,9 @@
   <div class="bets">
     <div class="bet" *ngFor="let odd of arrayLocalTeamOdd">
       <div class="number">{{odd[0]}}</div>
-      <div class="odd">{{odd[1] | number:'.2'}}</div>
+      <div class="odd" (click)="createCompoundBet(localTeam,odd[0],odd[1])">
+        {{odd[1] | number:'.2'}}
+      </div>
     </div>
   </div>
   <div class="type">
@@ -11,7 +13,9 @@
   <div class="bets__opposing">
     <div class="bet" *ngFor="let odd of arrayAwayTeamOdd">
       <div class="number">{{odd[0]}}</div>
-      <div class="odd">{{odd[1]| number:'.2'}}</div>
+      <div class="odd" (click)="createCompoundBet(awayTeam,odd[0],odd[1])">
+        {{odd[1]| number:'.2'}}
+      </div>
     </div>
   </div>
 </div>

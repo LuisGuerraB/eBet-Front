@@ -13,7 +13,7 @@ import {
 import {Router} from "@angular/router";
 import {NgIf} from "@angular/common";
 import {FormErrorMessagesComponent} from "../form-error-messages/form-error-messages.component";
-import {ConfirmationModalComponent} from "../confirmation-modal/confirmation-modal.component";
+import {ConfirmationModalComponent} from "../../confirmation-modal/confirmation-modal.component";
 import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 
 @Component({
@@ -51,7 +51,7 @@ export class RegisterComponent {
               message: "register-successful"
             }
           }).afterClosed().subscribe(
-            () => this.router.navigate(['/'])
+            () => this.router.navigate(['/user/login'])
           )
         },
         (err) => {
