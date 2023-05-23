@@ -13,3 +13,13 @@ export class League {
     this.img = img;
   }
 }
+
+export class LeagueList{
+  @autoserializeAs(() => League) items: League[];
+  @autoserializeAs(() => Number) total: number;
+
+  constructor(items: League[], total: number) {
+    this.items = items;
+    this.total = total;
+  }
+}

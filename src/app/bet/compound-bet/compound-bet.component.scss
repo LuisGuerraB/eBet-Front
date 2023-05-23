@@ -2,7 +2,7 @@
 
 .content {
   display: grid;
-  grid-template-columns: 26% 48% 26%;
+  grid-template-columns: 35% 30% 35%;
   background-color: $backgroud-item-color;
   height: 60px;
   round: 5px;
@@ -14,10 +14,6 @@
     justify-content: center;
     background-color: $primary-color;
     border: 0.5px solid $background-color;
-
-    span {
-      color: $contrast-font-color;
-    }
   }
 
   .bets {

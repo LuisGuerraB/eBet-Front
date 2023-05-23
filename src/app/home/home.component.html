@@ -1,0 +1,60 @@
+<header>
+  <a href="/"><img src="assets/img/Logo-2.svg" alt="logo"></a>
+  <div class="buttons">
+    <button>LOL</button>
+    <button>VALORANT</button>
+  </div>
+</header>
+<div class="content">
+  <div class="sidenav">
+    <div class="user-container">
+      <div *ngIf="user">
+        <div class="avatar">
+          <img src="{{user.img}}" alt="avatar img">
+        </div>
+        <span class="username">{{user.username}}</span>
+        <div>
+          <a class="nav-button contrast bold" href="/user/log-out">
+            {{'log-out'|translate|uppercase}}
+          </a>
+        </div>
+      </div>
+      <div *ngIf="!user">
+        <div class="avatar">
+          <img src="assets/img/user.svg" alt="avatar img">
+        </div>
+        <div>
+          <a class="nav-button contrast bold" href="/user/login">
+            {{'log-in' | translate}}
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <nav>
+      <div class="top">
+        <a class="nav-button" href="/prize">
+          <i class="fa-solid fa-trophy"></i>
+          {{'prizes'|translate}}
+        </a>
+        <a class="nav-button" href="/bets">
+          <i class="fa-solid fa-money-bills"></i>
+          {{'bets'|translate}}
+        </a>
+      </div>
+
+      <div class="bottom">
+        <div class="balance nav-button">
+          <span class="contrast">eP : </span>
+          <span class="contrast">{{user?.balance}}</span>
+        </div>
+        <a href="/more-ep">
+          {{'get-more'|translate}} >
+        </a>
+      </div>
+    </nav>
+  </div>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</div>

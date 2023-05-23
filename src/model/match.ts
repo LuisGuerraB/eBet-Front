@@ -27,3 +27,24 @@ export class Match {
   }
 
 }
+
+
+export class MatchList{
+  @autoserializeAs(() => Match) items: Match[];
+  @autoserializeAs(() => Number) total: number;
+
+  constructor(items: Match[], total: number) {
+    this.items = items;
+    this.total = total;
+  }
+}
+
+
+export interface MatchListQueryParams{
+  league_id? : number;
+  finished? : boolean;
+  year? : number;
+  month? : number;
+  limit? : number;
+  page? : number;
+}

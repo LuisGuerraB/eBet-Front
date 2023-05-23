@@ -24,6 +24,7 @@ $backgroud-item-color: $grey-palette-400;
 body {
   background-color: $background-color;
   margin: 0;
+  overflow:hidden;
 }
 
 * {
@@ -47,6 +48,14 @@ input {
 
 .primary {
   color: $primary-color;
+}
+
+.contrast{
+  color: $contrast-font-color ;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 
