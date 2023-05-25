@@ -8,9 +8,8 @@
 <div class="content">
   <div class="sidenav">
     <div class="user-container">
-      <app-user-avatar [user]="user"></app-user-avatar>
+      <app-user-avatar [user]="user" (redirectEmit)="redirect($event)"></app-user-avatar>
     </div>
-
     <nav>
       <div class="top">
         <a class="nav-button" href="/bets">
@@ -26,10 +25,10 @@
       <div class="bottom">
         <div class="balance nav-button">
           <span class="contrast">eP : </span>
-          <span class="contrast">{{user?.balance}}</span>
+          <span class="contrast">{{balance}}</span>
         </div>
         <a href="/more-ep">
-          {{'get-more'|translate}} >
+          {{'get-more'|translate}}
         </a>
       </div>
     </nav>

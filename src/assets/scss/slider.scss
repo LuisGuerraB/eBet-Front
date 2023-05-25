@@ -19,10 +19,10 @@
 }
 
 .slick-dots li  button:before {
-  color:$primary-color;
+  color:$primary-color !important;
 }
 
 .slick-dots li.slick-active button:before {
-  color: $primary-color;
+  color: $primary-color !important;
 }
 

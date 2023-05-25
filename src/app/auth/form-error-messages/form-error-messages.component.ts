@@ -1,12 +1,12 @@
 import {Component, Input} from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgFor, NgIf} from '@angular/common';
 import {AbstractControl, ValidationErrors} from "@angular/forms";
 import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-form-error-messages',
   standalone: true,
-  imports: [CommonModule, TranslateModule],
+  imports: [NgIf,NgFor, TranslateModule],
   templateUrl: './form-error-messages.component.html',
   styleUrls: ['./form-error-messages.component.scss']
 })

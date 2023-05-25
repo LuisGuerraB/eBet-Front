@@ -45,5 +45,6 @@
   "bets" : "Apuestas",
   "get-more" : "Consigue más",
   "log-out": "Cerrar sesión",
+  "log-out-successful" : "Sesión cerrada con exito",
   "finished": "Finalizado"
 }

@@ -10,6 +10,7 @@ import {BetService} from "../../service/bet.service";
 import {Bet} from "../../model/bet";
 import {MatDialog} from "@angular/material/dialog";
 import {ConfirmationModalComponent} from "../confirmation-modal/confirmation-modal.component";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-bet',
@@ -23,25 +24,32 @@ export class BetComponent implements OnInit {
   public match?: Match;
   public localBettingOdd?: BettingOdd;
   public awayBettingOdd?: BettingOdd;
-  public planDate?: String;
   protected readonly SimpleOdds = Object.values(SimpleOdds);
-  protected readonly CompoundOdds = Object.values(CompoundOdds);
+  protected readonly CompoundOdds: CompoundOdds[] = [];
 
-  constructor(private matchService: MatchService, private bettingOddService: BettingOddService, private betService: BetService, private dialog: MatDialog) {
+  constructor(private matchService: MatchService, private bettingOddService: BettingOddService, private betService: BetService, private dialog: MatDialog, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    this.matchService.getMatchById(17414).subscribe(
-      (match) => {
-        this.match = match;
-      }
-    );
-    this.bettingOddService.getBettingOdds(17414).subscribe(
-      (bettingOddsDuo) => {
-        this.localBettingOdd = bettingOddsDuo.localTeamOdd;
-        this.awayBettingOdd = bettingOddsDuo.awayTeamOdd;
-      }
-    )
+    this.route.params.subscribe(params => {
+      const id = params['matchId'];
+      this.matchService.getMatchById(id).subscribe(
+        (match) => {
+          this.match = match;
+        }
+      );
+      this.bettingOddService.getBettingOdds(id).subscribe(
+        (bettingOddsDuo) => {
+          this.localBettingOdd = bettingOddsDuo.localTeamOdd;
+          for (let type of Object.values(CompoundOdds)){
+            if(this.localBettingOdd[type].size > 0){
+              this.CompoundOdds.push(type);
+            }
+          }
+          this.awayBettingOdd = bettingOddsDuo.awayTeamOdd;
+        }
+      )
+    });
   }
 
   createBet(event: any): void {

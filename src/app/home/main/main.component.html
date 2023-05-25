@@ -1,0 +1,21 @@
+<div class="content">
+  <app-carousel [images]="images" [height]="400"></app-carousel>
+  <div class="leagues-container">
+    <div class="leagues-carousel">
+      <ngx-slick-carousel [config]="sliderLeagueConfig" *ngIf="leagues">
+        <div ngxSlickItem *ngFor="let league of leagues">
+          <div class="league">
+            <img class="league-img" src="{{ league.img }}" alt="{{league.name}}"/>
+            <span>{{league.acronym}}</span>
+          </div>
+        </div>
+      </ngx-slick-carousel>
+    </div>
+  </div>
+  <div class="match-list">
+    <div *ngFor="let match of matches">
+      <app-match-item [match]="match" [showSeason]="true"></app-match-item>
+    </div>
+
+  </div>
+</div>

@@ -1,4 +1,4 @@
-<div class="item" *ngIf="match">
+<div class="item" *ngIf="match" (click)="redirect()">
   <div class="teams">
     <div>
       <img src="{{match.localTeam.img}}" alt="{{match.localTeam.name}}">

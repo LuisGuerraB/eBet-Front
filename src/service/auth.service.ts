@@ -40,4 +40,16 @@ export class AuthService {
         throw new Error(err.error.message);
       }))
   }
+
+  public logOut() {
+    sessionStorage.removeItem('user');
+    return this.http.post(this.path + '/logout', {withCredentials: true}).pipe(
+      tap(response => {
+
+      }),
+      catchError(err => {
+        throw new Error(err.error.message);
+      })
+    )
+  }
 }

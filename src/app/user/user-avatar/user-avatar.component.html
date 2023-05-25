@@ -4,9 +4,9 @@
   </div>
   <span class="username">{{user.username}}</span>
   <div>
-    <a class="nav-button contrast bold" href="/user/log-out">
-      {{'log-out' | translate}}
-    </a>
+    <button class="nav-button contrast bold" (click)="emit('log-out')">
+      {{'log-out'|translate}}
+    </button>
   </div>
 </div>
 <div *ngIf="!user">
@@ -14,8 +14,8 @@
     <img src="../../../assets/img/user.svg" alt="avatar img">
   </div>
   <div>
-    <a class="nav-button contrast bold" href="/user/login">
-      {{'log-in' | translate}}
-    </a>
+    <button class="nav-button contrast bold" (click)="emit('/auth/login')">
+      {{'log-in'|translate}}
+    </button>
   </div>
 </div>
