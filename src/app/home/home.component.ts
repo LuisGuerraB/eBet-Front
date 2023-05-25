@@ -4,11 +4,12 @@ import {RouterOutlet} from "@angular/router";
 import {TranslateModule} from "@ngx-translate/core";
 import {User} from "../../model/user";
 import {Deserialize} from "dcerialize";
+import {UserAvatarComponent} from "../user/user-avatar/user-avatar.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, TranslateModule],
+  imports: [CommonModule, RouterOutlet, TranslateModule, UserAvatarComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })

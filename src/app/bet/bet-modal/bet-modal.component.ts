@@ -3,7 +3,7 @@ import {DecimalPipe, NgIf} from '@angular/common';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 import {TranslateModule} from "@ngx-translate/core";
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {FormErrorMessagesComponent} from "../../user/form-error-messages/form-error-messages.component";
+import {FormErrorMessagesComponent} from "../../auth/form-error-messages/form-error-messages.component";
 import {BetType} from "../../../model/bet";
 import {ConfirmationModalComponent} from "../../confirmation-modal/confirmation-modal.component";
 

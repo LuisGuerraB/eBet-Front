@@ -25,13 +25,12 @@ export class MatchService {
   public getMatchList(params: MatchListQueryParams) {
     let httpParams = new HttpParams();
 
-    if(params.year){httpParams.append('year', params.year);}
-    if(params.month){httpParams.append('month', params.month);}
-    if(params.league_id){httpParams.append('league_id', params.league_id);}
-    if(params.finished){httpParams.append('finished', params.finished.toString());}
-    if(params.limit){httpParams.append('limit', params.limit);}
-    if(params.page){httpParams.append('page', params.page);}
-
+    if(params.year){httpParams =httpParams.append('year', params.year);}
+    if(params.month){httpParams =httpParams.append('month', params.month);}
+    if(params.league_id){httpParams =httpParams.append('league_id', params.league_id);}
+    if(params.finished){httpParams =httpParams.append('finished', params.finished.toString());}
+    if(params.limit){httpParams =httpParams.append('limit', params.limit);}
+    if(params.page){httpParams =httpParams.append('page', params.page);}
     return this.http.get<IJsonObject>(this.path + '/list', {params: httpParams}).pipe(
       map((matchList) => Deserialize(matchList, () => MatchList))
     )

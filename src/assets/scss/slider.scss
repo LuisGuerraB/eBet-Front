@@ -1,0 +1,28 @@
+@import 'variables.scss';
+.arrow {
+  position: absolute;
+  top: 20%;
+  background-color: transparent;
+  height: 30px;
+  width: 30px;
+  svg{
+    font-size:30px;
+  }
+}
+
+.left {
+  left: -25px;
+}
+
+.right {
+  right: -25px;
+}
+
+.slick-dots li  button:before {
+  color:$primary-color;
+}
+
+.slick-dots li.slick-active button:before {
+  color: $primary-color;
+}
+

@@ -44,5 +44,6 @@
   "prizes" : "Premios",
   "bets" : "Apuestas",
   "get-more" : "Consigue más",
-  "log-out": "Cerrar sesión"
+  "log-out": "Cerrar sesión",
+  "finished": "Finalizado"
 }

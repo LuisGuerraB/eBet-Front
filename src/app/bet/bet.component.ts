@@ -34,14 +34,6 @@ export class BetComponent implements OnInit {
     this.matchService.getMatchById(17414).subscribe(
       (match) => {
         this.match = match;
-        this.planDate = this.match.planDate.toLocaleString("en-US", {
-          weekday: "short",
-          day: "2-digit",
-          month: "2-digit",
-          year: "2-digit",
-          hour: "2-digit",
-          minute: "2-digit"
-        }).replaceAll(",", " ");
       }
     );
     this.bettingOddService.getBettingOdds(17414).subscribe(

@@ -15,7 +15,7 @@ export class LeagueService {
     this.path = api.getApiUrl() + this.path;
   }
 
-  getLeagueList(esportId : number) {
+  getLeagueList(esportId : number){
     return this.http.get<IJsonObject>(this.path + '/list/' + esportId.toString()).pipe(
       map((leagueList) => Deserialize(leagueList, () => LeagueList))
     );
