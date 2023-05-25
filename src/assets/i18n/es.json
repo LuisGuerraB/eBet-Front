@@ -40,5 +40,11 @@
   "cancel": "Cancelar",
   "accept": "Aceptar",
   "sure-bet": "¿Estas seguro que quieres apostar?",
-  "bet-successful": "Apuesta realizada con exito"
+  "bet-successful": "Apuesta realizada con exito",
+  "prizes" : "Premios",
+  "bets" : "Apuestas",
+  "get-more" : "Consigue más",
+  "log-out": "Cerrar sesión",
+  "log-out-successful" : "Sesión cerrada con exito",
+  "finished": "Finalizado"
 }

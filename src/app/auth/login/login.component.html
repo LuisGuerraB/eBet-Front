@@ -1,7 +1,7 @@
 <div class="content">
 
   <div class="logo">
-    <a href="/"><img src="/assets/img/Logo-1.svg" alt="logo eBet"></a>
+    <a href="/"><img src="assets/img/Logo-1.svg" alt="logo eBet"></a>
   </div>
   <h1>{{"log-in" | translate}}</h1>
   <div *ngIf="error" class="input-error">
@@ -19,7 +19,7 @@
       <app-form-error-messages [control]="form.get('password')!"></app-form-error-messages>
     </div>
     <div class="buttons-container">
-      <a href="/user/register">{{"sign-in" |translate}} ></a>
+      <a href="/auth/register">{{"sign-in" |translate}} ></a>
       <button type=submit class="eBet-button">{{"confirm"|translate}}</button>
     </div>
   </form>

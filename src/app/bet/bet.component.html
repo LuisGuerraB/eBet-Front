@@ -2,10 +2,10 @@
   <div class="teams" *ngIf="match">
     <div class="team">
       <img src="{{match.localTeam.img}}">
-      <h2>{{match.localTeam.acronym}}</h2>
+      <h2 class="bold">{{match.localTeam.acronym}}</h2>
     </div>
     <div class="center">
-      <span>{{planDate}}</span>
+      <span>{{match.planDate}}</span>
       <h1 class="vs">VS</h1>
       <div class="league">
         <img src="{{match.season.league.img}}">
@@ -15,23 +15,22 @@
     </div>
     <div class="team__opposing">
       <img src="{{match.awayTeam.img}}">
-      <h2>{{match.awayTeam.acronym}}</h2>
+      <h2 class="bold">{{match.awayTeam.acronym}}</h2>
     </div>
   </div>
   <div class="bets" *ngIf="awayBettingOdd && localBettingOdd && match">
-    <div class="bet" *ngFor="let type of SimpleOdds">
-      <app-simple-bet [localTeam]="match.localTeam.acronym" [localTeamOdd]="localBettingOdd[type]"
+
+      <app-simple-bet *ngFor="let type of SimpleOdds"
+                      [localTeam]="match.localTeam.acronym" [localTeamOdd]="localBettingOdd[type]"
                       [awayTeam]="match.awayTeam.acronym" [awayTeamOdd]="awayBettingOdd[type]"
                       [type]="type"
                       (onAccept)="createBet($event)">
       </app-simple-bet>
-    </div>
-    <div class="bet" *ngFor="let type of CompoundOdds">
-      <app-compound-bet [localTeam]="match.localTeam.acronym" [localTeamOdd]="localBettingOdd[type]"
+      <app-compound-bet *ngFor="let type of CompoundOdds"
+                        [localTeam]="match.localTeam.acronym" [localTeamOdd]="localBettingOdd[type]"
                         [awayTeam]="match.awayTeam.acronym" [awayTeamOdd]="awayBettingOdd[type]"
                         [type]="type"
                         (onAccept)="createBet($event)">
       </app-compound-bet>
-    </div>
   </div>
 </div>

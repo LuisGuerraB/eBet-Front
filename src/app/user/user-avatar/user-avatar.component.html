@@ -1,0 +1,21 @@
+<div *ngIf="user">
+  <div class="avatar">
+    <img src="{{user.img}}" alt="avatar img">
+  </div>
+  <span class="username">{{user.username}}</span>
+  <div>
+    <button class="nav-button contrast bold" (click)="emit('log-out')">
+      {{'log-out'|translate}}
+    </button>
+  </div>
+</div>
+<div *ngIf="!user">
+  <div class="avatar">
+    <img src="../../../assets/img/user.svg" alt="avatar img">
+  </div>
+  <div>
+    <button class="nav-button contrast bold" (click)="emit('/auth/login')">
+      {{'log-in'|translate}}
+    </button>
+  </div>
+</div>

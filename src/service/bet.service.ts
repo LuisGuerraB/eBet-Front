@@ -26,7 +26,7 @@ export class BetService {
       'subtype': bet.subtype,
       'match_id': bet.matchId,
       'team_id': bet.teamId
-    }, {withCredentials: true}).pipe(
+    }, {withCredentials: sessionStorage.getItem('user') !== null}).pipe(
       map((bet) => Deserialize(bet, () => Bet)),
       catchError(err => {
         throw new Error(err.error.message);

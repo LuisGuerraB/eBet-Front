@@ -1,0 +1,23 @@
+<div class="item" *ngIf="match" (click)="redirect()">
+  <div class="teams">
+    <div>
+      <img src="{{match.localTeam.img}}" alt="{{match.localTeam.name}}">
+      <span>{{match.localTeam.acronym}}</span>
+    </div>
+    <span class="accent">
+      VS
+    </span>
+    <div>
+      <span>{{match.awayTeam.acronym}}</span>
+      <img src="{{match.awayTeam.img}}" alt="{{match.awayTeam.name}}">
+    </div>
+  </div>
+  <div *ngIf="showSeason" class="season">
+    <img src="{{match.season.league.img}}" alt="{{match.season.league.name}}">
+    <span>{{match.season.league.acronym}}</span>
+    <span class="accent">{{match.season.name}}</span>
+  </div>
+  <div>
+    <span class="date">{{date! | translate | uppercase}}</span>
+  </div>
+</div>

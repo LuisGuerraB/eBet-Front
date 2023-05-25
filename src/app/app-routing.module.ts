@@ -1,17 +1,21 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {BetComponent} from "./bet/bet.component";
-import {UserComponent} from "./user/user.component";
-import {RegisterComponent} from "./user/register/register.component";
-import {LoginComponent} from "./user/login/login.component";
+import {AuthComponent} from "./auth/auth.component";
+import {HomeComponent} from "./home/home.component";
 
 const routes: Routes = [
-  {path: '', redirectTo: '/bet', pathMatch: 'full'},
-  {path: 'bet', component: BetComponent},
-  {path: 'user', component: UserComponent,
+  {path: '', redirectTo: '/home/main', pathMatch: 'full'},
+  {path: 'home', component: HomeComponent,
     children: [
-      {path: 'register', component: RegisterComponent},
-      {path: 'login', component: LoginComponent}
+      {path: '', redirectTo: 'main', pathMatch: 'full'},
+      {path: 'main', loadComponent: () => import('./home/main/main.component').then(m => m.MainComponent)},
+      {path: 'bet/:matchId', loadComponent: () => import('./bet/bet.component').then(m => m.BetComponent)},
+    ]
+  },
+  {path: 'auth', component: AuthComponent,
+    children: [
+      {path: 'register', loadComponent:() => import('./auth/register/register.component').then(m => m.RegisterComponent)},
+      {path: 'login', loadComponent:() => import('./auth/login/login.component').then(m => m.LoginComponent)},
     ]
   }
 ];

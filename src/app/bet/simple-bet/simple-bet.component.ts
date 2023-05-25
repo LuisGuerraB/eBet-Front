@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {TranslateModule} from '@ngx-translate/core';
 import {MatDialog} from "@angular/material/dialog";
-import {BetModalComponent} from "../betmodal/bet-modal.component";
+import {BetModalComponent} from "../bet-modal/bet-modal.component";
 
 @Component({
   selector: 'app-simple-bet',

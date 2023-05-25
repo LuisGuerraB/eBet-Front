@@ -1,0 +1,39 @@
+<header>
+  <a href="/"><img src="assets/img/Logo-2.svg" alt="logo"></a>
+  <div class="buttons">
+    <button>LOL</button>
+    <button>VALORANT</button>
+  </div>
+</header>
+<div class="content">
+  <div class="sidenav">
+    <div class="user-container">
+      <app-user-avatar [user]="user" (redirectEmit)="redirect($event)"></app-user-avatar>
+    </div>
+    <nav>
+      <div class="top">
+        <a class="nav-button" href="/bets">
+          <i class="fa-solid fa-gavel"></i>
+          {{'bets'|translate}}
+        </a>
+        <a class="nav-button" href="/prize">
+          <i class="fa-solid fa-trophy"></i>
+          {{'prizes'|translate}}
+        </a>
+      </div>
+
+      <div class="bottom">
+        <div class="balance nav-button">
+          <span class="contrast">eP : </span>
+          <span class="contrast">{{balance}}</span>
+        </div>
+        <a href="/more-ep">
+          {{'get-more'|translate}}
+        </a>
+      </div>
+    </nav>
+  </div>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</div>

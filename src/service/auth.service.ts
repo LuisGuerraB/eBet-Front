@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {ApiService} from "./api-service";
 import {catchError, tap} from "rxjs";
+import {Deserialize, Serialize} from "dcerialize";
+import {Match} from "../model/match";
 
 @Injectable({
   providedIn: 'root'
@@ -37,5 +39,17 @@ export class AuthService {
       catchError(err => {
         throw new Error(err.error.message);
       }))
+  }
+
+  public logOut() {
+    sessionStorage.removeItem('user');
+    return this.http.post(this.path + '/logout', {withCredentials: true}).pipe(
+      tap(response => {
+
+      }),
+      catchError(err => {
+        throw new Error(err.error.message);
+      })
+    )
   }
 }

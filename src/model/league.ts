@@ -1,4 +1,4 @@
-import {autoserializeAs} from "dcerialize";
+import {autoserializeAs, autoserializeAsArray} from "dcerialize";
 
 export class League {
   @autoserializeAs(() => Number) id: number;
@@ -11,5 +11,15 @@ export class League {
     this.name = name;
     this.acronym = acronym;
     this.img = img;
+  }
+}
+
+export class LeagueList{
+  @autoserializeAsArray(() => League) items: League[];
+  @autoserializeAs(() => Number) total: number;
+
+  constructor(items: League[], total: number) {
+    this.items = items;
+    this.total = total;
   }
 }
