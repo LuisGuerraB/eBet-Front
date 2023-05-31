@@ -2,58 +2,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   margin:20px;
 
-  .teams {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width:90%;
-    margin:20px;
-    img {
-      max-height: 130px;
-      max-width: 130px;
-    }
-
-    .team {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      width: 200px;
-
-
-      &__opposing {
-        @extend .team;
-        flex-direction: row-reverse;
-      }
-    }
-
-    .center {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-
-      .vs {
-        align-self: center;
-      }
-
-      .league {
-        @extend .center;
-        flex-direction: row;
-        gap: 4px;
-
-
-        img {
-          height: 30px;
-        }
-
-        .league__name {
-          align-self: center;
-        }
-
-      }
-    }
+  app-match-header{
+    width:100%;
   }
 
   .bets {
@@ -66,6 +19,14 @@
     *{
       width:100%;
     }
+  }
+  .no-bets{
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding:30px 0 30px 0;
   }
 }
 

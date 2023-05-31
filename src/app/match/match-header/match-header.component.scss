@@ -1,0 +1,56 @@
+.teams {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: calc(100% - 40px);
+  margin: 20px;
+
+  img {
+    max-height: 130px;
+    max-width: 130px;
+  }
+
+  .team {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 200px;
+
+
+    &__opposing {
+      @extend .team;
+      flex-direction: row-reverse;
+    }
+  }
+
+  .center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .vs {
+      align-self: center;
+    }
+
+    .league {
+      @extend .center;
+      flex-direction: row;
+      gap: 4px;
+
+
+      img {
+        height: 30px;
+      }
+
+      .league__name {
+        align-self: center;
+      }
+
+    }
+  }
+}
+app-spinner{
+  display: flex;
+  justify-content: center;
+}

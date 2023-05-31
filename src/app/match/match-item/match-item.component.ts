@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import {NgIf, UpperCasePipe} from '@angular/common';
 import {Match} from "../../../model/match";
 import {TranslateModule} from "@ngx-translate/core";
 import {Router} from "@angular/router";
@@ -7,7 +7,7 @@ import {Router} from "@angular/router";
 @Component({
   selector: 'app-match-item',
   standalone: true,
-  imports: [CommonModule, TranslateModule],
+  imports: [NgIf, UpperCasePipe, TranslateModule],
   templateUrl: './match-item.component.html',
   styleUrls: ['./match-item.component.scss']
 })

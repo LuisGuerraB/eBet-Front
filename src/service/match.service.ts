@@ -28,7 +28,7 @@ export class MatchService {
     if(params.year){httpParams =httpParams.append('year', params.year);}
     if(params.month){httpParams =httpParams.append('month', params.month);}
     if(params.league_id){httpParams =httpParams.append('league_id', params.league_id);}
-    if(params.finished){httpParams =httpParams.append('finished', params.finished.toString());}
+    if(params.finished != undefined){httpParams =httpParams.append('finished', params.finished);}
     if(params.limit){httpParams =httpParams.append('limit', params.limit);}
     if(params.page){httpParams =httpParams.append('page', params.page);}
     return this.http.get<IJsonObject>(this.path + '/list', {params: httpParams}).pipe(

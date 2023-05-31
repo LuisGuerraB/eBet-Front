@@ -1,12 +1,12 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgIf} from '@angular/common';
 import {TranslateModule} from "@ngx-translate/core";
 import {User} from "../../../model/user";
 
 @Component({
   selector: 'app-user-avatar',
   standalone: true,
-  imports: [CommonModule, TranslateModule],
+  imports: [NgIf, TranslateModule],
   templateUrl: './user-avatar.component.html',
   styleUrls: ['./user-avatar.component.scss']
 })

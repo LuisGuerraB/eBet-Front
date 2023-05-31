@@ -5,33 +5,40 @@ import {MatchService} from "../../service/match.service";
 import {BettingOddService} from "../../service/betting-odd-service";
 import {Match} from "../../model/match";
 import {BettingOdd, CompoundOdds, SimpleOdds} from "../../model/betting-odd";
-import {CommonModule} from "@angular/common";
+import {CommonModule, Location} from "@angular/common";
 import {BetService} from "../../service/bet.service";
 import {Bet} from "../../model/bet";
 import {MatDialog} from "@angular/material/dialog";
 import {ConfirmationModalComponent} from "../confirmation-modal/confirmation-modal.component";
 import {ActivatedRoute} from "@angular/router";
+import {TranslateModule} from "@ngx-translate/core";
+import {MatchHeaderComponent} from "../match/match-header/match-header.component";
+import {SpinnerComponent} from "../spinner/spinner.component";
 
 @Component({
   selector: 'app-bet',
   templateUrl: './bet.component.html',
   styleUrls: ['./bet.component.scss'],
   standalone: true,
-  imports: [CommonModule, SimpleBetComponent, CompoundBetComponent]
+  imports: [CommonModule, SimpleBetComponent, CompoundBetComponent, TranslateModule, MatchHeaderComponent, SpinnerComponent]
 })
 export class BetComponent implements OnInit {
 
+  public loading: boolean = true;
   public match?: Match;
-  public localBettingOdd?: BettingOdd;
-  public awayBettingOdd?: BettingOdd;
+  public localBettingOdd!: BettingOdd;
+  public awayBettingOdd!: BettingOdd;
   protected readonly SimpleOdds = Object.values(SimpleOdds);
   protected readonly CompoundOdds: CompoundOdds[] = [];
 
-  constructor(private matchService: MatchService, private bettingOddService: BettingOddService, private betService: BetService, private dialog: MatDialog, private route: ActivatedRoute) {
+  constructor(private matchService: MatchService, private bettingOddService: BettingOddService,
+              private betService: BetService, private dialog: MatDialog, private route: ActivatedRoute,
+              private location : Location) {
   }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
+      this.loading=true;
       const id = params['matchId'];
       this.matchService.getMatchById(id).subscribe(
         (match) => {
@@ -47,9 +54,14 @@ export class BetComponent implements OnInit {
             }
           }
           this.awayBettingOdd = bettingOddsDuo.awayTeamOdd;
+          this.loading=false;
         }
       )
     });
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
   createBet(event: any): void {

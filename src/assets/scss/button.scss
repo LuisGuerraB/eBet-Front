@@ -35,3 +35,15 @@
   }
 
 }
+
+.back-button {
+  font-size: 18px;
+  margin-right: auto;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  gap:3px;
+  * {
+    line-height: 1px;
+  }
+}

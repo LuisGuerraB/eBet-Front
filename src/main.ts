@@ -6,7 +6,6 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {MatDialogModule} from "@angular/material/dialog";
-import {SlickCarouselModule} from "ngx-slick-carousel";
 
 
 
@@ -24,6 +23,6 @@ bootstrapApplication(AppComponent, {
       }
     })
   )
-  ],
+  ]
 })
   .catch(err => console.error(err));

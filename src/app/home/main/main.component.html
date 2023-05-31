@@ -16,6 +16,8 @@
     <div *ngFor="let match of matches">
       <app-match-item [match]="match" [showSeason]="true"></app-match-item>
     </div>
-
+  </div>
+  <div *ngIf="!matches">
+    <app-spinner></app-spinner>
   </div>
 </div>

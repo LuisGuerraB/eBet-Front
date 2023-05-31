@@ -7,11 +7,12 @@ import {MatchItemComponent} from "../../match/match-item/match-item.component";
 import {MatchService} from "../../../service/match.service";
 import {Match, MatchList} from "../../../model/match";
 import {CarouselComponent} from "../../carousel/carousel.component";
+import {SpinnerComponent} from "../../spinner/spinner.component";
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [CommonModule, SlickCarouselModule, MatchItemComponent, CarouselComponent],
+  imports: [CommonModule, SlickCarouselModule, MatchItemComponent, CarouselComponent, SpinnerComponent],
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
@@ -47,7 +48,7 @@ export class MainComponent implements OnInit {
         console.log(error.message)
       }
     )
-    let paramQuery={limit:5,page:1};
+    let paramQuery={finished:false,limit:5,page:1};
     this.matchService.getMatchList(paramQuery).subscribe(
       (matches: MatchList) => {
         this.matches = matches.items;

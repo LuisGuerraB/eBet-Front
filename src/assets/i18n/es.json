@@ -46,5 +46,7 @@
   "get-more" : "Consigue más",
   "log-out": "Cerrar sesión",
   "log-out-successful" : "Sesión cerrada con exito",
-  "finished": "Finalizado"
+  "finished": "Finalizado",
+  "no-odds" : "No hay apuestas disponibles",
+  "go-back" : "Volver"
 }
