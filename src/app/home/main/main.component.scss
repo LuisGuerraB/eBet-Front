@@ -45,14 +45,6 @@
     flex-direction: column;
     gap: 10px;
 
-    div{
-      background-color: $grey-palette-300;
-      width: calc(100% - 20px);
-      min-width: 420px;
-      height: 50px;
-      border-radius: 5px;
-      padding: 0 10px 0 10px;
-    }
   }
 }
 

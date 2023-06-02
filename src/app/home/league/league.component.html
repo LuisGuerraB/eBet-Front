@@ -1,0 +1,19 @@
+<div class="content">
+  <div class="column left">
+    <div class="league" *ngIf="league">
+      <img src="{{league.img}}" alt="{{league.name}}">
+      <span>{{league.acronym}}</span>
+    </div>
+    <app-standings *ngIf="leagueId" [leagueId]="leagueId"></app-standings>
+  </div>
+  <div class="column right">
+    <app-carousel [images]="images" [height]="400"></app-carousel>
+    <div class="match-list">
+      <div *ngFor="let match of matches">
+        <app-match-item [match]="match"></app-match-item>
+      </div>
+    </div>
+  </div>
+</div>
+
+

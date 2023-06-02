@@ -5,9 +5,10 @@ import {LeagueService} from "../../../service/league.service";
 import {SlickCarouselModule} from "ngx-slick-carousel";
 import {MatchItemComponent} from "../../match/match-item/match-item.component";
 import {MatchService} from "../../../service/match.service";
-import {Match, MatchList} from "../../../model/match";
+import {Match, MatchList, MatchListQueryParams} from "../../../model/match";
 import {CarouselComponent} from "../../carousel/carousel.component";
 import {SpinnerComponent} from "../../spinner/spinner.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-main',
@@ -29,14 +30,24 @@ export class MainComponent implements OnInit {
 
   sliderLeagueConfig = {
     slidesToShow: 6,
+    slidesToScroll: 2,
     arrows: true,
     infinite: true,
     autoplay: true,
     nextArrow: '<button type="button" class="arrow right"><i class="fas fa-chevron-right"></i></button>',
-    prevArrow: '<button type="button" class="arrow left"><i class="fas fa-chevron-left"></i></button>'
+    prevArrow: '<button type="button" class="arrow left"><i class="fas fa-chevron-left"></i></button>',
+    responsive: [
+      {
+        breakpoint: 1000,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
 
-  constructor(private leagueService: LeagueService,private matchService: MatchService) {
+  constructor(private leagueService: LeagueService,private matchService: MatchService,private route: Router) {
   }
   ngOnInit() {
 
@@ -48,7 +59,7 @@ export class MainComponent implements OnInit {
         console.log(error.message)
       }
     )
-    let paramQuery={finished:false,limit:5,page:1};
+    let paramQuery : MatchListQueryParams ={finished:false,limit:5,page:1};
     this.matchService.getMatchList(paramQuery).subscribe(
       (matches: MatchList) => {
         this.matches = matches.items;
@@ -57,6 +68,10 @@ export class MainComponent implements OnInit {
         console.log(error.message)
       }
     )
+  }
+
+  redirect(leagueId:number){
+    this.route.navigate(['home/league',leagueId]);
   }
 
 }

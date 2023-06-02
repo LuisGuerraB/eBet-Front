@@ -10,6 +10,7 @@ const routes: Routes = [
       {path: '', redirectTo: 'main', pathMatch: 'full'},
       {path: 'main', loadComponent: () => import('./home/main/main.component').then(m => m.MainComponent)},
       {path: 'bet/:matchId', loadComponent: () => import('./bet/bet.component').then(m => m.BetComponent)},
+      {path: 'league/:leagueId', loadComponent: () => import('./home/league/league.component').then(m => m.LeagueComponent)},
     ]
   },
   {path: 'auth', component: AuthComponent,
