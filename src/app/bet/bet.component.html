@@ -1,4 +1,4 @@
-<div class="content">
+<div class="component" *ngIf="!loading">
   <button class="back-button" (click)="goBack()"><i class="fas fa-chevron-left"></i><span>{{'go-back'|translate}}</span></button>
   <app-match-header [match]="match"></app-match-header>
   <div class="bets" *ngIf="awayBettingOdd && localBettingOdd && match || !loading">
@@ -15,10 +15,11 @@
                       (onAccept)="createBet($event)">
     </app-compound-bet>
   </div>
-  <div *ngIf="loading">
-    <app-spinner></app-spinner>
-  </div>
-    <div *ngIf="!loading && !awayBettingOdd && !localBettingOdd && !match" class="no-bets">
+
+    <div *ngIf=" !awayBettingOdd && !localBettingOdd && !match" class="no-bets">
       <span>{{'no-odds' | translate}}</span>
     </div>
 </div>
+<div *ngIf="loading">
+    <app-spinner></app-spinner>
+  </div>

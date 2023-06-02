@@ -1,4 +1,4 @@
-<div class="content">
+<div class="component" *ngIf="matches">
   <app-carousel [images]="images" [height]="400"></app-carousel>
   <div class="leagues-container">
     <div class="leagues-carousel">
@@ -15,7 +15,7 @@
   <div class="match-list">
       <app-match-item *ngFor="let match of matches" [match]="match" [showSeason]="true"></app-match-item>
   </div>
-  <div *ngIf="!matches">
+</div>
+<div *ngIf="!matches">
     <app-spinner></app-spinner>
   </div>
-</div>
