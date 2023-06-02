@@ -1,58 +1,53 @@
 @import '../../../assets/scss/variables.scss';
 
-.content {
-  width: calc(100% - 50px);
-  height: calc(100% - 50px);
-  margin: 25px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.component {
   gap: 20px;
+}
 
-  .leagues-container {
-    background-color: $grey-palette-300;
-    border-radius: 25px;
-    margin-top:20px;
-    height: 50px;
-    width:90%;
-    max-width:800px;
-    min-width: calc(100px * 6);
-    display: flex;
-    justify-content: center;
+.leagues-container {
+  background-color: $grey-palette-300;
+  border-radius: 25px;
+  margin-top: 20px;
+  height: 50px;
+  width: 90%;
+  max-width: 800px;
+  min-width: calc(100px * 6);
+  display: flex;
+  justify-content: center;
 
-    .leagues-carousel {
-      width: 90%;
+  .leagues-carousel {
+    width: 90%;
 
-      .league {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-        max-width: 100px;
+    .league {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      max-width: 100px;
 
-        .league-img {
-          width: 50px;
-        }
+      .league-img {
+        width: 50px;
       }
     }
   }
+}
 
-  .match-list{
-    margin-top:20px;
-    width: 90%;
-    max-width: 700px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.match-list {
+  margin-top: 20px;
+  width: 90%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 
-    div{
-      background-color: $grey-palette-300;
-      width: calc(100% - 20px);
-      min-width: 420px;
-      height: 50px;
-      border-radius: 5px;
-      padding: 0 10px 0 10px;
-    }
+  div {
+    background-color: $grey-palette-300;
+    width: calc(100% - 20px);
+    min-width: 420px;
+    height: 50px;
+    border-radius: 5px;
+    padding: 0 10px 0 10px;
   }
 }
+
 

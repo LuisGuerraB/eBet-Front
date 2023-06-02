@@ -95,7 +95,7 @@ header {
     flex-grow: 1;
     overflow-y: scroll;
     overflow-x: hidden;
-
+    position: relative;
     height: calc(100vh - 45px);
     margin: 0 10px 0 10px;
   }
