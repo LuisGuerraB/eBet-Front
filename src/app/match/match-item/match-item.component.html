@@ -1,4 +1,4 @@
-<div class="item" *ngIf="match" (click)="redirect()">
+<div class="item" *ngIf="match" (click)="redirect()" [ngClass]="{'max-width':showSeason,'min-width':!showSeason}">
   <div class="teams">
     <div>
       <img src="{{match.localTeam.img}}" alt="{{match.localTeam.name}}">

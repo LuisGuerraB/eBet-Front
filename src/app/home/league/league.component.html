@@ -1,0 +1,46 @@
+<div class="component">
+  <back-button></back-button>
+  <div class="content">
+    <div class="column left">
+      <div class="league" *ngIf="league">
+        <img src="{{league.img}}" alt="{{league.name}}">
+        <span>{{league.acronym}}</span>
+      </div>
+      <app-standings *ngIf="leagueId" [leagueId]="leagueId"></app-standings>
+    </div>
+    <div class="column right">
+      <app-carousel [images]="images" [height]="300"></app-carousel>
+      <div class="match-list">
+        <form class="filters">
+          <div class="filter">
+            <input class="eBet-checkbox" type="checkbox" name="finished" [(ngModel)]="filters.finished" (change)="search()">
+            <span class="checkbox-custom">{{'filter.finished'|translate}}</span>
+          </div>
+          <select class="filter" name="year" [(ngModel)]="filters.year" (change)="search()">
+            <option value="undefined">{{'filter.all'|translate}}</option>
+            <option *ngFor="let year of years">{{year}}</option>
+          </select>
+          <select class="filter" name="month" [(ngModel)]="filters.month" (change)="search()">
+            <option value="undefined">{{'filter.all' | translate}}</option>
+            <option *ngFor="let month of months" value="{{month.number}}">{{month.name|translate}}</option>
+          </select>
+        </form>
+        <div class="matches-container">
+          <app-match-item *ngFor="let match of matches" [match]="match"></app-match-item>
+          <div class="message-container" *ngIf="!loading">
+            <div class="message" *ngIf="matches.length!=0 && !isEnd" (click)="moreMatches()">
+              <i class="fa-solid fa-plus"></i>{{'message.more-matches'|translate|uppercase}}
+            </div>
+            <div class="message" *ngIf="isEnd">{{'message.no-more-matches'|translate|uppercase}}</div>
+            <div class="message" *ngIf="matches.length==0">{{'message.no-matches-found'|translate|uppercase}}</div>
+          </div>
+          <div *ngIf="loading">
+            <app-spinner></app-spinner>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

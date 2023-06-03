@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {TranslateModule} from '@ngx-translate/core';
 import {MatDialog} from "@angular/material/dialog";
 import {BetModalComponent} from "../bet-modal/bet-modal.component";
+import {ConfirmationModalComponent} from "../../confirmation-modal/confirmation-modal.component";
 
 @Component({
   selector: 'app-simple-bet',
@@ -20,6 +21,12 @@ export class SimpleBetComponent{
 
   constructor(private dialog: MatDialog) { }
   createSimpleBet(team: string, odd: number) {
+    if (sessionStorage.getItem('user') == null){
+      this.dialog.open(ConfirmationModalComponent, {
+        data: {message: "login-required"}
+      })
+      return;
+    }
     let dialogRef = this.dialog.open(BetModalComponent, {
       data: {
         team: team,

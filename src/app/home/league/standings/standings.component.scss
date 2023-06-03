@@ -1,0 +1,78 @@
+@import "../../../../assets/scss/variables";
+
+.standing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+
+  div {
+    border-radius: 5px;
+    align-items: center;
+  }
+
+  .row {
+    width: calc(100% - 24px);
+    text-align: center;
+    padding: 0 12px 0 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+  }
+
+  .rank-title {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    background-color: $primary-color;
+    font-size: 30px;
+    font-weight: 700;
+    color: $contrast-font-color;
+  }
+
+  .rank-header {
+    background-color: $grey-palette-700;
+
+    span {
+      color: $contrast-font-color;
+      font-weight: 700;
+      font-size: 20px;
+    }
+  }
+
+}
+
+
+.rank-item-container {
+  width: 100%;
+  height: 400px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  .rank-item {
+    font-size: 20px;
+    background-color: $grey-palette-300;
+    overflow: hidden;
+    position: relative;
+    margin-bottom:6px;
+
+    .position {
+      font-size: 30px;
+      font-weight: 700;
+    }
+
+    .name {
+      font-weight: 500;
+    }
+
+    img {
+      width: 75%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      opacity: 0.2;
+      transform: translate(-50%, -50%)
+    }
+  }
+}

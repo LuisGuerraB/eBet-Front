@@ -1,0 +1,113 @@
+@import '../../../assets/scss/variables.scss';
+
+.content {
+  display: flex;
+  margin: 10px;
+  gap: 20px;
+  height: calc(100% - 20px);
+  width: calc(100% - 20px);
+  justify-content: space-around;
+
+  .column {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+  }
+
+  .league {
+    min-width: 230px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    span{
+      font-size: 50px;
+      font-weight: 700;
+    }
+
+    img {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+
+  .match-list {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    max-width: 700px;
+    width: calc(100% - 40px);
+    margin: 0 20px 0 20px;
+    gap: 10px;
+
+    .filters {
+      width: calc(100% - 10px);
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+      background-color: $primary-color;
+      border-radius: 5px 5px 0 0;
+      padding: 5px;
+
+      .filter {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        gap:4px;
+        padding: 0 5px 0 5px;
+        border: none;
+        background-color: $primary-subcolor;
+        color: $contrast-font-color;
+        border-radius: 5px;
+
+        span{
+          color: $contrast-font-color;
+        }
+      }
+    }
+
+    .matches-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      height: 420px;
+      overflow-y: scroll;
+
+      app-match-item {
+        width: 100%;
+      }
+    }
+  }
+
+}
+
+.left {
+  flex-grow: 1;
+}
+
+.right {
+  flex-grow: 3;
+}
+
+.message-container {
+  width: 100%;
+
+  .message {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    font-size: 26px;
+    line-height: 1px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: $grey-palette-700;
+    max-width: none;
+    width: 100%;
+    color: $accent-color;
+  }
+}
+

@@ -14,13 +14,14 @@ import {ActivatedRoute} from "@angular/router";
 import {TranslateModule} from "@ngx-translate/core";
 import {MatchHeaderComponent} from "../match/match-header/match-header.component";
 import {SpinnerComponent} from "../spinner/spinner.component";
+import {BackButtonComponent} from "../back-button/back-button.component";
 
 @Component({
   selector: 'app-bet',
   templateUrl: './bet.component.html',
   styleUrls: ['./bet.component.scss'],
   standalone: true,
-  imports: [CommonModule, SimpleBetComponent, CompoundBetComponent, TranslateModule, MatchHeaderComponent, SpinnerComponent]
+  imports: [CommonModule, SimpleBetComponent, CompoundBetComponent, TranslateModule, MatchHeaderComponent, SpinnerComponent, BackButtonComponent]
 })
 export class BetComponent implements OnInit {
 

@@ -1,7 +1,7 @@
-<div [style.width]="carouselWidth" [style.height]="heightCss">
-  <ngx-slick-carousel [config]="sliderConfig">
+<div >
+  <ngx-slick-carousel class="carousel" [style.width]="carouselWidth" [style.height]="heightCss" [config]="sliderConfig">
     <div ngxSlickItem *ngFor="let image of images">
-      <img [style.height]="heightCss" src="{{ image }}" alt="Imagen"/>
+      <img src="{{ image }}" alt="Imagen"/>
     </div>
   </ngx-slick-carousel>
 </div>
