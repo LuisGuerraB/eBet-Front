@@ -1,11 +1,14 @@
 @import 'variables.scss';
 //butons
 .eBet-button {
+  display:flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   max-width: 110px;
   height: 32px;
   border-radius: 5px;
-  font-size: 18px;
+  font-size: 22px;
   border: none;
   background-color: $primary-color;
   color: $contrast-font-color;
@@ -23,7 +26,7 @@
   align-items: center;
   text-decoration: none;
   line-height: 1px;
-  font-size: 18px;
+  font-size: 20px;
   width: 100%;
   height: 35px;
   background-color: $primary-color;
@@ -36,14 +39,6 @@
 
 }
 
-.back-button {
-  font-size: 18px;
+back-button {
   margin-right: auto;
-  background-color: transparent;
-  display: flex;
-  align-items: center;
-  gap:3px;
-  * {
-    line-height: 1px;
-  }
 }

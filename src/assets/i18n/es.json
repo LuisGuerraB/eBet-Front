@@ -17,8 +17,9 @@
     "repassword": "Repetir contraseña",
     "username": "Nombre de usuario"
   },
-  "log-in": "Inicio de sesión",
+  "login": "Inicio de sesión",
   "login-successful": "Inicio de sesion con éxito",
+  "login-required": "Inicio de sesión requerido",
   "odd": {
     "assistsOdds": "ASISTENCIAS",
     "baronsOdds": "BARONES",
@@ -48,5 +49,31 @@
   "log-out-successful" : "Sesión cerrada con exito",
   "finished": "Finalizado",
   "no-odds" : "No hay apuestas disponibles",
-  "go-back" : "Volver"
+  "go-back" : "Volver",
+  "filter": {
+    "finished" : "Finalizado",
+    "year" : "Año",
+    "month" : "Mes",
+    "all" : "Todos"
+  },
+  "message": {
+    "no-more-matches": "No hay mas resultados",
+    "no-matches-found": "No hay resultados",
+    "more-matches": "Ver más resultados"
+  },
+  "month": {
+    "january": "Enero",
+    "february": "Febrero",
+    "march": "Marzo",
+    "april": "Abril",
+    "may": "Mayo",
+    "june": "Junio",
+    "july": "Julio",
+    "august": "Agosto",
+    "september": "Septiembre",
+    "october": "Octubre",
+    "november": "Noviembre",
+    "december": "Diciembre"
+  }
+
 }

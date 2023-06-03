@@ -1,17 +1,16 @@
 import {autoserializeAs, autoserializeAsArray} from "dcerialize";
 import {Team} from "./team";
-import {Season} from "./season";
 
 export class Participation {
   @autoserializeAs(() => Number) id: number;
-  @autoserializeAs(() => Number) position: string;
-  @autoserializeAs(() => Season) season: Season;
+  @autoserializeAs(() => Number) position: number;
+  @autoserializeAs(()=> Number) points: number
   @autoserializeAs(() => Team) team: Team;
 
-  constructor(id: number, position: string, season: Season, team: Team) {
+  constructor(id: number, position: number,points:number, team: Team) {
     this.id = id;
     this.position = position;
-    this.season = season;
+    this.points = points;
     this.team = team;
   }
 }

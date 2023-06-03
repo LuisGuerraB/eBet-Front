@@ -3,6 +3,7 @@ import {CommonModule} from "@angular/common";
 import {TranslateModule} from "@ngx-translate/core";
 import {MatDialog} from "@angular/material/dialog";
 import {BetModalComponent} from "../bet-modal/bet-modal.component";
+import {ConfirmationModalComponent} from "../../confirmation-modal/confirmation-modal.component";
 
 @Component({
   selector: 'app-compound-bet',
@@ -32,6 +33,12 @@ export class CompoundBetComponent implements OnInit {
   }
 
   createCompoundBet(team: string, subtype: number, odd: number) {
+    if (sessionStorage.getItem('user') == null){
+      this.dialog.open(ConfirmationModalComponent, {
+        data: {message: "login-required"}
+      })
+      return;
+    }
     let dialogRef= this.dialog.open(BetModalComponent, {
       data: {
         team: team,

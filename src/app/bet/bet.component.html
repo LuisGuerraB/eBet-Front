@@ -1,5 +1,5 @@
 <div class="component" *ngIf="!loading">
-  <button class="back-button" (click)="goBack()"><i class="fas fa-chevron-left"></i><span>{{'go-back'|translate}}</span></button>
+  <back-button></back-button>
   <app-match-header [match]="match"></app-match-header>
   <div class="bets" *ngIf="awayBettingOdd && localBettingOdd && match || !loading">
     <app-simple-bet *ngFor="let type of SimpleOdds"
