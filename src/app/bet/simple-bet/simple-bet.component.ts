@@ -28,6 +28,7 @@ export class SimpleBetComponent{
       return;
     }
     let dialogRef = this.dialog.open(BetModalComponent, {
+      disableClose: true,
       data: {
         team: team,
         type: this.type,

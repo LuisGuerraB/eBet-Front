@@ -1,7 +1,7 @@
 <div class="eBet-modal">
   <mat-dialog-content>
     <p>{{ data.message | translate }}</p>
-    <span *ngIf="data.content">{{data.content}}</span>
+    <span *ngIf="data.content">{{data.content | translate}}</span>
   </mat-dialog-content>
   <mat-dialog-actions>
     <button *ngIf="data.cancel" class="eBet-button" (click)="onCancel()">{{'cancel'|translate}}</button>

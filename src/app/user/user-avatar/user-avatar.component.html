@@ -1,8 +1,9 @@
 <div *ngIf="user">
   <div class="avatar">
-    <img src="{{user.img}}" alt="avatar img">
+    <img *ngIf="user.img" src="{{user.img}}" alt="avatar img">
+    <img *ngIf="!user.img" src="../../../assets/img/user.svg" alt="avatar img">
   </div>
-  <span class="username">{{user.username}}</span>
+  <span *ngIf="user.username" class="username">{{user.username}}</span>
   <div>
     <button class="nav-button contrast bold" (click)="emit('log-out')">
       {{'log-out'|translate}}

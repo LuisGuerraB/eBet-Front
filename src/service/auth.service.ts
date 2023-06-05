@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {ApiService} from "./api-service";
-import {catchError, tap} from "rxjs";
-import {Deserialize, Serialize} from "dcerialize";
-import {Match} from "../model/match";
+import {catchError, map, tap} from "rxjs";
+import {Deserialize, IJsonObject} from "dcerialize";
+import {User, UserLoginResponse} from "../model/user";
 
 @Injectable({
   providedIn: 'root'
@@ -29,26 +29,34 @@ export class AuthService {
   }
 
   public login(username: string, password: string) {
-    return this.http.post(this.path + '/login', {
+    return this.http.post<IJsonObject>(this.path + '/login', {
       username: username,
       password: password
     }, {withCredentials: true}).pipe(
-      tap(response => {
-        sessionStorage.setItem('user', JSON.stringify(response));
+      map((user) => Deserialize(user, () => UserLoginResponse)),
+      tap(user => {
+        sessionStorage.setItem('user', JSON.stringify({'username': user.username, 'balance': user.balance, 'img': user.img, 'last_login' : user.lastLogin}));
       }),
       catchError(err => {
         throw new Error(err.error.message);
       }))
   }
 
-  public logOut() {
-    sessionStorage.removeItem('user');
-    return this.http.post(this.path + '/logout', {withCredentials: true}).pipe(
-      tap(response => {
-
-      }),
+  public redeemPrize() {
+    return this.http.post(this.path + '/redeem', {}, {withCredentials: true}).pipe(
       catchError(err => {
         throw new Error(err.error.message);
+      })
+    )
+  }
+
+  public logOut() {
+    return this.http.post(this.path + '/logout', {}, {withCredentials: true}).pipe(
+      catchError(err => {
+        throw new Error(err.error.message);
+      }),
+      tap(() => {
+        sessionStorage.removeItem('user');
       })
     )
   }

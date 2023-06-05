@@ -42,9 +42,8 @@
   "accept": "Accept",
   "sure-bet": "Are you sure you want to bet?",
   "bet-successful": "Bet successfully created",
-  "prizes": "Prizes",
-  "bets": "Bets",
-  "get-more": "Get more",
+  "balance" : "Balance",
+  "get-more" : "Get more >",
   "log-out": "Log out",
   "log-out-successful": "Log out successfully",
   "finished": "Finished",
@@ -74,5 +73,9 @@
     "october": "October",
     "november": "November",
     "december": "December"
-  }
+  },
+  "obtained-prize" : "Obtained login reward",
+  "redeem": "Redeem",
+
+
 }

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule} from '@angular/common';
 import {Router, RouterOutlet} from "@angular/router";
 import {TranslateModule} from "@ngx-translate/core";
 import {User} from "../../model/user";
@@ -17,29 +17,47 @@ import {ConfirmationModalComponent} from "../confirmation-modal/confirmation-mod
 })
 export class HomeComponent implements OnInit {
 
-  user? : User;
+  user?: User;
   balance = 0;
 
-  constructor(private router: Router, private authService: AuthService,private dialog: MatDialog) {
+  constructor(private router: Router, private authService: AuthService, private dialog: MatDialog) {
 
   }
+
   ngOnInit(): void {
-    if(sessionStorage.getItem('user')){
+    if (sessionStorage.getItem('user')) {
       this.user = JSON.parse(sessionStorage.getItem('user')!);
       this.balance = this.user!.balance;
     }
   }
 
-  redirect(action: string) {
-    if(action != 'log-out'){
-      this.router.navigate([action]);
-    }else{
+  getMore() {
+    if (this.user){
+      this.router.navigate(['auth/more-ep']);
+    } else {
       this.dialog.open(ConfirmationModalComponent, {
-        data:{
-          message: "log-out-successful"
+        data: {
+          message: "login-required"
         }
       })
-      this.authService.logOut();
+    }
+  }
+
+  redirect(action: string) {
+    if (action != 'log-out') {
+      this.router.navigate([action]);
+    } else {
+      this.authService.logOut().subscribe(
+        () => {
+          this.balance=0;
+          this.dialog.open(ConfirmationModalComponent, {
+            data: {
+              message: "log-out-successful"
+            }
+          })
+        }
+      )
+
     }
   }
 

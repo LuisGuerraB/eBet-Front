@@ -7,6 +7,7 @@ import {Router} from "@angular/router";
 import {FormErrorMessagesComponent} from "../form-error-messages/form-error-messages.component";
 import {ConfirmationModalComponent} from "../../confirmation-modal/confirmation-modal.component";
 import {MatDialog, MatDialogModule} from "@angular/material/dialog";
+import {UserLoginResponse} from "../../../model/user";
 
 @Component({
   selector: 'app-login',
@@ -31,10 +32,13 @@ export class LoginComponent {
   submitForm() {
     if (this.form.valid) {
       this.authService.login(this.username.value!, this.password.value!).subscribe(
-        () => {
+        (user:UserLoginResponse) => {
+          let content = undefined;
+          if (user.prize){content = 'obtained-prize'}
           this.dialog.open(ConfirmationModalComponent, {
             data: {
-              message: "login-successful"
+              message: "login-successful",
+              content: content
             }
           }).afterClosed().subscribe(
             () => this.router.navigate(['/'])

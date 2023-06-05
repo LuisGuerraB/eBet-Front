@@ -9,9 +9,15 @@
   height: 32px;
   border-radius: 5px;
   font-size: 22px;
+  line-height: 1px;
   border: none;
   background-color: $primary-color;
   color: $contrast-font-color;
+
+  &:disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 
   &:focus {
     box-sizing: border-box;

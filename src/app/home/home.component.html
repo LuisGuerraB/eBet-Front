@@ -24,10 +24,13 @@
 
       <div class="bottom">
         <div class="balance nav-button">
-          <span class="contrast">eP : </span>
-          <span class="contrast">{{balance}}</span>
+          <span class="contrast">{{'balance' | translate}} : </span>
+          <div class="balance-points">
+            <span class="contrast">{{balance}}</span>
+            <img class="eBet-point" src="assets/img/Ep.svg" alt="eBet points">
+          </div>
         </div>
-        <a href="/more-ep">
+        <a (click)="getMore()">
           {{'get-more'|translate}}
         </a>
       </div>

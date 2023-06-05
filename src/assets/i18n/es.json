@@ -44,7 +44,8 @@
   "bet-successful": "Apuesta realizada con exito",
   "prizes" : "Premios",
   "bets" : "Apuestas",
-  "get-more" : "Consigue más",
+  "balance" : "Balance",
+  "get-more" : "Consigue más >",
   "log-out": "Cerrar sesión",
   "log-out-successful" : "Sesión cerrada con exito",
   "finished": "Finalizado",
@@ -74,6 +75,7 @@
     "october": "Octubre",
     "november": "Noviembre",
     "december": "Diciembre"
-  }
-
+  },
+  "obtained-prize" : "Premio de inicio de sesion obtenido",
+  "redeem": "Recoger"
 }

@@ -40,6 +40,7 @@ export class CompoundBetComponent implements OnInit {
       return;
     }
     let dialogRef= this.dialog.open(BetModalComponent, {
+      disableClose: true,
       data: {
         team: team,
         type: this.type,

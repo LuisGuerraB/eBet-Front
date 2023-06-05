@@ -3,7 +3,7 @@
 .img-container {
   display: flex;
   width: 100vw;
-  height: 98vh;
+  height: 100vh;
 
   .column {
     flex-basis: 50%;
@@ -18,7 +18,7 @@
 }
 
 
-.component {
+.auth-form {
   position: absolute;
   left: 0;
   top: 0;

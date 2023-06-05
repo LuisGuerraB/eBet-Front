@@ -2,9 +2,8 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {ApiService} from "./api-service";
 import {Bet} from "../model/bet";
-import {Deserialize, IJsonObject, Serialize} from "dcerialize";
-import {catchError, map, tap} from "rxjs";
-import {BettingOddsDuo} from "../model/betting-odd";
+import {Deserialize, IJsonObject} from "dcerialize";
+import {catchError, map} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +18,6 @@ export class BetService {
 
   createBet(bet: Bet) {
     return this.http.post<IJsonObject>(this.path + '/', {
-      'date': bet.date.toISOString(),
       'type': bet.type.toUpperCase(),
       'multiplier': bet.multiplier,
       'amount': bet.amount,

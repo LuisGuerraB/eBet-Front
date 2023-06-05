@@ -1,16 +1,24 @@
 import {autoserializeAs} from "dcerialize";
 
 
-export class User {
-  @autoserializeAs(() => Number) id: number;
+export interface User {
+  username: string;
+  balance: number;
+  img: string;
+}
+
+export class UserLoginResponse implements User {
   @autoserializeAs(() => String) username: string;
   @autoserializeAs(() => Number) balance: number;
-  @autoserializeAs(() => String) img?: string;
+  @autoserializeAs(() => String) img: string;
+  @autoserializeAs(() => Boolean) prize: boolean;
+  @autoserializeAs(() => Date, 'last_login') lastLogin: Date;
 
-  constructor(id: number, username: string, balance: number, img?: string) {
-    this.id = id;
+  constructor(username: string, balance: number, prize: boolean, img: string, lastLogin: Date) {
     this.username = username;
     this.balance = balance;
     this.img = img;
+    this.prize = prize;
+    this.lastLogin = lastLogin;
   }
 }
