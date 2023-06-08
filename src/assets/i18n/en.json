@@ -8,14 +8,20 @@
     "min-length": "Must be at least 6 characters",
     "required-field": "This is a required field",
     "unexpected": "Unexpected error",
-    "username-taken": "This username is already taken"
+    "username-taken": "This username is already taken",
+    "incorrect-orientation": "Incorrect orientation",
+    "min": "Must exceed minimun value"
   },
   "confirm": "Confirm",
+  "Add-prize" : "Add prize",
   "form": {
     "email": "Email",
     "password": "Password",
     "repassword": "Repeat password",
-    "username": "Username"
+    "username": "Username",
+    "img": "Product image",
+    "price" : "Price",
+    "amount": "Amount"
   },
   "login": "Log in",
   "login-successful": "Log in successfully",
@@ -76,6 +82,7 @@
   },
   "obtained-prize" : "Obtained login reward",
   "redeem": "Redeem",
-
+  "page-not-found": "Page not found",
+  "no-privilege-for-page": "You can't access to this page"
 
 }

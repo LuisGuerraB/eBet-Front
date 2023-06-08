@@ -8,14 +8,20 @@
     "min-length": "Debe tener mínimo 6 caracteres",
     "required-field": "Este campo es obligatorio",
     "unexpected": "Error inesperado",
-    "username-taken": "El nombre de usuario ya existe"
+    "username-taken": "El nombre de usuario ya existe",
+    "incorrect-orientation": "Orientacion incorrecta",
+    "min": "Debe superar el valor minimo"
   },
   "confirm": "Confirmar",
+  "Add-prize": "Añadir premio",
   "form": {
     "email": "Correo electrónico",
     "password": "Contraseña",
     "repassword": "Repetir contraseña",
-    "username": "Nombre de usuario"
+    "username": "Nombre de usuario",
+    "img": "Imagen del premio",
+    "amount" : "Cantidad",
+    "price" : "Precio"
   },
   "login": "Inicio de sesión",
   "login-successful": "Inicio de sesion con éxito",
@@ -77,5 +83,7 @@
     "december": "Diciembre"
   },
   "obtained-prize" : "Premio de inicio de sesion obtenido",
-  "redeem": "Recoger"
+  "redeem": "Recoger",
+  "page-not-found": "Página no encontrada",
+  "no-privilege-for-page": "No tienes permisos para acceder a esta página"
 }

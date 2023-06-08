@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {SimpleBetComponent} from './simple-bet/simple-bet.component';
 import {CompoundBetComponent} from "./compound-bet/compound-bet.component";
 import {MatchService} from "../../service/match.service";
-import {BettingOddService} from "../../service/betting-odd-service";
+import {BettingOddService} from "../../service/betting-odd.service";
 import {Match} from "../../model/match";
 import {BettingOdd, CompoundOdds, SimpleOdds} from "../../model/betting-odd";
 import {CommonModule, Location} from "@angular/common";
@@ -15,6 +15,7 @@ import {TranslateModule} from "@ngx-translate/core";
 import {MatchHeaderComponent} from "../match/match-header/match-header.component";
 import {SpinnerComponent} from "../spinner/spinner.component";
 import {BackButtonComponent} from "../back-button/back-button.component";
+import {AuthService} from "../../service/auth.service";
 
 @Component({
   selector: 'app-bet',
@@ -33,8 +34,7 @@ export class BetComponent implements OnInit {
   protected readonly CompoundOdds: CompoundOdds[] = [];
 
   constructor(private matchService: MatchService, private bettingOddService: BettingOddService,
-              private betService: BetService, private dialog: MatDialog, private route: ActivatedRoute,
-              private location : Location) {
+              private betService: BetService, private dialog: MatDialog, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -61,9 +61,6 @@ export class BetComponent implements OnInit {
     });
   }
 
-  goBack(): void {
-    this.location.back();
-  }
 
   createBet(event: any): void {
     let team_id: number;

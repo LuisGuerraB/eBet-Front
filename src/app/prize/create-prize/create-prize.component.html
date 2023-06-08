@@ -1,0 +1,33 @@
+<div class="content">
+  <h1 class="title">{{'Add-prize'|translate}}</h1>
+  <div *ngIf="error" class="input-error">
+    <div>{{error | translate}}</div>
+  </div>
+  <form [formGroup]="form" (ngSubmit)="submitForm()">
+    <div class="eBet-input eBet-input__center">
+      <label>{{"form.img" | translate}}</label>
+      <input type="file" formControlName="img" name="img" (change)="onFileSelected($event)">
+      <app-form-error-messages [control]="form.get('img')!"></app-form-error-messages>
+      <div *ngIf="imagePreview" class="img-preview">
+        <img [src]="imagePreview" alt="Image Preview">
+      </div>
+    </div>
+    <div class="eBet-input">
+      <label>{{"form.price" | translate}}</label>
+      <div><input type="number" formControlName="price" name="price">
+        <hr>
+      </div>
+      <app-form-error-messages [control]="form.get('price')!"></app-form-error-messages>
+    </div>
+    <div class="eBet-input">
+      <label>{{"form.amount" | translate}}</label>
+      <div><input type="number" formControlName="amount" name="amount">
+        <hr>
+      </div>
+      <app-form-error-messages [control]="form.get('amount')!"></app-form-error-messages>
+    </div>
+    <div class="buttons-container">
+      <button type=submit class="eBet-button">{{"confirm"|translate}}</button>
+    </div>
+  </form>
+</div>

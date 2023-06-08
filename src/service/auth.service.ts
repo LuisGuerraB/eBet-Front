@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {ApiService} from "./api-service";
+import {ApiService} from "./api.service";
 import {catchError, map, tap} from "rxjs";
 import {Deserialize, IJsonObject} from "dcerialize";
-import {User, UserLoginResponse} from "../model/user";
+import {Privileges, User} from "../model/user";
 
 @Injectable({
   providedIn: 'root'
@@ -33,7 +33,7 @@ export class AuthService {
       username: username,
       password: password
     }, {withCredentials: true}).pipe(
-      map((user) => Deserialize(user, () => UserLoginResponse)),
+      map((user) => Deserialize(user, () => User)),
       tap(user => {
         sessionStorage.setItem('user', JSON.stringify({'username': user.username, 'balance': user.balance, 'img': user.img, 'last_login' : user.lastLogin}));
       }),
@@ -57,6 +57,15 @@ export class AuthService {
       }),
       tap(() => {
         sessionStorage.removeItem('user');
+      })
+    )
+  }
+
+  public getPrivileges(){
+    return this.http.get<IJsonObject>(this.path + '/privileges', {withCredentials: true}).pipe(
+      map((privileges) => Deserialize(privileges, () => Privileges)),
+      catchError(err => {
+        throw new Error(err.error.message);
       })
     )
   }

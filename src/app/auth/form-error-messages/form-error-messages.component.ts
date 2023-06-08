@@ -35,6 +35,14 @@ export class FormErrorMessagesComponent {
       return 'control-error.min-length';
     }
 
+    if(errorKey === 'incorrectOrientation'){
+      return 'control-error.incorrect-orientation'
+    }
+
+    if(errorKey == 'min'){
+      return 'control-error.min'
+    }
+
     return 'control-error.unexpected';
   }
 }

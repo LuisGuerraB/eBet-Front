@@ -2,7 +2,7 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {TranslateModule} from "@ngx-translate/core";
 import {Deserialize} from "dcerialize";
-import {UserLoginResponse} from "../../model/user";
+import {User} from "../../model/user";
 import {SpinnerComponent} from "../spinner/spinner.component";
 import {BackButtonComponent} from "../back-button/back-button.component";
 import {AuthService} from "../../service/auth.service";

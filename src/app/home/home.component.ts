@@ -21,7 +21,6 @@ export class HomeComponent implements OnInit {
   balance = 0;
 
   constructor(private router: Router, private authService: AuthService, private dialog: MatDialog) {
-
   }
 
   ngOnInit(): void {
