@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CompoundBetComponent } from './compound-bet.component';
+import { BetItemComponent } from './bet-item.component';
 
 describe('CompoundBetComponent', () => {
-  let component: CompoundBetComponent;
-  let fixture: ComponentFixture<CompoundBetComponent>;
+  let component: BetItemComponent;
+  let fixture: ComponentFixture<BetItemComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [CompoundBetComponent]
+      declarations: [BetItemComponent]
     });
-    fixture = TestBed.createComponent(CompoundBetComponent);
+    fixture = TestBed.createComponent(BetItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

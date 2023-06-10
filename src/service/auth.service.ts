@@ -4,6 +4,7 @@ import {ApiService} from "./api.service";
 import {catchError, map, tap} from "rxjs";
 import {Deserialize, IJsonObject} from "dcerialize";
 import {Privileges, User} from "../model/user";
+import {SessionStorageService} from "./session-storage.service";
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ import {Privileges, User} from "../model/user";
 export class AuthService {
   private path = '/user';
 
-  constructor(private http: HttpClient, private api: ApiService) {
+  constructor(private http: HttpClient, private api: ApiService, private sessionStorage : SessionStorageService) {
     this.path = api.getApiUrl() + this.path;
   }
 
@@ -35,7 +36,7 @@ export class AuthService {
     }, {withCredentials: true}).pipe(
       map((user) => Deserialize(user, () => User)),
       tap(user => {
-        sessionStorage.setItem('user', JSON.stringify({'username': user.username, 'balance': user.balance, 'img': user.img, 'last_login' : user.lastLogin}));
+        this.sessionStorage.setItem('user', {'username': user.username, 'balance': user.balance, 'img': user.img, 'last_login' : user.lastLogin});
       }),
       catchError(err => {
         throw new Error(err.error.message);
@@ -56,7 +57,7 @@ export class AuthService {
         throw new Error(err.error.message);
       }),
       tap(() => {
-        sessionStorage.removeItem('user');
+        this.sessionStorage.removeItem('user');
       })
     )
   }

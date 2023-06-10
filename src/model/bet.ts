@@ -1,33 +1,24 @@
-import {autoserializeAs, IJsonObject} from "dcerialize";
-import {CompoundOdds, SimpleOdds} from "./betting-odd";
+import {autoserializeAs} from "dcerialize";
 
-export enum BetType {
-  WINNER = 'winner',
-  EXP = 'exp',
-  GOLD = 'gold',
-  DRAKES = 'drakes',
-  INHIBITORS = 'inhibitors',
-  ELDER = 'elder',
-  TOWER = 'tower',
-  BARON = 'baron',
-  HERALD = 'herald',
-  KILL = 'kill',
-  DEATH = 'death',
-  ASSIST = 'assist',
+
+export interface BetEvent{
+  type: string;
+  subtype: number;
+  multiplier: number;
+  team:string,
 }
-
 export class Bet {
   @autoserializeAs(() => Number) id?: number;
   @autoserializeAs(() => Date) date: Date;
-  @autoserializeAs(() => String) type: BetType;
-  @autoserializeAs(() => Number) subtype?: number;
+  @autoserializeAs(() => String) type: string;
+  @autoserializeAs(() => Number) subtype: number;
   @autoserializeAs(() => Number) multiplier: number;
   @autoserializeAs(() => Number) amount: number;
   @autoserializeAs(() => Number, 'match_id') matchId: number;
   @autoserializeAs(() => Number, 'team_id') teamId: number;
 
 
-  constructor(date: Date, type: BetType, multiplier: number, amount: number, match_id: number, team_id: number, subtype?: number, id?: number) {
+  constructor(date: Date, type: string, multiplier: number, amount: number, match_id: number, team_id: number, subtype: number, id?: number) {
     this.id = id;
     this.date = date;
     this.type = type;

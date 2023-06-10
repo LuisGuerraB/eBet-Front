@@ -3,7 +3,8 @@ import {HttpClient} from "@angular/common/http";
 import {ApiService} from "./api.service";
 import {Bet} from "../model/bet";
 import {Deserialize, IJsonObject} from "dcerialize";
-import {catchError, map} from "rxjs";
+import {catchError, map, tap} from "rxjs";
+import {SessionStorageService} from "./session-storage.service";
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class BetService {
 
   private path = '/bet';
 
-  constructor(private http: HttpClient, private api: ApiService) {
+  constructor(private http: HttpClient, private api: ApiService,private sessionStorage : SessionStorageService) {
     this.path = api.getApiUrl() + this.path;
   }
 
@@ -24,10 +25,16 @@ export class BetService {
       'subtype': bet.subtype,
       'match_id': bet.matchId,
       'team_id': bet.teamId
-    }, {withCredentials: sessionStorage.getItem('user') !== null}).pipe(
+    }, {withCredentials: this.sessionStorage.getItem('user') != undefined}).pipe(tap(()=>{
+        if (this.sessionStorage.getItem('user') != undefined) {
+          const userData = this.sessionStorage.getItem('user')!;
+          userData.balance -= bet.amount;
+          this.sessionStorage.setItem('user', userData);
+        }
+      }),
       map((bet) => Deserialize(bet, () => Bet)),
       catchError(err => {
-        throw new Error(err.error.message);
+        throw new Error(err.statusText);
       }))
   }
 }
