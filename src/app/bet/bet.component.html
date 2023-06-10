@@ -1,25 +1,21 @@
 <div class="component" *ngIf="!loading">
   <back-button></back-button>
   <app-match-header [match]="match"></app-match-header>
-  <div class="bets" *ngIf="awayBettingOdd && localBettingOdd && match || !loading">
-    <app-simple-bet *ngFor="let type of SimpleOdds"
-                    [localTeam]="match?.localTeam!.acronym!" [localTeamOdd]="localBettingOdd[type]"
-                    [awayTeam]="match?.awayTeam!.acronym!" [awayTeamOdd]="awayBettingOdd[type]"
-                    [type]="type"
-                    (onAccept)="createBet($event)">
-    </app-simple-bet>
-    <app-compound-bet *ngFor="let type of CompoundOdds"
-                      [localTeam]="match?.localTeam!.acronym!" [localTeamOdd]="localBettingOdd[type]"
-                      [awayTeam]="match?.awayTeam!.acronym!" [awayTeamOdd]="awayBettingOdd[type]"
-                      [type]="type"
-                      (onAccept)="createBet($event)">
-    </app-compound-bet>
+  <div class="bets" *ngIf="oddsMap && match && !loading">
+    <app-bet-item [localTeamOdd]="winnerOdd![0].value" [awayTeamOdd]="winnerOdd![1].value" [type]="'winner'"
+                  (onCreate)="createBet($event)"></app-bet-item>
+    <app-bet-item *ngFor=" let odd of oddsMap! | keyvalue
+    "
+                  [localTeamOdd]="odd.value[0].value"
+                  [awayTeamOdd]="odd.value[1].value"
+                  [type]="odd.key"
+                  (onCreate)="createBet($event)">
+    </app-bet-item>
   </div>
-
-    <div *ngIf=" !awayBettingOdd && !localBettingOdd && !match" class="no-bets">
-      <span>{{'no-odds' | translate}}</span>
-    </div>
+  <div *ngIf=" !oddsMap && !match" class="no-bets">
+    <span>{{'no-odds' | translate}}</span>
+  </div>
 </div>
 <div *ngIf="loading">
-    <app-spinner></app-spinner>
+  <app-spinner></app-spinner>
 </div>

@@ -4,21 +4,20 @@ import {TranslateModule} from "@ngx-translate/core";
 import {MatDialog} from "@angular/material/dialog";
 import {BetModalComponent} from "../bet-modal/bet-modal.component";
 import {ConfirmationModalComponent} from "../../confirmation-modal/confirmation-modal.component";
+import {BetEvent} from "../../../model/bet";
 
 @Component({
-  selector: 'app-compound-bet',
-  templateUrl: './compound-bet.component.html',
-  styleUrls: ['./compound-bet.component.scss'],
+  selector: 'app-bet-item',
+  templateUrl: './bet-item.component.html',
+  styleUrls: ['./bet-item.component.scss'],
   imports: [CommonModule, TranslateModule],
   standalone: true
 })
-export class CompoundBetComponent implements OnInit {
-  @Input() localTeam!: string;
+export class BetItemComponent implements OnInit {
   @Input() localTeamOdd!: Map<number, number>;
-  @Input() awayTeam!: string;
   @Input() awayTeamOdd!: Map<number, number>;
   @Input() type!: string;
-  @Output() onAccept = new EventEmitter<string>();
+  @Output() onCreate = new EventEmitter<BetEvent>();
 
   public arrayLocalTeamOdd?: [number, number][];
   public arrayAwayTeamOdd?: [number, number][];
@@ -32,30 +31,8 @@ export class CompoundBetComponent implements OnInit {
   constructor(private dialog: MatDialog) {
   }
 
-  createCompoundBet(team: string, subtype: number, odd: number) {
-    if (sessionStorage.getItem('user') == null){
-      this.dialog.open(ConfirmationModalComponent, {
-        data: {message: "login-required"}
-      })
-      return;
-    }
-    let dialogRef= this.dialog.open(BetModalComponent, {
-      disableClose: true,
-      data: {
-        team: team,
-        type: this.type,
-        subtype: subtype,
-        odd: odd
-      },
-      width: '340px'
-    })
-    dialogRef.afterClosed().subscribe(
-      (data) => {
-        if (data) {
-          this.onAccept.emit(data);
-        }
-      }
-    )
+  createBet(team: string, subtype: number, multiplier: number) {
+    this.onCreate.emit({type:this.type,team:team,subtype:subtype,multiplier:multiplier});
   }
 }
 

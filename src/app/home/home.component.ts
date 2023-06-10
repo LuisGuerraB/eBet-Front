@@ -7,6 +7,8 @@ import {UserAvatarComponent} from "../user/user-avatar/user-avatar.component";
 import {AuthService} from "../../service/auth.service";
 import {MatDialog} from "@angular/material/dialog";
 import {ConfirmationModalComponent} from "../confirmation-modal/confirmation-modal.component";
+import {Observable, Subscription} from "rxjs";
+import {SessionStorageService} from "../../service/session-storage.service";
 
 @Component({
   selector: 'app-home',
@@ -19,19 +21,25 @@ export class HomeComponent implements OnInit {
 
   user?: User;
   balance = 0;
+  balanceSubscription? :Subscription;
 
-  constructor(private router: Router, private authService: AuthService, private dialog: MatDialog) {
+  constructor(private router: Router, private authService: AuthService, private dialog: MatDialog,private sessionStorage: SessionStorageService) {
   }
 
   ngOnInit(): void {
-    if (sessionStorage.getItem('user')) {
-      this.user = JSON.parse(sessionStorage.getItem('user')!);
+    this.user = this.sessionStorage.getItem('user')
+    if (this.user) {
       this.balance = this.user!.balance;
     }
+    this.balanceSubscription = this.sessionStorage.getChanges().subscribe((change: any) => {
+      if (change.key === 'user') {
+        this.balance = change.value.balance;
+      }
+    });
   }
 
   getMore() {
-    if (this.user){
+    if (this.user) {
       this.router.navigate(['auth/more-ep']);
     } else {
       this.dialog.open(ConfirmationModalComponent, {
@@ -48,7 +56,7 @@ export class HomeComponent implements OnInit {
     } else {
       this.authService.logOut().subscribe(
         () => {
-          this.balance=0;
+          this.balance = 0;
           this.dialog.open(ConfirmationModalComponent, {
             data: {
               message: "log-out-successful"
