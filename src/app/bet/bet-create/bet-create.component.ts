@@ -1,30 +1,30 @@
 import {Component, OnInit} from '@angular/core';
-import {BetItemComponent} from "./bet-item/bet-item.component";
-import {MatchService} from "../../service/match.service";
-import {BettingOddService} from "../../service/betting-odd.service";
-import {Match} from "../../model/match";
+import {BetItemComponent} from "../bet-item/bet-item.component";
+import {MatchService} from "../../../service/match.service";
+import {BettingOddService} from "../../../service/betting-odd.service";
+import {Match} from "../../../model/match";
 import {CommonModule,} from "@angular/common";
-import {BetService} from "../../service/bet.service";
-import {Bet, BetEvent} from "../../model/bet";
+import {BetService} from "../../../service/bet.service";
+import {Bet, BetEvent} from "../../../model/bet";
 import {MatDialog} from "@angular/material/dialog";
-import {ConfirmationModalComponent} from "../confirmation-modal/confirmation-modal.component";
+import {ConfirmationModalComponent} from "../../confirmation-modal/confirmation-modal.component";
 import {ActivatedRoute} from "@angular/router";
 import {TranslateModule} from "@ngx-translate/core";
-import {MatchHeaderComponent} from "../match/match-header/match-header.component";
-import {SpinnerComponent} from "../spinner/spinner.component";
-import {BackButtonComponent} from "../back-button/back-button.component";
-import {BettingOdd} from "../../model/betting-odd";
-import {BetModalComponent} from "./bet-modal/bet-modal.component";
-import {SessionStorageService} from "../../service/session-storage.service";
+import {MatchHeaderComponent} from "../../match/match-header/match-header.component";
+import {SpinnerComponent} from "../../spinner/spinner.component";
+import {BackButtonComponent} from "../../back-button/back-button.component";
+import {BettingOdd} from "../../../model/betting-odd";
+import {BetModalComponent} from "../bet-modal/bet-modal.component";
+import {SessionStorageService} from "../../../service/session-storage.service";
 
 @Component({
-  selector: 'app-bet',
-  templateUrl: './bet.component.html',
-  styleUrls: ['./bet.component.scss'],
+  selector: 'app-bet-create',
+  templateUrl: './bet-create.component.html',
+  styleUrls: ['./bet-create.component.scss'],
   standalone: true,
   imports: [CommonModule, BetItemComponent, TranslateModule, MatchHeaderComponent, SpinnerComponent, BackButtonComponent]
 })
-export class BetComponent implements OnInit {
+export class BetCreateComponent implements OnInit {
 
   public loading: boolean = true;
   public match?: Match;
@@ -99,7 +99,7 @@ export class BetComponent implements OnInit {
           } else {
             team_id = this.match!.awayTeam.id
           }
-          let bet = new Bet(new Date(), event.type, event.multiplier, data.amount, this.match!.id, team_id, event.subtype);
+          let bet = new Bet(new Date(), event.type, event.multiplier, data.amount, this.match!, team_id, event.subtype);
           this.betService.createBet(bet).subscribe(
             (bet) => {
               this.dialog.open(ConfirmationModalComponent, {

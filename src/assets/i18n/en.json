@@ -84,6 +84,8 @@
   "obtained-prize" : "Obtained login reward",
   "redeem": "Redeem",
   "page-not-found": "Page not found",
-  "no-privilege-for-page": "You can't access to this page"
+  "no-privilege-for-page": "You can't access to this page",
+  "no-current-bets" : "No current bets",
+  "your-bets": "Your bets"
 
 }

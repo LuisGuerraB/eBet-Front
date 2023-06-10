@@ -11,7 +11,8 @@ const routes: Routes = [
     children: [
       {path: '', redirectTo: 'main', pathMatch: 'full'},
       {path: 'main', loadComponent: () => import('./home/main/main.component').then(m => m.MainComponent)},
-      {path: 'bet/:matchId', loadComponent: () => import('./bet/bet.component').then(m => m.BetComponent)},
+      {path: 'bet/:matchId', loadComponent: () => import('./bet/bet-create/bet-create.component').then(m => m.BetCreateComponent)},
+      {path: 'bets', loadComponent: () => import('./bet/bet-list/bet-list.component').then(m => m.BetListComponent)},
       {
         path: 'league/:leagueId',
         loadComponent: () => import('./home/league/league.component').then(m => m.LeagueComponent)
