@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {ApiService} from "./api.service";
-import {Bet} from "../model/bet";
+import {Bet, BetList} from "../model/bet";
 import {Deserialize, IJsonObject} from "dcerialize";
 import {catchError, map, tap} from "rxjs";
 import {SessionStorageService} from "./session-storage.service";
@@ -19,13 +19,13 @@ export class BetService {
 
   createBet(bet: Bet) {
     return this.http.post<IJsonObject>(this.path + '/', {
-      'type': bet.type.toUpperCase(),
+      'type': bet.type,
       'multiplier': bet.multiplier,
       'amount': bet.amount,
       'subtype': bet.subtype,
-      'match_id': bet.matchId,
+      'match_id': bet.match.id,
       'team_id': bet.teamId
-    }, {withCredentials: this.sessionStorage.getItem('user') != undefined}).pipe(tap(()=>{
+    }, {withCredentials: true}).pipe(tap(()=>{
         if (this.sessionStorage.getItem('user') != undefined) {
           const userData = this.sessionStorage.getItem('user')!;
           userData.balance -= bet.amount;
@@ -33,6 +33,14 @@ export class BetService {
         }
       }),
       map((bet) => Deserialize(bet, () => Bet)),
+      catchError(err => {
+        throw new Error(err.statusText);
+      }))
+  }
+
+  getBets() {
+    return this.http.get<IJsonObject>(this.path + '/list', {withCredentials: true}).pipe(
+      map((betList) => Deserialize(betList, () => BetList)),
       catchError(err => {
         throw new Error(err.statusText);
       }))

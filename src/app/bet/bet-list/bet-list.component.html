@@ -1,0 +1,18 @@
+<div class="component" *ngIf="!loading">
+  <back-button></back-button>
+  <h1>{{'your-bets'|translate}}</h1>
+  <div class="bet-list" *ngIf="betsArray">
+    <div class="bet-day" *ngFor="let betDay of betsArray">
+      {{betDay[0]}}
+      <div class="bets">
+        <app-bet-list-item *ngFor="let bet of betDay[1]" [bet]="bet"></app-bet-list-item>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="betsArray?.length == 0">
+    {{'no-current-bets'|translate}}
+  </div>
+</div>
+<div *ngIf="loading">
+  <app-spinner></app-spinner>
+</div>

@@ -1,0 +1,20 @@
+@import "src/assets/scss/variables.scss";
+
+.bet-list{
+  width: 100% ;
+}
+
+.bet-day{
+  display:flex;
+  align-items: center;
+  flex-direction:column;
+  gap: 10px;
+  margin-bottom: 20px;
+
+  .bets{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid $primary-color;
+    border-radius:5px;
+  }
+}
