@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {ApiService} from "./api-service";
+import {ApiService} from "./api.service";
 import {catchError, map, tap} from "rxjs";
 import {Deserialize, IJsonObject} from "dcerialize";
-import {User, UserLoginResponse} from "../model/user";
+import {Privileges, User} from "../model/user";
+import {SessionStorageService} from "./session-storage.service";
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ import {User, UserLoginResponse} from "../model/user";
 export class AuthService {
   private path = '/user';
 
-  constructor(private http: HttpClient, private api: ApiService) {
+  constructor(private http: HttpClient, private api: ApiService, private sessionStorage : SessionStorageService) {
     this.path = api.getApiUrl() + this.path;
   }
 
@@ -33,9 +34,9 @@ export class AuthService {
       username: username,
       password: password
     }, {withCredentials: true}).pipe(
-      map((user) => Deserialize(user, () => UserLoginResponse)),
+      map((user) => Deserialize(user, () => User)),
       tap(user => {
-        sessionStorage.setItem('user', JSON.stringify({'username': user.username, 'balance': user.balance, 'img': user.img, 'last_login' : user.lastLogin}));
+        this.sessionStorage.setItem('user', {'username': user.username, 'balance': user.balance, 'img': user.img, 'last_login' : user.lastLogin});
       }),
       catchError(err => {
         throw new Error(err.error.message);
@@ -56,7 +57,16 @@ export class AuthService {
         throw new Error(err.error.message);
       }),
       tap(() => {
-        sessionStorage.removeItem('user');
+        this.sessionStorage.removeItem('user');
+      })
+    )
+  }
+
+  public getPrivileges(){
+    return this.http.get<IJsonObject>(this.path + '/privileges', {withCredentials: true}).pipe(
+      map((privileges) => Deserialize(privileges, () => Privileges)),
+      catchError(err => {
+        throw new Error(err.error.message);
       })
     )
   }

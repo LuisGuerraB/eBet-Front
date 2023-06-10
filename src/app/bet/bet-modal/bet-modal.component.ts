@@ -4,7 +4,6 @@ import {MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef} from "@angula
 import {TranslateModule} from "@ngx-translate/core";
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {FormErrorMessagesComponent} from "../../auth/form-error-messages/form-error-messages.component";
-import {BetType} from "../../../model/bet";
 import {ConfirmationModalComponent} from "../../confirmation-modal/confirmation-modal.component";
 
 @Component({
@@ -24,7 +23,7 @@ export class BetModalComponent {
   ]);
 
   team : string;
-  type: BetType;
+  type: string;
   subtype?: number;
   odd: number;
 

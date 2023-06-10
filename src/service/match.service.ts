@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
-import {ApiService} from "./api-service";
+import {ApiService} from "./api.service";
 import {Deserialize, IJsonObject} from "dcerialize";
 import {map} from "rxjs";
 import {Match, MatchList, MatchListQueryParams} from "../model/match";

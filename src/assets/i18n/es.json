@@ -8,31 +8,37 @@
     "min-length": "Debe tener mínimo 6 caracteres",
     "required-field": "Este campo es obligatorio",
     "unexpected": "Error inesperado",
-    "username-taken": "El nombre de usuario ya existe"
+    "username-taken": "El nombre de usuario ya existe",
+    "incorrect-orientation": "Orientacion incorrecta",
+    "min": "Debe superar el valor minimo"
   },
   "confirm": "Confirmar",
+  "Add-prize": "Añadir premio",
   "form": {
     "email": "Correo electrónico",
     "password": "Contraseña",
     "repassword": "Repetir contraseña",
-    "username": "Nombre de usuario"
+    "username": "Nombre de usuario",
+    "img": "Imagen del premio",
+    "amount" : "Cantidad",
+    "price" : "Precio"
   },
   "login": "Inicio de sesión",
   "login-successful": "Inicio de sesion con éxito",
   "login-required": "Inicio de sesión requerido",
   "odd": {
-    "assistsOdds": "ASISTENCIAS",
-    "baronsOdds": "BARONES",
-    "deathsOdds": "MUERTES",
-    "drakesOdds": "DRAGONES",
-    "eldersOdds": "ANCIANOS",
-    "expOdds": "Ventaja de Exp > 50%",
-    "goldOdds": "Ventaja de Oro > 50%",
-    "heraldsOdds": "HERALDOS",
-    "inhibitorsOdds": "INHIBIDORES",
-    "killsOdds": "ASESINATOS",
-    "towersOdds": "TORRETAS",
-    "winOdds": "GANADOR"
+    "assists": "Asistencias",
+    "baronKills": "Barones",
+    "deaths": "Muertes",
+    "dragonKills": "Dragones",
+    "elderDrakeKills": "Ancianos",
+    "exp": "Ventaja de Exp > 50%",
+    "gold": "Ventaja de Oro > 50%",
+    "heraldKills": "Heraldos",
+    "inhibitorKills": "Inhibidores",
+    "kills": "Asesinatos",
+    "towerKills": "Torretas",
+    "winner": "Ganador"
   },
   "register-successful": "Registrado con éxito",
   "sign-in": "Registro",
@@ -42,6 +48,7 @@
   "accept": "Aceptar",
   "sure-bet": "¿Estas seguro que quieres apostar?",
   "bet-successful": "Apuesta realizada con exito",
+  "bet-unsuccessful": "Error: Apuesta no realizada",
   "prizes" : "Premios",
   "bets" : "Apuestas",
   "balance" : "Balance",
@@ -77,5 +84,7 @@
     "december": "Diciembre"
   },
   "obtained-prize" : "Premio de inicio de sesion obtenido",
-  "redeem": "Recoger"
+  "redeem": "Recoger",
+  "page-not-found": "Página no encontrada",
+  "no-privilege-for-page": "No tienes permisos para acceder a esta página"
 }

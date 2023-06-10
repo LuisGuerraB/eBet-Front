@@ -5,7 +5,7 @@
       <span>{{'team'|translate}} : {{team}}</span>
       <div>
         <span>{{'odd.'+type | translate}}</span>
-        <span *ngIf="subtype"> - {{subtype}}</span>
+        <span *ngIf="type!='winner'"> : {{subtype}}</span>
       </div>
     </div>
     <hr>

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {ApiService} from "./api-service";
+import {ApiService} from "./api.service";
 import {Deserialize, IJsonObject} from "dcerialize";
-import {ParticipationList} from "../model/Participation";
+import {ParticipationList} from "../model/participation";
 import {map} from "rxjs";
 
 @Injectable({

@@ -8,31 +8,37 @@
     "min-length": "Must be at least 6 characters",
     "required-field": "This is a required field",
     "unexpected": "Unexpected error",
-    "username-taken": "This username is already taken"
+    "username-taken": "This username is already taken",
+    "incorrect-orientation": "Incorrect orientation",
+    "min": "Must exceed minimun value"
   },
   "confirm": "Confirm",
+  "Add-prize" : "Add prize",
   "form": {
     "email": "Email",
     "password": "Password",
     "repassword": "Repeat password",
-    "username": "Username"
+    "username": "Username",
+    "img": "Product image",
+    "price" : "Price",
+    "amount": "Amount"
   },
   "login": "Log in",
   "login-successful": "Log in successfully",
   "login-required": "Login required",
   "odd": {
-    "assistsOdds": "ASSISTS",
-    "baronsOdds": "BARON",
-    "deathsOdds": "DEATHS",
-    "drakesOdds": "DRAKES",
-    "eldersOdds": "ELDERS",
-    "expOdds": "Exp Advantage > 50%",
-    "goldOdds": "Gold Advantage > 50%",
-    "heraldsOdds": "HERALDS",
-    "inhibitorsOdds": "INHIBITORS",
-    "killsOdds": "KILLS",
-    "towersOdds": "TOWERS",
-    "winOdds": "WINNER"
+    "assists": "Assists",
+    "baronKills": "Baron",
+    "deaths": "Deaths",
+    "dragonKills": "Dragons",
+    "elderDrakeKills": "Elders",
+    "exp": "Exp Advantage > 50%",
+    "gold": "Gold Advantage > 50%",
+    "heraldKills": "Heralds",
+    "inhibitorKills": "Inhibitors",
+    "kills": "Kills",
+    "towerKills": "Tower",
+    "winner": "Winner"
   },
   "register-successful": "Register successfully",
   "sign-in": "Sign in",
@@ -42,6 +48,7 @@
   "accept": "Accept",
   "sure-bet": "Are you sure you want to bet?",
   "bet-successful": "Bet successfully created",
+  "bet-unsuccessful": "Error: Bet not done",
   "balance" : "Balance",
   "get-more" : "Get more >",
   "log-out": "Log out",
@@ -76,6 +83,7 @@
   },
   "obtained-prize" : "Obtained login reward",
   "redeem": "Redeem",
-
+  "page-not-found": "Page not found",
+  "no-privilege-for-page": "You can't access to this page"
 
 }

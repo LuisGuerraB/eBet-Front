@@ -2,10 +2,11 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {TranslateModule} from "@ngx-translate/core";
 import {Deserialize} from "dcerialize";
-import {UserLoginResponse} from "../../model/user";
+import {User} from "../../model/user";
 import {SpinnerComponent} from "../spinner/spinner.component";
 import {BackButtonComponent} from "../back-button/back-button.component";
 import {AuthService} from "../../service/auth.service";
+import {SessionStorageService} from "../../service/session-storage.service";
 
 @Component({
   selector: 'app-more-ep',
@@ -19,11 +20,11 @@ export class MoreEpComponent implements OnInit {
   remainingTime!: number;
   redeem = false;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService,private sessionStorage: SessionStorageService) {
   }
 
   ngOnInit() {
-    let user = JSON.parse(sessionStorage.getItem('user')!);
+    let user = this.sessionStorage.getItem('user');
     if (user) {
       let actualDate = new Date();
       user.last_login = new Date(user.last_login);

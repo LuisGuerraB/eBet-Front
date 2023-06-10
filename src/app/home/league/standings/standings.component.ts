@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {Participation} from "../../../../model/Participation";
+import {Participation} from "../../../../model/participation";
 import {ParticipationService} from "../../../../service/participation.service";
 import {TranslateModule} from "@ngx-translate/core";
 

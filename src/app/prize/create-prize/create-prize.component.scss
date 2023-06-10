@@ -1,0 +1,29 @@
+.content{
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  row-gap: 20px;
+
+  .title{
+    font-size: 30px;
+  }
+}
+
+form {
+  width: calc(40% - 20px);
+  max-width:330px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+
+  .img-preview{
+    width:100%;
+    margin-top:10px;
+    img{
+      width: 100%;
+    }
+  }
+
+}

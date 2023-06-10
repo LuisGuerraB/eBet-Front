@@ -28,7 +28,6 @@ export class CarouselComponent implements OnInit {
     let new_height = this.height * (window.innerWidth / window.screen.width);
     this.heightCss = `${new_height}px`;
     this.carouselWidth = `${new_height * 1.7777}px`;
-    console.log(this.carouselWidth, new_height);
   }
 
   sliderConfig = {
