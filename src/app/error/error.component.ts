@@ -26,7 +26,10 @@ export class ErrorComponent implements OnInit {
           this.message = 'page-not-found';
           break;
         case '401':
-          this.message = 'no-privilege-for-page'
+          this.message = 'login-required';
+          break;
+        case '403':
+          this.message = 'no-privilege-for-page';
           break;
       }
     })

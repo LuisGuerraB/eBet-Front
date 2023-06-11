@@ -12,7 +12,7 @@
     </div>
     <nav>
       <div class="top">
-        <a class="nav-button" href="/home/bets">
+        <a class="nav-button" (click)="navigate('home/bets')">
           <i class="fa-solid fa-gavel"></i>
           {{'bets'|translate}}
         </a>
@@ -30,7 +30,7 @@
             <img class="eBet-point" src="assets/img/Ep.svg" alt="eBet points">
           </div>
         </div>
-        <a (click)="getMore()">
+        <a (click)="navigate('auth/more-ep')">
           {{'get-more'|translate}}
         </a>
       </div>

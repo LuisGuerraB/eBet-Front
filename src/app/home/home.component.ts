@@ -38,9 +38,9 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  getMore() {
+  navigate(url:string) {
     if (this.user) {
-      this.router.navigate(['auth/more-ep']);
+      this.router.navigate([url]);
     } else {
       this.dialog.open(ConfirmationModalComponent, {
         data: {
@@ -57,6 +57,7 @@ export class HomeComponent implements OnInit {
       this.authService.logOut().subscribe(
         () => {
           this.balance = 0;
+          this.user =undefined;
           this.dialog.open(ConfirmationModalComponent, {
             data: {
               message: "log-out-successful"

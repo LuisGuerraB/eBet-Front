@@ -86,6 +86,6 @@
   "page-not-found": "Page not found",
   "no-privilege-for-page": "You can't access to this page",
   "no-current-bets" : "No current bets",
-  "your-bets": "Your bets"
-
+  "your-bets": "Your bets",
+  "no-bet-available": "No bet available"
 }

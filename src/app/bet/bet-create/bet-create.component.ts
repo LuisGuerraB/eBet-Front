@@ -28,12 +28,12 @@ export class BetCreateComponent implements OnInit {
 
   public loading: boolean = true;
   public match?: Match;
-  oddsMap?: Map<string, BettingOdd[]>;
+  oddArray?: [string, BettingOdd[]][];
   winnerOdd?: BettingOdd[] = [];
 
   constructor(private matchService: MatchService, private bettingOddService: BettingOddService,
               private betService: BetService, private dialog: MatDialog, private route: ActivatedRoute,
-              private sessionStorage : SessionStorageService) {
+              private sessionStorage: SessionStorageService) {
   }
 
   ngOnInit(): void {
@@ -48,19 +48,23 @@ export class BetCreateComponent implements OnInit {
       this.bettingOddService.getBettingOdds(id).subscribe(
         (bettingOddsDuo) => {
           const combinedOdds = bettingOddsDuo.localTeamOdd.concat(bettingOddsDuo.awayTeamOdd);
-          this.oddsMap = new Map<string, BettingOdd[]>();
+          const oddsMap = new Map<string, BettingOdd[]>();
           combinedOdds.forEach((obj) => {
             const {type} = obj;
             if (obj.type == 'winner') {
               this.winnerOdd!.push(obj)
-            } else if (obj.value.size > 0) {
-              if (this.oddsMap!.has(type)) {
-                this.oddsMap!.get(type)!.push(obj);
+            } else {
+              if (oddsMap!.has(type)) {
+                oddsMap.get(type)!.push(obj);
+                if (oddsMap.get(type)![0].value.size == 0 && oddsMap.get(type)![1].value.size == 0) {
+                  oddsMap.delete(type);
+                }
               } else {
-                this.oddsMap!.set(type, [obj]);
+                oddsMap.set(type, [obj]);
               }
             }
           });
+          this.oddArray = Array.from(oddsMap.entries());
           this.loading = false;
         }
       )
@@ -74,7 +78,7 @@ export class BetCreateComponent implements OnInit {
       })
       return;
     }
-    let team:string;
+    let team: string;
     if (event.team == 'l') {
       team = this.match!.localTeam.acronym;
     } else {

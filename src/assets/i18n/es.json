@@ -88,5 +88,6 @@
   "page-not-found": "Página no encontrada",
   "no-privilege-for-page": "No tienes permisos para acceder a esta página",
   "no-current-bets": "No hay apuestas actualmente",
-  "your-bets": "Tus apuestas"
+  "your-bets": "Tus apuestas",
+  "no-bet-available": "No hay apuestas disponibles"
 }

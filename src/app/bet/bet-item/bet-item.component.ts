@@ -13,9 +13,9 @@ import {BetEvent} from "../../../model/bet";
   imports: [CommonModule, TranslateModule],
   standalone: true
 })
-export class BetItemComponent implements OnInit {
-  @Input() localTeamOdd!: Map<number, number>;
-  @Input() awayTeamOdd!: Map<number, number>;
+export class BetItemComponent implements OnInit{
+  @Input() localTeamOdd?: Map<number, number>;
+  @Input() awayTeamOdd?: Map<number, number>;
   @Input() type!: string;
   @Output() onCreate = new EventEmitter<BetEvent>();
 
@@ -23,12 +23,8 @@ export class BetItemComponent implements OnInit {
   public arrayAwayTeamOdd?: [number, number][];
 
   ngOnInit() {
-    this.arrayLocalTeamOdd = Array.from(this.localTeamOdd.entries());
-    this.arrayAwayTeamOdd = Array.from(this.awayTeamOdd.entries());
-
-  }
-
-  constructor(private dialog: MatDialog) {
+    if(this.localTeamOdd){this.arrayLocalTeamOdd = Array.from(this.localTeamOdd.entries());}
+    if(this.awayTeamOdd){this.arrayAwayTeamOdd = Array.from(this.awayTeamOdd.entries());}
   }
 
   createBet(team: string, subtype: number, multiplier: number) {

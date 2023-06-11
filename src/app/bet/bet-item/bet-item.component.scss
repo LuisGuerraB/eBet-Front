@@ -1,4 +1,5 @@
 @import '/src/assets/scss/variables.scss';
+
 .compound-bet {
   display: grid;
   grid-template-columns: 35% 30% 35%;
@@ -7,48 +8,57 @@
   width: 100%;
   height: 60px;
   round: 5px;
+}
 
+.type {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $primary-color;
+  border: 0.5px solid $background-color;
+}
 
-  .type {
+.bets {
+  display: flex;
+  flex-direction: row-reverse;
+
+  &__opposing {
+    @extend .bets;
+    flex-direction: row;
+  }
+}
+
+.bet {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 0.5px solid $background-color;
+
+  div {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .number {
     background-color: $primary-color;
-    border: 0.5px solid $background-color;
+    color: $contrast-font-color;
+    flex-grow: 1;
+
   }
 
-  .bets {
-    display: flex;
-    flex-direction: row-reverse;
-
-    &__opposing {
-      @extend .bets;
-      flex-direction: row;
-    }
-
-    .bet {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      border: 0.5px solid $background-color;
-
-      div{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .number {
-        background-color: $primary-color;
-        color: $contrast-font-color;
-        flex-grow: 1;
-
-      }
-
-      .odd {
-        flex-grow: 1;
-      }
-    }
+  .odd {
+    flex-grow: 1;
   }
-
 }
+
+
+.no-bet{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+

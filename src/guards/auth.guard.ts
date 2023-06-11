@@ -22,11 +22,11 @@ export class AuthGuard implements CanActivate {
         if (privileges.privileges.includes(requiredPrivilege)) {
           return true;
         } else {
-          return this.router.createUrlTree(['/auth/error/401']);
+          return this.router.createUrlTree(['/auth/error/403']);
         }
       }),
       catchError(() => {
-        return this.router.navigate(['/auth/error/401']);
+        return this.router.navigate(['/auth/error/403']);
       })
     );
 

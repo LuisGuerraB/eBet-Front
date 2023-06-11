@@ -1,18 +1,17 @@
 <div class="component" *ngIf="!loading">
   <back-button></back-button>
   <app-match-header [match]="match"></app-match-header>
-  <div class="bets" *ngIf="oddsMap && match && !loading">
+  <div class="bets" *ngIf="oddArray && match && !loading">
     <app-bet-item [localTeamOdd]="winnerOdd![0].value" [awayTeamOdd]="winnerOdd![1].value" [type]="'winner'"
                   (onCreate)="createBet($event)"></app-bet-item>
-    <app-bet-item *ngFor=" let odd of oddsMap! | keyvalue
-    "
-                  [localTeamOdd]="odd.value[0].value"
-                  [awayTeamOdd]="odd.value[1].value"
-                  [type]="odd.key"
+    <app-bet-item *ngFor=" let odd of oddArray"
+                  [localTeamOdd]="odd[1][0].value"
+                  [awayTeamOdd]="odd[1][1].value"
+                  [type]="odd[0]"
                   (onCreate)="createBet($event)">
     </app-bet-item>
   </div>
-  <div *ngIf=" !oddsMap && !match" class="no-bets">
+  <div *ngIf=" !oddArray && !match" class="no-bets">
     <span>{{'no-odds' | translate}}</span>
   </div>
 </div>
