@@ -1,4 +1,11 @@
-import {autoserializeAs, autoserializeAsArray, deserializeUsing, IJsonObject, onDeserialized} from "dcerialize";
+import {
+  autoserializeAs,
+  autoserializeAsArray,
+  autoserializeAsMap,
+  deserializeUsing,
+  IJsonObject,
+  onDeserialized
+} from "dcerialize";
 import {Team} from "./team";
 import {Season} from "./season";
 
@@ -22,15 +29,17 @@ export class Match {
   @autoserializeAs(() => Team, 'away_team') awayTeam: Team
   @autoserializeAs(() => Season) season: Season
   @autoserializeAs(() => Date, 'end_date') endDate: Date;
+  @autoserializeAsMap(()=>String,()=>Number) result: Map<string, number>;
   @deserializeUsing(functionDeserialze, 'plan_date') planDate: string;
 
-  constructor(id: number, name: string, sets: number, localTeam: Team, awayTeam: Team, season: Season, endDate: Date, planDate: string) {
+  constructor(id: number, name: string, sets: number, localTeam: Team, awayTeam: Team, season: Season, endDate: Date, planDate: string, result:Map<string, number>) {
     this.id = id;
     this.name = name;
     this.sets = sets;
     this.localTeam = localTeam;
     this.awayTeam = awayTeam;
     this.season = season;
+    this.result = result;
     this.endDate = endDate;
     this.planDate = planDate;
   }
