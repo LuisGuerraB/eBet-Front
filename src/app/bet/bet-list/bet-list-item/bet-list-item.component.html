@@ -16,6 +16,7 @@
     <span>{{bet.amount}}</span>
   </div>
   <div class="result" [ngClass]="{'winner':win,'loser':lose}">
-    {{bet.result}}
+    {{bet.result! |translate}}
+    <div *ngIf="!(win && lose) && !disableEdit " (click)="editBetfunction()"><i class="fa-regular fa-pen-to-square"></i></div>
   </div>
 </div>

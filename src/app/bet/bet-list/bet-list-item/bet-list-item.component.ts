@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {Bet} from "../../../../model/bet";
 import {TranslateModule} from "@ngx-translate/core";
@@ -12,6 +12,8 @@ import {TranslateModule} from "@ngx-translate/core";
 })
 export class BetListItemComponent implements OnInit {
   @Input() bet!: Bet;
+  @Input() disableEdit: boolean = false;
+  @Output() editBet = new EventEmitter<Bet>();
   win: boolean = false;
   lose: boolean = false;
   team: string = '';
@@ -21,7 +23,7 @@ export class BetListItemComponent implements OnInit {
     this.checkTeam()
   }
 
-  private checkTeam(){
+  private checkTeam() {
     if (this.bet.match.localTeam.id == this.bet.teamId) {
       this.team = 'l'
     } else {
@@ -29,7 +31,7 @@ export class BetListItemComponent implements OnInit {
     }
   }
 
-  private checkResult(){
+  private checkResult() {
     if (this.bet.result) {
       if (this.bet.result[0] == '+') {
         this.win = true;
@@ -37,5 +39,9 @@ export class BetListItemComponent implements OnInit {
         this.lose = true;
       }
     }
+  }
+
+  editBetfunction() {
+    this.editBet.emit(this.bet)
   }
 }

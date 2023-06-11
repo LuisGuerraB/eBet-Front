@@ -21,7 +21,8 @@
     "username": "Nombre de usuario",
     "img": "Imagen del premio",
     "amount" : "Cantidad",
-    "price" : "Precio"
+    "price" : "Precio",
+    "new-amount": "Nueva cantidad"
   },
   "login": "Inicio de sesión",
   "login-successful": "Inicio de sesion con éxito",
@@ -89,5 +90,11 @@
   "no-privilege-for-page": "No tienes permisos para acceder a esta página",
   "no-current-bets": "No hay apuestas actualmente",
   "your-bets": "Tus apuestas",
-  "no-bet-available": "No hay apuestas disponibles"
+  "no-bet-available": "No hay apuestas disponibles",
+  "edit-your-bet": "Edita tu apuesta",
+  "waiting" : "esperando",
+  "bet-updated-successfully": "Apuesta actualizada con exito",
+  "bet-deleted-successfully": "Apuesta eliminada con exito",
+  "bet-deleted-unsuccessfully": "Error: Apuesta no eliminada",
+  "bet-updated-unsuccessfully": "Error: Apuesta no actualizada"
 }

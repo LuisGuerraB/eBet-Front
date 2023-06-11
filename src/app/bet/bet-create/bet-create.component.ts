@@ -84,7 +84,7 @@ export class BetCreateComponent implements OnInit {
     } else {
       team = this.match!.awayTeam.acronym;
     }
-    let dialogRef = this.dialog.open(BetModalComponent, {
+    this.dialog.open(BetModalComponent, {
       disableClose: true,
       data: {
         team: team,
@@ -93,8 +93,7 @@ export class BetCreateComponent implements OnInit {
         odd: event.multiplier
       },
       width: '340px'
-    })
-    dialogRef.afterClosed().subscribe(
+    }).afterClosed().subscribe(
       (data) => {
         if (data) {
           let team_id: number;

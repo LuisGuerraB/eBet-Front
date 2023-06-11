@@ -1,0 +1,20 @@
+<div class="eBet-modal">
+  <mat-dialog-content>
+    <div class="delete-button" (click)="deleteBet()"><i class="fa-regular fa-trash-can"></i></div>
+    <h1>{{'edit-your-bet'|translate}}</h1>
+    <div class="border"><app-bet-list-item [bet]="bet" [disableEdit]="true"></app-bet-list-item></div>
+    <form [formGroup]="form" (ngSubmit)="submitForm()">
+      <div class="eBet-input">
+        <label>{{"form.new-amount" | translate}}</label>
+        <div><input type="number" formControlName="amount" name="amount">
+          <hr>
+        </div>
+        <app-form-error-messages [control]="form.get('amount')!"></app-form-error-messages>
+      </div>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button class="eBet-button" (click)="onCancel()">{{'cancel'|translate}}</button>
+    <button class="eBet-button" (click)="submitForm()">{{'accept'|translate}}</button>
+  </mat-dialog-actions>
+</div>

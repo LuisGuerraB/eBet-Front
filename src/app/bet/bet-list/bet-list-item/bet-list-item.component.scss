@@ -29,46 +29,52 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 40px;
-    width: 40px;
+    padding: 2px;
+    height: 38px;
+    width: 38px;
 
     img {
-      max-height: 40px;
-      max-width: 40px;
+      max-height: 32px;
+      max-width: 32px;
     }
   }
 
 }
 
-.bet{
+.bet {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 100%;
   width: 250px;
   padding: 0 20px 0 20px;
-  .type{
+
+  .type {
     display: flex;
-    gap:2px;
+    gap: 2px;
   }
-  span{
+
+  span {
     font-weight: bold;
   }
 }
 
-.result{
+.result {
+  display: flex;
+  align-items: center;
+  gap:15px;
   padding: 0 20px 0 20px;
 }
 
-.winner{
+.winner {
   color: $confirmation-color;
 }
 
-.loser{
+.loser {
   color: $error-color;
 }
 
-.betted{
-  border: 2px solid $primary-color;
-  border-radius:5px;
+.betted {
+  border: 1px solid $primary-color;
+  border-radius: 5px;
 }

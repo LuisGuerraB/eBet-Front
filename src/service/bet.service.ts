@@ -13,7 +13,7 @@ export class BetService {
 
   private path = '/bet';
 
-  constructor(private http: HttpClient, private api: ApiService,private sessionStorage : SessionStorageService) {
+  constructor(private http: HttpClient, private api: ApiService, private sessionStorage: SessionStorageService) {
     this.path = api.getApiUrl() + this.path;
   }
 
@@ -25,7 +25,7 @@ export class BetService {
       'subtype': bet.subtype,
       'match_id': bet.match.id,
       'team_id': bet.teamId
-    }, {withCredentials: true}).pipe(tap(()=>{
+    }, {withCredentials: true}).pipe(tap(() => {
         if (this.sessionStorage.getItem('user') != undefined) {
           const userData = this.sessionStorage.getItem('user')!;
           userData.balance -= bet.amount;
@@ -44,5 +44,23 @@ export class BetService {
       catchError(err => {
         throw new Error(err.statusText);
       }))
+  }
+
+  deleteBet(id: number) {
+    return this.http.delete<IJsonObject>(this.path + '/' + id, {withCredentials: true}).pipe(
+      catchError(err => {
+        throw new Error(err.statusText);
+      })
+    )
+  }
+
+  updateBetAmount(id: number, newAmount: number) {
+    return this.http.put<IJsonObject>(this.path + '/' + id + '/amount/' + newAmount.toString(),
+      {},{withCredentials: true}
+    ).pipe(
+      catchError(err => {
+        throw new Error(err.statusText);
+      })
+    )
   }
 }
