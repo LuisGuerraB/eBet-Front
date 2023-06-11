@@ -16,23 +16,25 @@ export class MatchItemComponent implements OnInit {
   @Input() showSeason?: boolean;
 
   date?: string;
+  finished = false;
 
-  constructor(private router:Router){}
+  constructor(private router: Router) {
+  }
 
   ngOnInit() {
     if (this.match) {
       if (this.match.endDate && this.match.endDate < new Date(Date.now())) {
-        this.date = 'finished'
-      } else {
-        this.date = this.match.planDate.slice(0, -7).replace(',', '').replaceAll('/', ' - ',);
+        this.finished = true;
       }
+      this.date = this.match.planDate.slice(0, -7).replace(',', '').replaceAll('/', ' - ',);
+
     }
   }
 
-  redirect(){
-    if(this.date == 'finished'){
+  redirect() {
+    if (this.finished) {
       //TODO: redirect to res page
-    }else{
+    } else {
       this.router.navigate(['/home/bet/' + this.match!.id]);
     }
   }
