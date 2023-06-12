@@ -6,11 +6,12 @@ import {TranslateModule} from "@ngx-translate/core";
 import {PrizeService} from "../../../service/prize.service";
 import {ConfirmationModalComponent} from "../../confirmation-modal/confirmation-modal.component";
 import {MatDialog} from "@angular/material/dialog";
+import {BackButtonComponent} from "../../back-button/back-button.component";
 
 @Component({
   selector: 'app-create-prize',
   standalone: true,
-  imports: [CommonModule, FormErrorMessagesComponent, ReactiveFormsModule, TranslateModule],
+  imports: [CommonModule, FormErrorMessagesComponent, ReactiveFormsModule, TranslateModule, BackButtonComponent],
   templateUrl: './create-prize.component.html',
   styleUrls: ['./create-prize.component.scss']
 })
@@ -41,7 +42,6 @@ export class CreatePrizeComponent {
             disableClose: true,
             data: {
               message: "prize-added",
-              content: "more-prize",
               cancel:true
             }
           }).afterClosed().subscribe(
@@ -61,7 +61,6 @@ export class CreatePrizeComponent {
     if (inputElement.files && inputElement.files.length > 0) {
       const file = inputElement.files[0];
       this.imageData = file;
-
       const img = new Image();
       img.onload = () => {
         const width = img.width;
@@ -78,6 +77,7 @@ export class CreatePrizeComponent {
           this.imagePreview = null;
         }
       };
+      img.src = URL.createObjectURL(file);
     }
   }
 

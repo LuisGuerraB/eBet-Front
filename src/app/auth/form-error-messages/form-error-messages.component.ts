@@ -42,7 +42,9 @@ export class FormErrorMessagesComponent {
     if(errorKey == 'min'){
       return 'control-error.min'
     }
-
+    if(errorKey == 'max'){
+      return 'control-error.max'
+    }
     return 'control-error.unexpected';
   }
 }

@@ -21,7 +21,8 @@
     "username": "Username",
     "img": "Product image",
     "price" : "Price",
-    "amount": "Amount"
+    "amount": "Amount",
+    "new-amount": "New amount"
   },
   "login": "Log in",
   "login-successful": "Log in successfully",
@@ -87,5 +88,11 @@
   "no-privilege-for-page": "You can't access to this page",
   "no-current-bets" : "No current bets",
   "your-bets": "Your bets",
-  "no-bet-available": "No bet available"
+  "no-bet-available": "No bet available",
+  "edit-your-bet": "Edit your bet",
+  "waiting" : "waiting",
+  "bet-updated-successfully": "Bet updated successfully",
+  "bet-deleted-successfully": "Bet deleted successfully",
+  "bet-deleted-unsuccessfully": "Error: Bet not deleted",
+  "bet-updated-unsuccessfully": "Error: Bet not updated"
 }
