@@ -1,4 +1,4 @@
-<div class="item" *ngIf="match" (click)="redirect()" [ngClass]="{'max-width':showSeason,'min-width':!showSeason}">
+<div class="item" *ngIf="match" (click)="redirect()" [ngClass]="{'max-width':showTournament,'min-width':!showTournament}">
   <div class="teams">
     <div class="team">
       <img src="{{match.localTeam.img}}" alt="{{match.localTeam.name}}">
@@ -15,10 +15,10 @@
       <img src="{{match.awayTeam.img}}" alt="{{match.awayTeam.name}}">
     </div>
   </div>
-  <div *ngIf="showSeason" class="season">
-    <img src="{{match.season.league.img}}" alt="{{match.season.league.name}}">
-    <span>{{match.season.league.acronym}}</span>
-    <span class="accent">{{match.season.name}}</span>
+  <div *ngIf="showTournament" class="tournament">
+    <img src="{{match.tournament.league.img}}" alt="{{match.tournament.league.name}}">
+    <span>{{match.tournament.league.acronym}}</span>
+    <span class="accent">{{match.tournament.name}}</span>
   </div>
   <div>
     <span class="date" [ngClass]="{'line':finished}">{{date! | translate | uppercase}}</span>

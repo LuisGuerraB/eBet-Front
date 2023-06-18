@@ -7,7 +7,7 @@ import {
   onDeserialized
 } from "dcerialize";
 import {Team} from "./team";
-import {Season} from "./season";
+import {Tournament} from "./tournament";
 
 
 function functionDeserialze(data: any): string {
@@ -27,18 +27,18 @@ export class Match {
   @autoserializeAs(() => String) sets: number;
   @autoserializeAs(() => Team, 'local_team') localTeam: Team
   @autoserializeAs(() => Team, 'away_team') awayTeam: Team
-  @autoserializeAs(() => Season) season: Season
+  @autoserializeAs(() => Tournament) tournament: Tournament
   @autoserializeAs(() => Date, 'end_date') endDate: Date;
   @autoserializeAsMap(()=>String,()=>Number) result: Map<string, number>;
   @deserializeUsing(functionDeserialze, 'plan_date') planDate: string;
 
-  constructor(id: number, name: string, sets: number, localTeam: Team, awayTeam: Team, season: Season, endDate: Date, planDate: string, result:Map<string, number>) {
+  constructor(id: number, name: string, sets: number, localTeam: Team, awayTeam: Team, tournament: Tournament, endDate: Date, planDate: string, result:Map<string, number>) {
     this.id = id;
     this.name = name;
     this.sets = sets;
     this.localTeam = localTeam;
     this.awayTeam = awayTeam;
-    this.season = season;
+    this.tournament = tournament;
     this.result = result;
     this.endDate = endDate;
     this.planDate = planDate;

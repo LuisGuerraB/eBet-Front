@@ -13,7 +13,7 @@ import {Router} from "@angular/router";
 })
 export class MatchItemComponent implements OnInit {
   @Input() match?: Match;
-  @Input() showSeason?: boolean;
+  @Input() showTournament?: boolean;
 
   date?: string;
   finished = false;

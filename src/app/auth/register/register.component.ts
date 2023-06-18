@@ -51,7 +51,7 @@ export class RegisterComponent {
               message: "register-successful"
             }
           }).afterClosed().subscribe(
-            () => this.router.navigate(['/user/login'])
+            () => this.router.navigate(['/auth/login'])
           )
         },
         (err) => {

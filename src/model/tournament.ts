@@ -1,7 +1,7 @@
 import {autoserializeAs} from "dcerialize";
 import {League} from "./league";
 
-export class Season {
+export class Tournament {
   @autoserializeAs(() => Number) id: number;
   @autoserializeAs(() => String) name: string;
   @autoserializeAs(() => Number, 'serie_id') serieId: number;
