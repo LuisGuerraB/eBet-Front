@@ -1,8 +1,10 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {ApiService} from "./api.service";
-import {catchError, tap} from "rxjs";
+import {catchError, map, tap} from "rxjs";
 import {FormBuilder} from "@angular/forms";
+import {Deserialize, IJsonObject} from "dcerialize";
+import {PrizeList} from "../model/prize";
 
 @Injectable({
   providedIn: 'root'
@@ -25,5 +27,15 @@ export class PrizeService {
         price: price
       }
     })
+  }
+
+  getPrizes(){
+    return this.http.get<IJsonObject>(this.path + '/list').pipe(
+      map((prizesList) => Deserialize(prizesList, () => PrizeList))
+    )
+  }
+
+  deletePrize(prize_id: number) {
+    return this.http.delete(this.path+'/'+prize_id.toString())
   }
 }

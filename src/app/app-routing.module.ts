@@ -14,12 +14,13 @@ const routes: Routes = [
       {path: 'main', loadComponent: () => import('./home/main/main.component').then(m => m.MainComponent)},
       {path: 'bet/:matchId', loadComponent: () => import('./bet/bet-create/bet-create.component').then(m => m.BetCreateComponent)},
       {path: 'bets',canActivate: [LoginGuard], loadComponent: () => import('./bet/bet-list/bet-list.component').then(m => m.BetListComponent)},
+      {path: 'prizes', loadComponent: () => import('./prize/prize-list/prize-list.component').then(m => m.PrizeListComponent)},
       {
         path: 'league/:leagueId',
         loadComponent: () => import('./home/league/league.component').then(m => m.LeagueComponent)
       },
       {
-        path: 'prize',
+        path: 'prize/new',
         loadComponent: () => import('./prize/create-prize/create-prize.component').then(m => m.CreatePrizeComponent),
         canActivate: [AuthGuard],
         data: {

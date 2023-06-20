@@ -1,0 +1,59 @@
+@import 'src/assets/scss/variables.scss';
+
+.top{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-button {
+  margin-left: auto;
+  background-color: $primary-color;
+  border-radius: 5px;
+  text-decoration: none;
+  display: flex;
+  gap: 10px;
+  height: 30px;
+  align-items: center;
+  width: max-content;
+  padding: 2px 10px 2px 10px;
+}
+
+
+.prize-container{
+  width: calc(100% - 30px);
+  margin: 0 15px 0 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .prize-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-around;
+    align-content: center;
+    width: 100%;
+    background-color: $grey-palette-500;
+  }
+
+  .prize-item{
+    position:relative;
+  }
+
+  .delete-button{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $primary-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size:20px;
+    padding:3px;
+    border-radius : 5px;
+    width: 26px;
+    transform: translate(75%, 75%);
+  }
+}
