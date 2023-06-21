@@ -11,4 +11,8 @@ export class ApiService {
   public getApiUrl(){
     return "http://localhost:5000/api/v1";
   }
+
+  public getBackEndUrl(){
+    return "http://localhost:5000/";
+  }
 }

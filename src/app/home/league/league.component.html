@@ -11,16 +11,16 @@
     <div class="column right">
       <app-carousel [images]="images" [height]="300"></app-carousel>
       <div class="match-list">
-        <form class="filters">
-          <div class="filter">
+        <form class="eBet-filters">
+          <div class="eBet-filter">
             <input class="eBet-checkbox" type="checkbox" name="finished" [(ngModel)]="filters.finished" (change)="search()">
             <span class="checkbox-custom">{{'filter.finished'|translate}}</span>
           </div>
-          <select class="filter" name="year" [(ngModel)]="filters.year" (change)="search()">
+          <select class="eBet-filter" name="year" [(ngModel)]="filters.year" (change)="search()">
             <option value="undefined">{{'filter.all'|translate}}</option>
             <option *ngFor="let year of years">{{year}}</option>
           </select>
-          <select class="filter" name="month" [(ngModel)]="filters.month" (change)="search()">
+          <select class="eBet-filter" name="month" [(ngModel)]="filters.month" (change)="search()">
             <option value="undefined">{{'filter.all' | translate}}</option>
             <option *ngFor="let month of months" value="{{month.number}}">{{month.name|translate}}</option>
           </select>
