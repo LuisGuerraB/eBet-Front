@@ -17,11 +17,11 @@
             <span class="checkbox-custom">{{'filter.finished'|translate}}</span>
           </div>
           <select class="eBet-filter" name="year" [(ngModel)]="filters.year" (change)="search()">
-            <option value="undefined">{{'filter.all'|translate}}</option>
+            <option value="-1">{{'filter.all'|translate}}</option>
             <option *ngFor="let year of years">{{year}}</option>
           </select>
           <select class="eBet-filter" name="month" [(ngModel)]="filters.month" (change)="search()">
-            <option value="undefined">{{'filter.all' | translate}}</option>
+            <option value="-1">{{'filter.all' | translate}}</option>
             <option *ngFor="let month of months" value="{{month.number}}">{{month.name|translate}}</option>
           </select>
         </form>

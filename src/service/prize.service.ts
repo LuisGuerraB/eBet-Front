@@ -36,6 +36,6 @@ export class PrizeService {
   }
 
   deletePrize(prize_id: number) {
-    return this.http.delete(this.path+'/'+prize_id.toString())
+    return this.http.delete(this.path+'/'+prize_id.toString(),{withCredentials: true})
   }
 }

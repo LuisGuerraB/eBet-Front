@@ -3,8 +3,6 @@ import {
   autoserializeAsArray,
   autoserializeAsMap,
   deserializeUsing,
-  IJsonObject,
-  onDeserialized
 } from "dcerialize";
 import {Team} from "./team";
 import {Tournament} from "./tournament";
@@ -59,10 +57,10 @@ export class MatchList {
 
 
 export interface MatchListQueryParams {
-  league_id?: number;
-  finished?: boolean;
-  year?: number;
-  month?: number;
-  limit?: number;
-  page?: number;
+  league_id: number;
+  finished: boolean;
+  year: number;
+  month: number;
+  limit: number;
+  page: number;
 }

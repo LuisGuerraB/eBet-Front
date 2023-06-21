@@ -37,8 +37,9 @@ export class LeagueComponent implements OnInit {
 
   filters: MatchListQueryParams = {
     finished: false,
-    year: undefined,
-    month: undefined,
+    league_id:-1,
+    year: -1,
+    month: -1,
     limit: 10,
     page: 1,
   }
@@ -79,7 +80,7 @@ export class LeagueComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.leagueId = params['leagueId'];
-      this.filters.league_id = this.leagueId;
+      this.filters.league_id = this.leagueId!;
 
       this.leagueService.getLeagueById(this.leagueId!).subscribe(
         league => this.league = league

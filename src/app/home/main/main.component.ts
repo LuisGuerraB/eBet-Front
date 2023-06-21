@@ -59,7 +59,7 @@ export class MainComponent implements OnInit {
         console.log(error.message)
       }
     )
-    let paramQuery : MatchListQueryParams ={finished:false,limit:5,page:1};
+    let paramQuery : MatchListQueryParams ={league_id:-1,year:-1,month:-1,finished:false,limit:5,page:1};
     this.matchService.getMatchList(paramQuery).subscribe(
       (matches: MatchList) => {
         this.matches = matches.items;
