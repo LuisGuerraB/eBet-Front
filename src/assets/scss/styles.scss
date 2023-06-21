@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
-@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import '@angular/material/prebuilt-themes/pink-bluegrey.css';
 @import 'variables.scss';
 @import 'input.scss';
 @import 'button.scss';
@@ -62,6 +63,31 @@ h1{
   font-size:26px;
 }
 
+.tab-label {
+  margin-right: 10px !important;
+  background-color: $primary-color !important;
+  border-radius: 10px 10px 0 0 !important;
 
+  &__active {
+    @extend .tab-label;
+    background-color: $primary-subcolor !important;
+    border:2px solid $grey-palette-400 !important;
+  }
 
+  &__text {
 
+  }
+}
+
+.mdc-tab__text-label{
+  color: $font-color !important;
+}
+
+.mat-mdc-tab-label-container{
+  flex-grow:0 !important;
+}
+
+.mdc-tab-indicator{
+  width:0 !important;
+  height:0 !important;
+}

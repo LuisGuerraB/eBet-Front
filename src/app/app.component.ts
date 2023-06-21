@@ -3,6 +3,7 @@ import {RouterOutlet} from '@angular/router';
 import {HttpClientModule} from "@angular/common/http";
 import {TranslateModule, TranslateService} from "@ngx-translate/core";
 import {MatDialogModule} from "@angular/material/dialog";
+import {OverlayContainer} from '@angular/cdk/overlay';
 
 
 @Component({
@@ -19,11 +20,12 @@ import {MatDialogModule} from "@angular/material/dialog";
 })
 export class AppComponent {
 
-  constructor(private translate: TranslateService) {
-    if(navigator.language == 'en'){
-      this.translate.setDefaultLang('en');
-    }else{
+  constructor(private translate: TranslateService, private overlayContainer: OverlayContainer) {
+    this.overlayContainer.getContainerElement().classList.add('my-theme');
+    if(navigator.language == 'es'){
       this.translate.setDefaultLang('es');
+    }else{
+      this.translate.setDefaultLang('en');
     }
   }
 }

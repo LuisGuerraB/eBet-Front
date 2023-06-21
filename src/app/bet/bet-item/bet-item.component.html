@@ -3,7 +3,7 @@
     <div class="bet" *ngFor="let odd of arrayLocalTeamOdd">
       <div class="number" *ngIf="type!='winner'">{{odd[0]}}</div>
       <div class="odd" (click)="createBet('l',odd[0],odd[1])">
-        {{odd[1] | number:'.2'}}
+        {{odd[1].toFixed(2)}}
       </div>
     </div>
     <div class="no-bet" *ngIf="arrayLocalTeamOdd?.length == 0">{{'no-bet-available'|translate}}</div>
@@ -15,7 +15,7 @@
     <div class="bet" *ngFor="let odd of arrayAwayTeamOdd">
       <div class="number" *ngIf="type!='winner'">{{odd[0]}}</div>
       <div class="odd" (click)="createBet('a',odd[0],odd[1])">
-        {{odd[1]| number:'.2'}}
+        {{odd[1].toFixed(2)}}
       </div>
     </div>
     <div class="no-bet" *ngIf="arrayAwayTeamOdd?.length == 0">{{'no-bet-available'|translate}}</div>
