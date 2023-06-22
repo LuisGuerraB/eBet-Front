@@ -1,0 +1,30 @@
+<div class="eBet-modal">
+  <mat-dialog-content>
+    <h2>{{'which-email'|translate}}</h2>
+    <hr>
+    <div *ngIf="error" class="input-error">
+      <div>{{error | translate}}</div>
+    </div>
+    <form [formGroup]="form" class="eBet-form">
+      <div class="eBet-input">
+        <label>{{"form.email" | translate}}</label>
+        <div><input type="text" formControlName="email" name="email">
+          <hr>
+        </div>
+        <app-form-error-messages [control]="form.get('email')!"></app-form-error-messages>
+      </div>
+      <div class="eBet-input">
+        <label>{{"form.repeatEmail" | translate}}</label>
+        <div><input type="text" formControlName="repeatEmail" name="repeatEmail">
+          <hr>
+        </div>
+        <app-form-error-messages [control]="form.get('repeatEmail')!"></app-form-error-messages>
+      </div>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button class="eBet-button" (click)="onCancel()">{{'cancel'|translate}}</button>
+    <button class="eBet-button" (click)="onAccept()">{{'accept'|translate}}</button>
+  </mat-dialog-actions>
+</div>
+

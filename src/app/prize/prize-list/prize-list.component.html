@@ -6,12 +6,12 @@
   <h1>{{'Prizes' | translate}}</h1>
   <div class="prize-container">
     <div class="eBet-filters">
-      <button class="eBet-filter">{{'buyable'|translate}}</button>
+      <button class="eBet-filter" (click)="applyFilter()">{{'buyable'|translate}}</button>
     </div>
     <div class="prize-list">
-      <div class="prize-item" *ngFor="let prize of prizes" >
+      <div class="prize-item" *ngFor="let prize of viewPrizes" >
         <button *ngIf="privileges" class="delete-button" (click)="deletePrize(prize.id)"><i class="fa-regular fa-trash-can"></i></button>
-        <app-prize-item [prize]="prize" [url]="backEnd"></app-prize-item>
+        <app-prize-item [prize]="prize" [url]="backEnd" (emitBuy)="buyPrize($event)"></app-prize-item>
       </div>
     </div>
   </div>

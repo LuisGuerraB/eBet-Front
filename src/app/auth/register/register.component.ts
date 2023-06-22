@@ -6,8 +6,6 @@ import {
   FormGroup,
   FormsModule,
   ReactiveFormsModule,
-  ValidationErrors,
-  ValidatorFn,
   Validators
 } from "@angular/forms";
 import {Router} from "@angular/router";
@@ -15,6 +13,7 @@ import {NgIf} from "@angular/common";
 import {FormErrorMessagesComponent} from "../form-error-messages/form-error-messages.component";
 import {ConfirmationModalComponent} from "../../confirmation-modal/confirmation-modal.component";
 import {MatDialog, MatDialogModule} from "@angular/material/dialog";
+import {noMatchValidator} from "../../../functions/validations_functions";
 
 @Component({
   selector: 'app-register',
@@ -39,7 +38,7 @@ export class RegisterComponent {
       email: this.email,
       password: this.password,
       repassword: this.repassword
-    }, {validators: validateMatchPassword as ValidatorFn});
+    }, {validators: noMatchValidator('password','repassword')});
   }
 
   submitForm() {
@@ -63,15 +62,4 @@ export class RegisterComponent {
     }
   }
 
-}
-
-function validateMatchPassword(form: FormGroup): ValidationErrors | null {
-  const password = form.get('password')!.value;
-  const repassword = form.get('repassword')!.value;
-
-  if (password === repassword) {
-    return null;
-  } else {
-    return {noMatch: true};
-  }
 }
