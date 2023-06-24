@@ -39,6 +39,7 @@ const routes: Routes = [
       {path: 'login', loadComponent: () => import('./auth/login/login.component').then(m => m.LoginComponent)},
       {path: 'more-ep',canActivate: [LoginGuard], loadComponent: () => import('./more-ep/more-ep.component').then(m => m.MoreEpComponent)},
       {path: 'error/:error', loadComponent: () => import('./error/error.component').then(m => m.ErrorComponent)},
+      {path: 'edit',loadComponent: () => import('./user/user-edit/user-edit.component').then(m => m.UserEditComponent)},
     ]
   },
   {path: '**', redirectTo: '/auth/error/404', pathMatch: 'full'}

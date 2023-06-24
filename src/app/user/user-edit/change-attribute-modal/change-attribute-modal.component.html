@@ -1,0 +1,19 @@
+<div class="eBet-modal">
+  <mat-dialog-content>
+    <span>{{message}}</span>
+    <hr>
+    <form [formGroup]="form" (ngSubmit)="submitForm()">
+      <div class="eBet-input">
+        <div>
+          <input type="{{attribute}}" formControlName="attribute" name="attribute">
+          <hr>
+        </div>
+        <app-form-error-messages [control]="form.get('attribute')!"></app-form-error-messages>
+      </div>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button class="eBet-button" (click)="submitForm()">{{'accept'|translate}}</button>
+  </mat-dialog-actions>
+
+</div>

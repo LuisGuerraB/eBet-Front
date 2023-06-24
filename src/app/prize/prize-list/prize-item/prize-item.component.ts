@@ -12,5 +12,4 @@ import {TranslateModule} from "@ngx-translate/core";
 })
 export class PrizeItemComponent {
   @Input() prize!: Prize;
-  @Input() url!: string;
 }
