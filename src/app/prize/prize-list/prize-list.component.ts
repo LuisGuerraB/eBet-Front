@@ -33,7 +33,7 @@ export class PrizeListComponent {
   constructor(private prizeService: PrizeService, private authService: AuthService, private apiService: ApiService, private dialog: MatDialog, private sessionStorage: SessionStorageService) {
   }
 
-  ngOnInit() {
+  ngOnInit(){
     this.backEnd = this.apiService.getBackEndUrl()
     this.prizeService.getPrizes().subscribe(
       (prizes) => {

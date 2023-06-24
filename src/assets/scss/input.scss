@@ -10,21 +10,26 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-left: 10px;
 
-  &__center{
-    align-items:center;
+  &__center {
+    align-items: center;
     width: max-content !important;
   }
 
+  &.row {
+    gap: 5px;
+    flex-direction: row;
+  }
 
   label {
     font-size: 18px;
-    margin-left: 10px;
+    margin-left: 3px;
   }
 
   input {
-    width: 100%;
+    width: calc(100% - 7px);
     border-radius: 5px;
     background-color: $grey-palette-700;
     font-size: 16px;
@@ -32,11 +37,12 @@
     padding-left: 5px;
   }
 
-  input[type=number]{
+  input[type=number] {
     width: calc(100% - 10px);
     padding-left: 10px;
   }
-  input[type=file]{
+
+  input[type=file] {
     width: min-content;
   }
 
