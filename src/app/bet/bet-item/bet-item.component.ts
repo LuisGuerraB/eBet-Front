@@ -17,6 +17,7 @@ export class BetItemComponent implements OnInit{
   @Input() localTeamOdd?: Map<number, number>;
   @Input() awayTeamOdd?: Map<number, number>;
   @Input() type!: string;
+  @Input() set? : number;
   @Output() onCreate = new EventEmitter<BetEvent>();
 
   public arrayLocalTeamOdd?: [number, number][];
@@ -28,7 +29,7 @@ export class BetItemComponent implements OnInit{
   }
 
   createBet(team: string, subtype: number, multiplier: number) {
-    this.onCreate.emit({type:this.type,team:team,subtype:subtype,multiplier:multiplier});
+    this.onCreate.emit({type:this.type,team:team,subtype:subtype,multiplier:multiplier,set:this.set});
   }
 }
 

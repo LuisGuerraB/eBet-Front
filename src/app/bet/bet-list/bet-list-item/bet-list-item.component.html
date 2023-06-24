@@ -11,12 +11,17 @@
     </div>
   </div>
   <div class="bet border">
-    <div class="type"><span>{{"odd."+ bet.type | translate}}</span>:<span>{{bet.subtype}}</span></div>
+    <div class="type">
+      <span>{{"odd." + bet.type | translate}}</span>
+      <span *ngIf="bet.type!='winner'">:{{bet.subtype}}</span>
+    </div>
+    <span *ngIf="bet.set!=undefined">set : {{bet.set+1}}</span>
     <span>x {{bet.multiplier}}</span>
     <span>{{bet.amount}}</span>
   </div>
   <div class="result" [ngClass]="{'winner':win,'loser':lose}">
     {{bet.result! |translate}}
-    <div *ngIf="!(win && lose) && !disableEdit " (click)="editBetfunction()"><i class="fa-regular fa-pen-to-square"></i></div>
+    <div *ngIf="!(win && lose) && !disableEdit " (click)="editBetfunction()"><i class="fa-regular fa-pen-to-square"></i>
+    </div>
   </div>
 </div>

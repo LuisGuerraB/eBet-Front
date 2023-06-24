@@ -16,19 +16,23 @@ import {BackButtonComponent} from "../../back-button/back-button.component";
 import {BettingOdd} from "../../../model/betting-odd";
 import {BetModalComponent} from "../bet-modal/bet-modal.component";
 import {SessionStorageService} from "../../../service/session-storage.service";
+import {forkJoin} from "rxjs";
+import {MatTabsModule} from "@angular/material/tabs";
+import { cloneDeep } from 'lodash';
 
 @Component({
   selector: 'app-bet-create',
   templateUrl: './bet-create.component.html',
   styleUrls: ['./bet-create.component.scss'],
   standalone: true,
-  imports: [CommonModule, BetItemComponent, TranslateModule, MatchHeaderComponent, SpinnerComponent, BackButtonComponent]
+  imports: [CommonModule, BetItemComponent, TranslateModule, MatchHeaderComponent, SpinnerComponent, BackButtonComponent, MatTabsModule]
 })
 export class BetCreateComponent implements OnInit {
 
   public loading: boolean = true;
   public match?: Match;
-  oddArray?: [string, BettingOdd[]][];
+  public tabActive = 1;
+  sets: any = [];
   winnerOdd?: BettingOdd[] = [];
 
   constructor(private matchService: MatchService, private bettingOddService: BettingOddService,
@@ -38,15 +42,13 @@ export class BetCreateComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      this.loading = true;
       const id = params['matchId'];
-      this.matchService.getMatchById(id).subscribe(
-        (match) => {
+      let matchObservable = this.matchService.getMatchById(id)
+      let bettingOddObservable = this.bettingOddService.getBettingOdds(id)
+
+      forkJoin([matchObservable, bettingOddObservable]).subscribe(
+        ([match, bettingOddsDuo]) => {
           this.match = match;
-        }
-      );
-      this.bettingOddService.getBettingOdds(id).subscribe(
-        (bettingOddsDuo) => {
           const combinedOdds = bettingOddsDuo.localTeamOdd.concat(bettingOddsDuo.awayTeamOdd);
           const oddsMap = new Map<string, BettingOdd[]>();
           combinedOdds.forEach((obj) => {
@@ -64,7 +66,22 @@ export class BetCreateComponent implements OnInit {
               }
             }
           });
-          this.oddArray = Array.from(oddsMap.entries());
+          let oddArray = Array.from(oddsMap.entries());
+
+          for (let set = 1; set <= match.sets; set++) {
+            let oddArrayCopy = cloneDeep(oddArray);
+
+            if (set > Math.ceil(match.sets / 2)) {
+              for (let bettingOddStruct of oddArrayCopy) {
+                for (let bettingOdd of bettingOddStruct[1]) {
+                  for (let [key, value] of bettingOdd.value) {
+                    bettingOdd.value.set(key, value * (1 / (bettingOddsDuo.probFinishEarly * 1.1)));
+                  }
+                }
+              }
+            }
+            this.sets.push([...oddArrayCopy]); // Push a new deep copy to this.sets
+          }
           this.loading = false;
         }
       )
@@ -84,15 +101,16 @@ export class BetCreateComponent implements OnInit {
     } else {
       team = this.match!.awayTeam.acronym;
     }
+    console.log(event)
     this.dialog.open(BetModalComponent, {
       disableClose: true,
       data: {
         team: team,
         type: event.type,
         subtype: event.subtype,
-        odd: event.multiplier
-      },
-      width: '340px'
+        odd: event.multiplier,
+        set: event.set,
+      }
     }).afterClosed().subscribe(
       (data) => {
         if (data) {
@@ -102,7 +120,8 @@ export class BetCreateComponent implements OnInit {
           } else {
             team_id = this.match!.awayTeam.id
           }
-          let bet = new Bet(new Date(), event.type, event.multiplier, data.amount, this.match!, team_id, event.subtype);
+          console.log(data)
+          let bet = new Bet(new Date(), event.type, event.multiplier, data.amount,  this.match!, team_id, event.subtype,event.set);
           this.betService.createBet(bet).subscribe(
             (bet) => {
               this.dialog.open(ConfirmationModalComponent, {
@@ -118,5 +137,9 @@ export class BetCreateComponent implements OnInit {
         }
       }
     )
+  }
+
+  changeTabActive($event:any) {
+    this.tabActive = $event.index;
   }
 }
