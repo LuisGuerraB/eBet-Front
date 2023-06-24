@@ -12,8 +12,10 @@ import {PrizeList} from "../model/prize";
 export class PrizeService {
 
   private path = '/prize';
+  private apiPath :string
 
   constructor(private http: HttpClient, private api: ApiService) {
+    this.apiPath=api.getBackEndUrl();
     this.path = api.getApiUrl() + this.path;
   }
 
@@ -31,7 +33,13 @@ export class PrizeService {
 
   getPrizes(){
     return this.http.get<IJsonObject>(this.path + '/list').pipe(
-      map((prizesList) => Deserialize(prizesList, () => PrizeList))
+      map((prizesList) => Deserialize(prizesList, () => PrizeList)),
+      map( (prizesList) => {
+        for (let prize of prizesList.items){
+          prize.img = this.apiPath + prize.img;
+        }
+        return prizesList;
+      })
     )
   }
 

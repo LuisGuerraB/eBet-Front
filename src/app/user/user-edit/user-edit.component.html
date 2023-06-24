@@ -1,0 +1,42 @@
+<div class="content" *ngIf="user">
+  <back-button></back-button>
+  <div class="img">
+
+    <div class="avatar img-container">
+      <img *ngIf="user.img" src="{{user.img}}" alt="User img">
+      <img *ngIf="!user.img" src="../../../assets/img/user.svg" alt="User img">
+
+    </div>
+    <button class="edit-button" (click)="openEditImg()"><i class="fa-solid fa-pen-to-square"></i></button>
+  </div>
+
+  <div *ngIf="error" class="input-error">
+    <div>{{error | translate}}</div>
+  </div>
+  <form [formGroup]="form" (ngSubmit)="submitForm()" class="eBet-form">
+    <div class="eBet-input">
+      <label>{{"form.username" | translate}}</label>
+      <div>
+        <input type="text" formControlName="username" name="username" placeholder="{{user.username}}">
+        <hr>
+      </div>
+      <app-form-error-messages [control]="form.get('username')!"></app-form-error-messages>
+    </div>
+    <div class="eBet-input row">
+      <label>{{'form.change-email' | translate}}</label>
+      <span>:</span>
+      <a (click)="openTransaction('email')">{{'click-here'|translate}}</a>
+    </div>
+    <div class="eBet-input row">
+      <label>{{'form.change-password' | translate}}</label>
+      <span>:</span>
+      <a (click)="openTransaction('password')">{{'click-here'|translate}}</a>
+    </div>
+    <div class="buttons-container">
+      <button type=submit class="eBet-button">{{"confirm"|translate}}</button>
+    </div>
+  </form>
+</div>
+<div *ngIf="!user">
+  <app-spinner></app-spinner>
+</div>

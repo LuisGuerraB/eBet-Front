@@ -22,13 +22,11 @@ export class PrizeListComponent {
 
   loading = true;
   privileges = false;
-  backEnd = '';
   prizes? : Prize[]
 
   constructor(private prizeService : PrizeService, private authService : AuthService, private apiService : ApiService,private dialog: MatDialog){}
 
   ngOnInit(){
-    this.backEnd = this.apiService.getBackEndUrl()
     this.prizeService.getPrizes().subscribe(
       (prizes) => {
         this.prizes = prizes.items;

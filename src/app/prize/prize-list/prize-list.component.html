@@ -11,7 +11,7 @@
     <div class="prize-list">
       <div class="prize-item" *ngFor="let prize of prizes" >
         <button *ngIf="privileges" class="delete-button" (click)="deletePrize(prize.id)"><i class="fa-regular fa-trash-can"></i></button>
-        <app-prize-item [prize]="prize" [url]="backEnd"></app-prize-item>
+        <app-prize-item [prize]="prize"></app-prize-item>
       </div>
     </div>
   </div>
