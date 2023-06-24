@@ -4,7 +4,7 @@ import {ApiService} from "./api.service";
 import {catchError, map, tap} from "rxjs";
 import {FormBuilder} from "@angular/forms";
 import {Deserialize, IJsonObject} from "dcerialize";
-import {PrizeList} from "../model/prize";
+import {Prize, PrizeList} from "../model/prize";
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +31,7 @@ export class PrizeService {
     })
   }
 
-  getPrizes(){
+  getPrizes() {
     return this.http.get<IJsonObject>(this.path + '/list').pipe(
       map((prizesList) => Deserialize(prizesList, () => PrizeList)),
       map( (prizesList) => {
@@ -44,6 +44,10 @@ export class PrizeService {
   }
 
   deletePrize(prize_id: number) {
-    return this.http.delete(this.path+'/'+prize_id.toString(),{withCredentials: true})
+    return this.http.delete(this.path + '/' + prize_id.toString(), {withCredentials: true})
+  }
+
+  buyPrize(prize: Prize, email: string) {
+    return this.http.post(this.path + '/buy/' + prize.id.toString(), {'email': email}, {withCredentials: true})
   }
 }

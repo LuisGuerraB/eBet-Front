@@ -6,7 +6,7 @@
   <div *ngIf="error" class="input-error">
     <div>{{error | translate}}</div>
   </div>
-  <form [formGroup]="form" (ngSubmit)="submitForm()">
+  <form [formGroup]="form" (ngSubmit)="submitForm()" class="eBet-form">
     <div class="eBet-input">
       <label>{{"form.username" | translate}}</label>
       <div><input type="text" formControlName="username" name="username"><hr></div>

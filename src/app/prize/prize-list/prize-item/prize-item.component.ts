@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {Prize} from "../../../../model/prize";
 import {TranslateModule} from "@ngx-translate/core";
@@ -12,4 +12,10 @@ import {TranslateModule} from "@ngx-translate/core";
 })
 export class PrizeItemComponent {
   @Input() prize!: Prize;
+  @Input() url!: string;
+  @Output() emitBuy : EventEmitter<Prize> = new EventEmitter();
+
+  clickBuy() {
+    this.emitBuy.emit(this.prize);
+  }
 }

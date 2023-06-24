@@ -2,13 +2,32 @@
 
 .item {
   margin: 10px;
-  width: 280px;
-  height: 450px;
+  width: 160px;
+  height: 250px;
+  position:relative;
+
+  .buy-button{
+    background-color: $primary-color;
+    border-radius : 5px;
+    padding:5px 15px 5px 15px ;
+    position: absolute;
+    font-size: 20px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    gap:5px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    *{
+      font-size: 30px;
+    }
+  }
 
 
   .img-container {
     width: 100%;
-    height: 396px;
+    height: 196px;
     overflow: hidden;
     border-radius: 5px 5px 0 0;
 
@@ -20,7 +39,7 @@
 
   .footer {
     width: calc(100% - 24px);
-    height: 50px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,8 +51,12 @@
     gap: 10px;
     padding: 0 10px 0 10px;
 
+    img{
+      height: 25px;
+    }
+
     span {
-      font-size: 30px;
+      font-size: 18px;
     }
   }
 }
