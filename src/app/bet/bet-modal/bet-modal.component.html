@@ -4,9 +4,10 @@
     <div class="bet-info">
       <span>{{'team'|translate}} : {{team}}</span>
       <div>
-        <span>{{'odd.'+type | translate}}</span>
+        <span>{{'odd.' + type | translate}}</span>
         <span *ngIf="type!='winner'"> : {{subtype}}</span>
       </div>
+      <span *ngIf="set!=undefined">set : {{set+1}}</span>
     </div>
     <hr>
     <div class="bet-amount">
@@ -14,7 +15,9 @@
       <span>X</span>
       <form [formGroup]="form">
         <div class="eBet-input">
-          <div><input type="number" formControlName="amount"><hr></div>
+          <div><input type="number" formControlName="amount">
+            <hr>
+          </div>
           <app-form-error-messages [control]="form.get('amount')!"></app-form-error-messages>
         </div>
       </form>

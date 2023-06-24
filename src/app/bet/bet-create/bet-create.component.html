@@ -1,17 +1,25 @@
 <div class="component" *ngIf="!loading">
   <back-button></back-button>
   <app-match-header [match]="match"></app-match-header>
-  <div class="bets" *ngIf="oddArray && match && !loading">
+  <div class="bets" *ngIf="sets.length>0 && match && !loading">
+    <h1>{{'make-your-bet'|translate}} : </h1>
     <app-bet-item [localTeamOdd]="winnerOdd![0].value" [awayTeamOdd]="winnerOdd![1].value" [type]="'winner'"
                   (onCreate)="createBet($event)"></app-bet-item>
-    <app-bet-item *ngFor=" let odd of oddArray"
-                  [localTeamOdd]="odd[1][0].value"
-                  [awayTeamOdd]="odd[1][1].value"
-                  [type]="odd[0]"
-                  (onCreate)="createBet($event)">
-    </app-bet-item>
+    <mat-tab-group [selectedIndex]="tabActive" (selectedTabChange)="changeTabActive($event)" class="tabs">
+      <mat-tab label="sets : " disabled="true" labelClass="tab-label__text">
+      </mat-tab>
+      <mat-tab *ngFor="let set of sets; let i = index" class="primary" label="{{i+1}}" labelClass="tab-label{{tabActive===i+1 ? '__active' : ''}}">
+        <app-bet-item *ngFor="let odd of set"
+                      [localTeamOdd]="odd[1][0].value"
+                      [awayTeamOdd]="odd[1][1].value"
+                      [type]="odd[0]"
+                      [set] = i
+                      (onCreate)="createBet($event)">
+        </app-bet-item>
+      </mat-tab>
+    </mat-tab-group>
   </div>
-  <div *ngIf=" !oddArray && !match" class="no-bets">
+  <div *ngIf=" sets.length==0 && !match" class="no-bets">
     <span>{{'no-odds' | translate}}</span>
   </div>
 </div>

@@ -26,6 +26,7 @@ export class BetModalComponent {
   type: string;
   subtype?: number;
   odd: number;
+  set: number;
 
   constructor(
     public dialog: MatDialog,
@@ -37,6 +38,7 @@ export class BetModalComponent {
     })
     this.team = data.team;
     this.type = data.type;
+    this.set = data.set;
     if (data.subtype){
       this.subtype = data.subtype;
     }
@@ -63,7 +65,8 @@ export class BetModalComponent {
             type: this.type,
             subtype: this.subtype,
             odd: this.odd,
-            amount: this.amount.value
+            amount: this.amount.value,
+            set: this.set
           });
         }else{
           this.dialogRef.close(false);

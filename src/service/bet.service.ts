@@ -20,6 +20,7 @@ export class BetService {
   createBet(bet: Bet) {
     return this.http.post<IJsonObject>(this.path + '/', {
       'type': bet.type,
+      'set' : bet.set,
       'multiplier': bet.multiplier,
       'amount': bet.amount,
       'subtype': bet.subtype,
