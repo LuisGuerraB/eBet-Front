@@ -1,0 +1,20 @@
+<div class="eBet-modal">
+  <mat-dialog-content>
+    <div class="avatar img-container">
+      <img *ngIf="imagePreview" src="{{imagePreview}}" alt="Image Preview">
+    </div>
+    <form [formGroup]="form" (ngSubmit)="onAccept()">
+      <div class="eBet-input eBet-input__center">
+      <label>{{"form.user-img" | translate}}</label>
+      <input type="file" formControlName="img" name="img" (change)="onFileSelected($event)">
+      <app-form-error-messages [control]="form.get('img')!"></app-form-error-messages>
+    </div>
+    </form>
+
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button class="eBet-button" (click)="onCancel()">{{'cancel'|translate}}</button>
+    <button class="eBet-button" (click)="onAccept()">{{'accept'|translate}}</button>
+  </mat-dialog-actions>
+
+</div>

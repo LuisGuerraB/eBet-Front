@@ -33,7 +33,11 @@ export class HomeComponent implements OnInit {
     }
     this.balanceSubscription = this.sessionStorage.getChanges().subscribe((change: any) => {
       if (change.key === 'user') {
-        this.balance = change.value.balance;
+        if (change.value == undefined){
+          this.balance = 0;
+        }else{
+          this.balance = change.value.balance;
+        }
       }
     });
   }

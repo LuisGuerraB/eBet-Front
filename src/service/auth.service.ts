@@ -11,8 +11,10 @@ import {SessionStorageService} from "./session-storage.service";
 })
 export class AuthService {
   private path = '/user';
+  private apiPath: string;
 
-  constructor(private http: HttpClient, private api: ApiService, private sessionStorage : SessionStorageService) {
+  constructor(private http: HttpClient, private api: ApiService, private sessionStorage: SessionStorageService) {
+    this.apiPath = api.getBackEndUrl();
     this.path = api.getApiUrl() + this.path;
   }
 
@@ -36,7 +38,12 @@ export class AuthService {
     }, {withCredentials: true}).pipe(
       map((user) => Deserialize(user, () => User)),
       tap(user => {
-        this.sessionStorage.setItem('user', {'username': user.username, 'balance': user.balance, 'img': user.img, 'last_login' : user.lastLogin});
+        this.sessionStorage.setItem('user', {
+          'username': user.username,
+          'balance': user.balance,
+          'img': this.apiPath + user.img,
+          'last_login': user.lastLogin
+        });
       }),
       catchError(err => {
         throw new Error(err.error.message);
@@ -62,12 +69,65 @@ export class AuthService {
     )
   }
 
-  public getPrivileges(){
+  public getPrivileges() {
     return this.http.get<IJsonObject>(this.path + '/privileges', {withCredentials: true}).pipe(
       map((privileges) => Deserialize(privileges, () => Privileges)),
       catchError(err => {
         throw new Error(err.error.message);
       })
     )
+  }
+
+  getCurrentUser() {
+    return this.http.get<IJsonObject>(this.path, {withCredentials: true}).pipe(
+      catchError(err => {
+        console.log(err);
+        throw new Error(err);
+      }),
+      map((user) => Deserialize(user, () => User)),
+      map((user) => {
+        user.img = this.apiPath + user.img;
+        return user;
+      })
+    )
+  }
+
+  checkAttribute(attribute: string, field: string) {
+    return this.http.post<IJsonObject>(this.path + '/check/' + attribute, {field: field}, {
+      withCredentials: true
+    })
+  }
+
+
+  changeAttribute(attribute: string, field: string) {
+    return this.http.post<IJsonObject>(this.path + '/change/' + attribute, {field: field}, {
+      withCredentials: true
+    })
+  }
+
+  updateUser(user: User) {
+    return this.http.put(this.path, user, {
+      withCredentials: true
+    }).pipe(
+      catchError(err => {
+        throw new Error(err.error.message);
+      })
+    )
+  }
+
+  updateUserImg(imgData: any) {
+    const formData: FormData = new FormData();
+    formData.append('file', imgData, imgData.name);
+    return this.http.put<IJsonObject>(this.path + '/img', formData, {
+      withCredentials: true
+    }).pipe(tap((img) => {
+      let current_user = this.sessionStorage.getItem('user')
+      this.sessionStorage.setItem('user', {
+        'username': current_user.username,
+        'balance': current_user.balance,
+        'img': this.apiPath + img['img'],
+        'last_login': current_user.lastLogin
+      })
+    }))
   }
 }
