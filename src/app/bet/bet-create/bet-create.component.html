@@ -1,6 +1,6 @@
 <div class="component" *ngIf="!loading">
   <back-button></back-button>
-  <app-match-header [match]="match"></app-match-header>
+  <app-match-header [match]="match!"></app-match-header>
   <div class="bets" *ngIf="sets.length>0 && match && !loading">
     <h1>{{'make-your-bet'|translate}} : </h1>
     <app-bet-item [localTeamOdd]="winnerOdd![0].value" [awayTeamOdd]="winnerOdd![1].value" [type]="'winner'"

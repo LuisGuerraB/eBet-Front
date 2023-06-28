@@ -24,7 +24,7 @@ export class BetListItemComponent implements OnInit {
   }
 
   private checkTeam() {
-    if (this.bet.match.localTeam.id == this.bet.teamId) {
+    if (this.bet.match.localTeam?.id == this.bet.teamId) {
       this.team = 'l'
     } else {
       this.team = 'a'

@@ -94,6 +94,9 @@ export class LeagueComponent implements OnInit {
     this.matchService.getMatchList(this.filters).subscribe(
       (matches) => {
         this.matches = matches.items
+        for(let match of this.matches){
+          match.updateTeams();
+        }
         if (matches.items.length < this.filters.limit! && this.matches.length != 0) {
           this.isEnd = true;
         }

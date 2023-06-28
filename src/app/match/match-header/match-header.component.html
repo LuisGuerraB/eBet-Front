@@ -1,7 +1,7 @@
 <div class="teams" *ngIf="match">
   <div class="team">
-    <img src="{{match.localTeam.img}}">
-    <h2 class="bold">{{match.localTeam.acronym}}</h2>
+    <img src="{{match.localTeam?.img}}">
+    <h2 class="bold">{{match.localTeam?.acronym}}</h2>
   </div>
   <div class="center">
     <span>{{match.planDate}}</span>
@@ -13,8 +13,8 @@
     </div>
   </div>
   <div class="team__opposing">
-    <img src="{{match.awayTeam.img}}">
-    <h2 class="bold">{{match.awayTeam.acronym}}</h2>
+    <img src="{{match.awayTeam?.img}}">
+    <h2 class="bold">{{match.awayTeam?.acronym}}</h2>
   </div>
 </div>
 <div *ngIf="!match">
