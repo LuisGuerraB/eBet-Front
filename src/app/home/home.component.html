@@ -1,42 +1,16 @@
 <header>
-  <a href="/"><img src="assets/img/Logo-2.svg" alt="logo"></a>
+  <div class="buttons">
+    <button class="menu-button" (click)="toggleSideNav()" *ngIf="!staticSideNav"><i class="fa-solid fa-bars"></i></button>
+    <a href="/"><img src="assets/img/Logo-2.svg" alt="logo"></a>
+  </div>
   <div class="buttons">
     <button>LOL</button>
     <button>VALORANT</button>
   </div>
 </header>
 <div class="content">
-  <div class="sidenav">
-    <div class="user-container">
-      <app-user-avatar [user]="user" (redirectEmit)="redirect($event)"></app-user-avatar>
-    </div>
-    <nav>
-      <div class="top">
-        <a class="nav-button" (click)="navigate('home/bets')">
-          <i class="fa-solid fa-gavel"></i>
-          {{'bets'|translate}}
-        </a>
-        <a class="nav-button" href="/home/prizes">
-          <i class="fa-solid fa-trophy"></i>
-          {{'prizes'|translate}}
-        </a>
-      </div>
-
-      <div class="bottom">
-        <div class="balance nav-button">
-          <span class="contrast">{{'balance' | translate}} : </span>
-          <div class="balance-points">
-            <span class="contrast">{{balance}}</span>
-            <img class="eBet-point" src="assets/img/Ep.svg" alt="eBet points">
-          </div>
-        </div>
-        <a (click)="navigate('auth/more-ep')">
-          {{'get-more'|translate}}
-        </a>
-      </div>
-    </nav>
-  </div>
-  <main>
+  <app-sidenav #sidebar></app-sidenav>
+  <main [ngClass]="{'thinner' : thinner}">
     <router-outlet></router-outlet>
   </main>
 </div>

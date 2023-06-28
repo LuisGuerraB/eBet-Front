@@ -11,7 +11,6 @@ import {ApiService} from "../../../service/api.service";
 import {ConfirmationModalComponent} from "../../confirmation-modal/confirmation-modal.component";
 import {MatDialog} from "@angular/material/dialog";
 import {SessionStorageService} from "../../../service/session-storage.service";
-import {cloneDeep} from "lodash";
 import {PrizeBuyModalComponent} from "../prize-buy-modal/prize-buy-modal.component";
 
 @Component({

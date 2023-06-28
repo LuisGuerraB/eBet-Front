@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {ApiService} from "./api.service";
 import {catchError, map, tap} from "rxjs";
-import {FormBuilder} from "@angular/forms";
 import {Deserialize, IJsonObject} from "dcerialize";
 import {Prize, PrizeList} from "../model/prize";
+import {SessionStorageService} from "./session-storage.service";
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class PrizeService {
   private path = '/prize';
   private apiPath :string
 
-  constructor(private http: HttpClient, private api: ApiService) {
+  constructor(private http: HttpClient, private api: ApiService, private sessionStorage : SessionStorageService) {
     this.apiPath=api.getBackEndUrl();
     this.path = api.getApiUrl() + this.path;
   }
@@ -48,6 +48,15 @@ export class PrizeService {
   }
 
   buyPrize(prize: Prize, email: string) {
-    return this.http.post(this.path + '/buy/' + prize.id.toString(), {'email': email}, {withCredentials: true})
+    return this.http.post(this.path + '/buy/' + prize.id.toString(), {'email': email}, {withCredentials: true}).pipe(
+      catchError(err => {
+        throw new Error(err.error.message);
+      }),
+      tap(() => {
+        let current_user = this.sessionStorage.getItem('user')
+        current_user.balance -= prize.price
+        this.sessionStorage.setItem('user', current_user)
+      })
+    )
   }
 }

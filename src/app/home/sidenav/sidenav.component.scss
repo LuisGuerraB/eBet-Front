@@ -1,0 +1,70 @@
+@import 'src/assets/scss/variables.scss';
+
+.sidenav {
+  display: flex;
+  flex-direction: column;
+  background-color: $grey-palette-300;
+  height: calc(100vh - 45px);
+  width: 170px;
+  position: fixed;
+  top: 45px;
+  left: 0;
+  transition: transform 300ms ease-in-out;
+
+  .user-container {
+    background-color: $grey-palette-300;
+    padding-bottom: 10px;
+    border-bottom: 2.5px solid $background-color;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 0 20px 0;
+    height: 80%;
+
+
+    .top {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .nav-button {
+        background-color: $grey-palette-700;
+        font-family: 'Work Sans', sans-serif;
+        font-weight: 400;
+        justify-content: center;
+        gap: 10px;
+      }
+    }
+
+    .bottom {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+
+      .balance {
+        display: flex;
+        justify-content: space-between;
+        width: calc(100% - 20px);
+        padding: 0 10px 0 10px;
+
+        &-points {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+
+        }
+      }
+
+      a {
+        margin-right: 10px;
+        width: max-content;
+      }
+    }
+  }
+
+
+}
