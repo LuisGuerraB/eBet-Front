@@ -22,7 +22,10 @@
     "img": "Imagen del premio",
     "amount" : "Cantidad",
     "price" : "Precio",
-    "new-amount": "Nueva cantidad"
+    "new-amount": "Nueva cantidad",
+    "change-email" : "Cambiar correo",
+    "change-password" : "Cambiar contraseña",
+    "user-img" : "Cambia la imagen del perfil"
   },
   "login": "Inicio de sesión",
   "login-successful": "Inicio de sesion con éxito",
@@ -51,8 +54,9 @@
   "bet-successful": "Apuesta realizada con exito",
   "bet-unsuccessful": "Error: Apuesta no realizada",
   "prizes" : "Premios",
+  "prize" : "Premio",
   "bets" : "Apuestas",
-  "balance" : "Balance",
+  "balance" : "Saldo",
   "get-more" : "Consigue más >",
   "log-out": "Cerrar sesión",
   "log-out-successful" : "Sesión cerrada con exito",
@@ -96,5 +100,11 @@
   "bet-updated-successfully": "Apuesta actualizada con exito",
   "bet-deleted-successfully": "Apuesta eliminada con exito",
   "bet-deleted-unsuccessfully": "Error: Apuesta no eliminada",
-  "bet-updated-unsuccessfully": "Error: Apuesta no actualizada"
+  "bet-updated-unsuccessfully": "Error: Apuesta no actualizada",
+  "buyable": "comprable",
+  "write-current-email": "Escribe tu correo actual",
+  "write-current-password" : "Escribe tu contraseña actual",
+  "write-new-email": "Escribe tu nuevo email",
+  "write-new-password" : "Escribe tu nueva contraseña",
+  "no-prizes": "No hay premios disponibles"
 }

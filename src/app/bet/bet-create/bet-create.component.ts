@@ -19,6 +19,7 @@ import {SessionStorageService} from "../../../service/session-storage.service";
 import {forkJoin} from "rxjs";
 import {MatTabsModule} from "@angular/material/tabs";
 import { cloneDeep } from 'lodash';
+import {PlayMatch} from "../../../model/play";
 
 @Component({
   selector: 'app-bet-create',
@@ -121,7 +122,7 @@ export class BetCreateComponent implements OnInit {
             team_id = this.match!.awayTeam?.id
           }
           console.log(data)
-          let bet = new Bet(new Date(), event.type, event.multiplier, data.amount,  this.match!, team_id!, event.subtype,event.set);
+          let bet = new Bet(new Date(), event.type, event.multiplier, data.amount,  new PlayMatch(this.match!,team_id!), event.subtype,event.set);
           this.betService.createBet(bet).subscribe(
             (bet) => {
               this.dialog.open(ConfirmationModalComponent, {

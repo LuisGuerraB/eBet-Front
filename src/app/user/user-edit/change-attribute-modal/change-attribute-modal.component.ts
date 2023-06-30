@@ -17,9 +17,11 @@ export class ChangeAttributeModalComponent {
   form: FormGroup;
   message : string;
   attribute : string;
+  repeat: boolean;
   constructor(public dialogRef: MatDialogRef<ChangeAttributeModalComponent>, @Inject(MAT_DIALOG_DATA) public data:any){
     this.message = data.message;
     this.attribute = data.attribute;
+    this.repeat = data.repeat;
     this.form = new FormGroup({
       attribute: new FormControl('', [Validators.required])
     })

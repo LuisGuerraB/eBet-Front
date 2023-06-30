@@ -47,8 +47,9 @@ export class UserEditComponent implements OnInit {
   openTransaction(attribute: string) {
     this.dialog.open(ChangeAttributeModalComponent, {
       data: {
-        message: 'write-actual-' + attribute,
-        attribute: attribute
+        message: 'write-current-' + attribute,
+        attribute: attribute,
+        repeat:false,
       }
     }).afterClosed().subscribe(
       (field: string) => {
@@ -75,7 +76,8 @@ export class UserEditComponent implements OnInit {
     this.dialog.open(ChangeAttributeModalComponent, {
       data: {
         message: 'write-new-' + attribute,
-        attribute: attribute
+        attribute: attribute,
+        repeat: true,
       }
     }).afterClosed().subscribe(
       (field: string) => {

@@ -19,12 +19,14 @@ export class BetListItemComponent implements OnInit {
   team: string = '';
 
   ngOnInit() {
+    this.bet.updateMatch()
+    this.bet.match?.updateTeams()
     this.checkResult()
     this.checkTeam()
   }
 
   private checkTeam() {
-    if (this.bet.match.localTeam?.id == this.bet.teamId) {
+    if (this.bet.match?.localTeam?.id == this.bet.teamId) {
       this.team = 'l'
     } else {
       this.team = 'a'

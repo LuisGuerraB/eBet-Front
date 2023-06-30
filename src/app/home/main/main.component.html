@@ -13,7 +13,7 @@
     </div>
   </div>
   <div class="match-list">
-      <app-match-item *ngFor="let match of matches" [match]="match" [showTournament]="true"></app-match-item>
+      <app-match-item *ngFor="let match of matches" [match]="match" [showTournament]="true" class="scroll x"></app-match-item>
   </div>
 </div>
 <div *ngIf="!matches">

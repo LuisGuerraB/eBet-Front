@@ -23,10 +23,14 @@ export class MatchItemComponent implements OnInit {
 
   ngOnInit() {
     if (this.match) {
+      this.match.updateTeams();
       if (this.match.endDate && this.match.endDate < new Date(Date.now())) {
         this.finished = true;
       }
-      this.date = this.match.planDate.slice(0, -7).replace(',', '').replaceAll('/', ' - ',);
+      if(this.showTournament){
+        this.match.planDate = this.match.planDate.slice(0, -7)
+      }
+      this.date = this.match.planDate.replaceAll(',', ' - ');
 
     }
   }

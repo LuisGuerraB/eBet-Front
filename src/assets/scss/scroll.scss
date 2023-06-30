@@ -1,0 +1,45 @@
+@import 'src/assets/scss/variables.scss';
+
+.scroll {
+  overflow: auto;
+  &::-webkit-scrollbar {
+    width: 8px; /* Tamaño del scroll en vertical */
+    height: 6px; /* Tamaño del scroll en horizontal */
+    /* display: none;  Ocultar scroll */
+  }
+
+  &::-webkit-scrollbar:disabled {
+    display:none;
+  }
+
+  /* Ponemos un color de fondo y redondeamos las esquinas del thumb */
+  &::-webkit-scrollbar-thumb {
+    background: $grey-palette-600;
+    border-radius: 4px;
+  }
+
+  /* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: $grey-palette-600;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Cambiamos el fondo cuando esté en active */
+  &::-webkit-scrollbar-thumb:active {
+    background-color: $grey-palette-700;
+  }
+
+  /* Ponemos un color de fondo y redondeamos las esquinas del track */
+  &::-webkit-scrollbar-track {
+    background: $grey-palette-300;
+    border-radius: 4px;
+  }
+}
+.x{
+  overflow-x: scroll;
+  overflow-y:hidden;
+}
+.y{
+  overflow-y: scroll;
+  overflow-x: hidden;
+}

@@ -1,5 +1,6 @@
 import {autoserializeAs, autoserializeAsArray} from "dcerialize";
 import {Match} from "./match";
+import {PlayMatch} from "./play";
 
 
 export interface BetEvent {
@@ -19,11 +20,12 @@ export class Bet {
     @autoserializeAs(() => Number) amount: number;
     @autoserializeAs(() => Number) set?: number;
     @autoserializeAs(() => String) result?: string;
-    @autoserializeAs(() => Match) match: Match;
-    @autoserializeAs(() => Number, 'team_id') teamId: number;
+    @autoserializeAs(()=> PlayMatch) play: PlayMatch;
+    match?: Match;
+    teamId?: number;
 
 
-    constructor(date: Date, type: string, multiplier: number, amount: number, match: Match, team_id: number, subtype: number, set?: number, result?: string, id?: number) {
+    constructor(date: Date, type: string, multiplier: number, amount: number, play: PlayMatch, subtype: number, set?: number, result?: string, id?: number) {
         this.id = id;
         this.date = date;
         this.type = type;
@@ -32,8 +34,12 @@ export class Bet {
         this.amount = amount;
         this.set = set;
         this.result = result;
-        this.match = match;
-        this.teamId = team_id;
+        this.play = play;
+    }
+
+    updateMatch(){
+      this.match = this.play.match
+      this.teamId = this.play.teamId
     }
 
 }

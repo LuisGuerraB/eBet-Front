@@ -3,12 +3,12 @@
     <div class="avatar img-container">
       <img *ngIf="imagePreview" src="{{imagePreview}}" alt="Image Preview">
     </div>
-    <form [formGroup]="form" (ngSubmit)="onAccept()">
+    <form [formGroup]="form" (ngSubmit)="onAccept()" class="eBet-form">
       <div class="eBet-input eBet-input__center">
-      <label>{{"form.user-img" | translate}}</label>
-      <input type="file" formControlName="img" name="img" (change)="onFileSelected($event)">
-      <app-form-error-messages [control]="form.get('img')!"></app-form-error-messages>
-    </div>
+        <label>{{"form.user-img" | translate}}</label>
+        <input type="file" formControlName="img" name="img" (change)="onFileSelected($event)">
+        <app-form-error-messages [control]="form.get('img')!"></app-form-error-messages>
+      </div>
     </form>
 
   </mat-dialog-content>

@@ -1,11 +1,20 @@
 <div class="eBet-modal">
   <mat-dialog-content>
-    <span>{{message}}</span>
+    <span>{{message | translate}}</span>
     <hr>
-    <form [formGroup]="form" (ngSubmit)="submitForm()">
+    <form [formGroup]="form" (ngSubmit)="submitForm()" class="eBet-form">
       <div class="eBet-input">
         <div>
+          <label>{{'form.' + attribute |translate}}</label>
           <input type="{{attribute}}" formControlName="attribute" name="attribute">
+          <hr>
+        </div>
+        <app-form-error-messages [control]="form.get('attribute')!"></app-form-error-messages>
+      </div>
+      <div class="eBet-input" *ngIf="repeat">
+        <div>
+          <label>{{'form.rep-' + attribute |translate}}</label>
+          <input type="{{attribute}}" formControlName="rep-attribute" name="rep-attribute">
           <hr>
         </div>
         <app-form-error-messages [control]="form.get('attribute')!"></app-form-error-messages>

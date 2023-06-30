@@ -43,6 +43,13 @@ export class MainComponent implements OnInit {
           slidesToShow: 4,
           slidesToScroll: 1
         }
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1
+        }
       }
     ]
   };

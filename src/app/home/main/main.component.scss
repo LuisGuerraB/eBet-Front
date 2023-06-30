@@ -10,12 +10,13 @@
   height: 50px;
   width: 90%;
   max-width: 800px;
-  min-width: calc(100px * 6);
+  min-width: calc(100px * 2);
   display: flex;
   justify-content: center;
 
   .leagues-carousel {
-    width: 90%;
+    margin: 0 10px 0 10px;
+    width: calc(90% - 20px);
 
     .league {
       display: flex;
@@ -38,13 +39,9 @@
   flex-direction: column;
   gap: 10px;
 
-  div {
-    background-color: $grey-palette-300;
-    width: calc(100% - 20px);
-    min-width: 420px;
-    height: 50px;
-    border-radius: 5px;
-    padding: 0 10px 0 10px;
+  app-match-item{
+    max-width: calc(100vw - 190px);
+    margin: 0 10px 0 10px;
   }
 }
 

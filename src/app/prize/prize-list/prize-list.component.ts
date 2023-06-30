@@ -12,11 +12,12 @@ import {ConfirmationModalComponent} from "../../confirmation-modal/confirmation-
 import {MatDialog} from "@angular/material/dialog";
 import {SessionStorageService} from "../../../service/session-storage.service";
 import {PrizeBuyModalComponent} from "../prize-buy-modal/prize-buy-modal.component";
+import {FormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-prize-list',
   standalone: true,
-  imports: [CommonModule, SpinnerComponent, BackButtonComponent, PrizeItemComponent, TranslateModule],
+  imports: [CommonModule, SpinnerComponent, BackButtonComponent, PrizeItemComponent, TranslateModule, FormsModule],
   templateUrl: './prize-list.component.html',
   styleUrls: ['./prize-list.component.scss']
 })
