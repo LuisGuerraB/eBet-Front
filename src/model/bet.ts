@@ -19,13 +19,13 @@ export class Bet {
     @autoserializeAs(() => Number) multiplier: number;
     @autoserializeAs(() => Number) amount: number;
     @autoserializeAs(() => Number) set?: number;
-    @autoserializeAs(() => String) result?: string;
+    @autoserializeAs(() => Boolean) result?: boolean;
     @autoserializeAs(()=> PlayMatch) play: PlayMatch;
     match?: Match;
     teamId?: number;
 
 
-    constructor(date: Date, type: string, multiplier: number, amount: number, play: PlayMatch, subtype: number, set?: number, result?: string, id?: number) {
+    constructor(date: Date, type: string, multiplier: number, amount: number, play: PlayMatch, subtype: number, set?: number, result?: boolean, id?: number) {
         this.id = id;
         this.date = date;
         this.type = type;

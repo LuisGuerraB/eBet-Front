@@ -4,7 +4,7 @@
     <h1>{{'edit-your-bet'|translate}}</h1>
     <div class="border"><app-bet-list-item [bet]="bet" [disableEdit]="true"></app-bet-list-item></div>
     <form [formGroup]="form" (ngSubmit)="submitForm()" class="eBet-form">
-      <div class="eBet-input">
+      <div class="eBet-input eBet-input__center">
         <label>{{"form.new-amount" | translate}}</label>
         <div><input type="number" formControlName="amount" name="amount">
           <hr>

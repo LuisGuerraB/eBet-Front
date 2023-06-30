@@ -10,14 +10,15 @@ import {Team} from "./team";
 
 
 function functionDeserialze(data: any): string {
+  console.log(data);
   return new Date(data).toLocaleString(navigator.language, {
     weekday: "short",
     day: "2-digit",
     month: "2-digit",
     year: "2-digit",
     hour: "2-digit",
-    minute: "2-digit"
-  })
+    minute: "2-digit",
+  })+ ' UTC'
 }
 
 export class Match {
@@ -27,18 +28,20 @@ export class Match {
   @autoserializeAsArray(() => PlayTeam) plays?: PlayTeam[];
   @autoserializeAs(() => Tournament) tournament: Tournament;
   @autoserializeAs(() => Date, 'end_date') endDate: Date;
+  @autoserializeAs(() => Date, 'ini_date') iniDate: Date;
   @autoserializeAsMap(() => String, () => Number) result: Map<string, number>;
   @deserializeUsing(functionDeserialze, 'plan_date') planDate: string;
   awayTeam?: Team;
   localTeam?: Team;
 
-  constructor(id: number, name: string, sets: number, tournament: Tournament, endDate: Date, planDate: string, result: Map<string, number>) {
+  constructor(id: number, name: string, sets: number, tournament: Tournament, endDate: Date, iniDate : Date, planDate: string, result: Map<string, number>) {
     this.id = id;
     this.name = name;
     this.sets = sets;
     this.tournament = tournament;
     this.result = result;
     this.endDate = endDate;
+    this.iniDate = iniDate;
     this.planDate = planDate;
   }
 

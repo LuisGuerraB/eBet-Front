@@ -16,5 +16,7 @@
     flex-direction: column;
     border: 1px solid $primary-color;
     border-radius:5px;
+    width: 100%;
+    max-width:700px;
   }
 }

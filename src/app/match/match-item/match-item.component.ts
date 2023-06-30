@@ -28,7 +28,7 @@ export class MatchItemComponent implements OnInit {
         this.finished = true;
       }
       if(this.showTournament){
-        this.match.planDate = this.match.planDate.slice(0, -7)
+        this.match.planDate = this.match.planDate.slice(0, -11)
       }
       this.date = this.match.planDate.replaceAll(',', ' - ');
 
