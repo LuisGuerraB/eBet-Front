@@ -1,6 +1,6 @@
 import {Component, Inject} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {FormErrorMessagesComponent} from "../../auth/form-error-messages/form-error-messages.component";
+import {FormErrorMessagesComponent} from "../../form-error-messages/form-error-messages.component";
 import {MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 import {FormControl, FormGroup, ReactiveFormsModule, ValidatorFn, Validators} from "@angular/forms";
 import {TranslateModule} from "@ngx-translate/core";

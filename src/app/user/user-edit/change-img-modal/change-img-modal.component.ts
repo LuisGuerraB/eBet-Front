@@ -1,6 +1,6 @@
 import {Component, Inject} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {FormErrorMessagesComponent} from "../../../auth/form-error-messages/form-error-messages.component";
+import {FormErrorMessagesComponent} from "../../../form-error-messages/form-error-messages.component";
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TranslateModule} from "@ngx-translate/core";
 import {MAT_DIALOG_DATA, MatDialogModule, MatDialogRef} from "@angular/material/dialog";
@@ -32,12 +32,21 @@ export class ChangeImgModalComponent {
       const file = inputElement.files[0];
       this.imageData = file;
       const img = new Image();
+      console.log(file.size);
+      let width = 0;
+      let height = 1;
       img.onload = () => {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-          this.imagePreview = (e.target as FileReader).result;
-        };
-        reader.readAsDataURL(file);
+        if (file.size < 1000000) {
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            this.imagePreview = (e.target as FileReader).result;
+          };
+          reader.readAsDataURL(file);
+        } else {
+          this.img.setValue(undefined);
+          this.img.setErrors({ 'max-size-reached': true });
+          this.imagePreview = null;
+        }
       };
       img.src = URL.createObjectURL(file);
     }

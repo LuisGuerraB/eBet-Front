@@ -2,7 +2,7 @@ import {Component, Inject} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {MAT_DIALOG_DATA, MatDialogModule, MatDialogRef} from "@angular/material/dialog";
-import {FormErrorMessagesComponent} from "../../../auth/form-error-messages/form-error-messages.component";
+import {FormErrorMessagesComponent} from "../../../form-error-messages/form-error-messages.component";
 import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
