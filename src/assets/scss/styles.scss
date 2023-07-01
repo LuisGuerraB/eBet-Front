@@ -7,6 +7,7 @@
 @import 'modal.scss';
 @import 'slider.scss';
 @import 'scroll.scss';
+@import 'tabs.scss';
 
 body {
   background-color: $background-color;
@@ -18,7 +19,7 @@ body {
   color: $font-color;
   font-family: 'Oswald', sans-serif;
   font-weight: 400;
-  font-size:18px;
+  font-size: 18px;
 }
 
 button {
@@ -46,47 +47,46 @@ input {
   font-weight: bold;
 }
 
-.component{
+.component {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin:20px;
+  margin: 20px;
   width: calc(100% - 40px);
 }
 
-.eBet-point{
+.eBet-point {
   max-height: 25px;
 }
 
-h1{
-  font-size:26px;
+h1 {
+  font-size: 26px;
 }
 
 a {
   text-decoration: underline;
 }
-.tab-label {
-  margin-right: 10px !important;
-  background-color: $primary-color !important;
-  border-radius: 10px 10px 0 0 !important;
 
-  &__active {
-    @extend .tab-label;
-    background-color: $primary-subcolor !important;
-    border: 2px solid $grey-palette-400 !important;
+
+
+.date {
+  position: relative;
+  letter-spacing: 0.1em;
+}
+
+.line {
+  width: 100%;
+  height: 100%;
+
+  &::before {
+    content: '';
+    z-index: 100;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 2px;
+    background-color: $primary-color;
+    transform: rotate(7.5deg);
   }
 }
 
-
-.mdc-tab__text-label{
-  color: $font-color !important;
-}
-
-.mat-mdc-tab-label-container{
-  flex-grow:0 !important;
-}
-
-.mdc-tab-indicator{
-  width:0 !important;
-  height:0 !important;
-}

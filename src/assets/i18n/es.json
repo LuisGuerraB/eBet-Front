@@ -107,5 +107,6 @@
   "write-new-email": "Escribe tu nuevo email",
   "write-new-password" : "Escribe tu nueva contraseña",
   "no-prizes": "No hay premios disponibles",
-  "make-your-bet": "Haz tu apuesta"
+  "make-your-bet": "Haz tu apuesta",
+  "no-result": "No hay resultados todavia"
 }

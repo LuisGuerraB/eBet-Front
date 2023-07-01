@@ -1,7 +1,7 @@
 <div class="component" *ngIf="!loading">
   <back-button></back-button>
   <app-match-header [match]="match!"></app-match-header>
-  <div class="bets" *ngIf="sets.length>0 && match && !loading">
+  <div class="bets" *ngIf="sets.length>0 && match && !loading; else noBets">
     <h1>{{'make-your-bet'|translate}} : </h1>
     <app-bet-item [localTeamOdd]="winnerOdd![0].value" [awayTeamOdd]="winnerOdd![1].value" [type]="'winner'"
                   (onCreate)="createBet($event)"></app-bet-item>
@@ -13,15 +13,15 @@
                       [localTeamOdd]="odd[1][0].value"
                       [awayTeamOdd]="odd[1][1].value"
                       [type]="odd[0]"
-                      [set] = i
+                      [set]=i+1
                       (onCreate)="createBet($event)">
         </app-bet-item>
       </mat-tab>
     </mat-tab-group>
   </div>
-  <div *ngIf=" sets.length==0 && !match" class="no-bets">
+  <ng-template #noBets class="no-bets">
     <span>{{'no-odds' | translate}}</span>
-  </div>
+  </ng-template>
 </div>
 <div *ngIf="loading">
   <app-spinner></app-spinner>

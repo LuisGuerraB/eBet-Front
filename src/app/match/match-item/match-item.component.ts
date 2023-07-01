@@ -37,7 +37,7 @@ export class MatchItemComponent implements OnInit {
 
   redirect() {
     if (this.finished) {
-      //TODO: redirect to res page
+      this.router.navigate(['/home/result/' + this.match!.id]);
     } else {
       this.router.navigate(['/home/bet/' + this.match!.id]);
     }

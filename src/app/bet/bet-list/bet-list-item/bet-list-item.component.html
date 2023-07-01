@@ -15,7 +15,7 @@
       <span>{{"odd." + bet.type | translate}}</span>
       <span *ngIf="bet.type!='winner'">:{{bet.subtype}}</span>
     </div>
-    <span *ngIf="bet.set!=undefined">set : {{bet.set+1}}</span>
+    <span *ngIf="bet.set!=undefined">set : {{bet.set}}</span>
     <span>x {{bet.multiplier}}</span>
     <span>{{bet.amount}}</span>
   </div>
