@@ -12,9 +12,14 @@ import {SpinnerComponent} from "../../spinner/spinner.component";
 })
 export class MatchHeaderComponent implements OnInit{
   @Input() match!: Match;
+  finished= false;
+
 
   ngOnInit(){
     this.match!.updateTeams()
+    if (this.match.endDate && this.match.endDate < new Date(Date.now())) {
+        this.finished = true;
+      }
   }
 
 }

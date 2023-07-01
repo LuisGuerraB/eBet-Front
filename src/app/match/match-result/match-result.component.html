@@ -1,0 +1,33 @@
+<div class="component" *ngIf="!loading">
+  <back-button></back-button>
+  <app-match-header [match]="match!"></app-match-header>
+  <div class="results-tabs" *ngIf="sets.length !=0; else noResults">
+    <mat-tab-group [selectedIndex]="tabActive" (selectedTabChange)="changeTabActive($event)" class="tabs">
+      <mat-tab label="sets : " disabled="true" labelClass="tab-label__text">
+      </mat-tab>
+      <mat-tab *ngFor="let set of sets; let i = index" class="primary" label="{{i+1}}"
+               labelClass="tab-label{{tabActive===i+1 ? '__active' : ''}}">
+        <div class="teams">
+          <div class="team" *ngFor="let team of set">
+            <div  *ngFor="let stat of team.stats">
+              <div class="stat"*ngIf="stat.type!='winner'">
+                <div class="img-container">
+                  <img src="assets/img/icons/{{stat.type}}.svg" alt="img {{stat.type}}">
+                </div>
+                <span>{{'odd.' + stat.type | translate}} : </span>
+                <span>{{stat.value}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+  <ng-template  #noResults>
+    <h1 class="no-result">{{'no-result'|translate}}</h1>
+  </ng-template>
+</div>
+<div *ngIf="loading">
+  <app-spinner></app-spinner>
+</div>

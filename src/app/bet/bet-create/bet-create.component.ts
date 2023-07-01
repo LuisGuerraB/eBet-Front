@@ -102,7 +102,6 @@ export class BetCreateComponent implements OnInit {
     } else {
       team = this.match!.awayTeam?.acronym;
     }
-    console.log(event)
     this.dialog.open(BetModalComponent, {
       disableClose: true,
       data: {

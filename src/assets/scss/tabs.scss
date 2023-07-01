@@ -1,0 +1,33 @@
+@import 'src/assets/scss/variables.scss';
+
+.tab-label {
+  margin-right: 10px !important;
+  background-color: $primary-color !important;
+  border-radius: 10px 10px 0 0 !important;
+
+  &__active {
+    @extend .tab-label;
+    background-color: $primary-subcolor !important;
+    border: 2px solid $grey-palette-300 !important;
+  }
+}
+
+.results-tabs {
+  .mat-mdc-tab-header {
+    justify-content: center;
+  }
+}
+
+
+.mdc-tab__text-label {
+  color: $font-color !important;
+}
+
+.mat-mdc-tab-label-container {
+  flex-grow: 0 !important;
+}
+
+.mdc-tab-indicator {
+  width: 0 !important;
+  height: 0 !important;
+}
