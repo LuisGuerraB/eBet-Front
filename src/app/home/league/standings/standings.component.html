@@ -5,7 +5,7 @@
     <span>{{'team'|translate|uppercase}}</span>
     <span>{{'point'|translate|uppercase}}</span>
   </div>
-  <div class="rank-item-container">
+  <div class="rank-item-container scroll">
     <div *ngFor="let participation of participations" class="rank-item row">
       <span class="position">{{participation.position}}</span>
       <span class="name">{{participation.team.acronym}}</span>

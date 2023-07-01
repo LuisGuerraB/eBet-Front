@@ -17,14 +17,29 @@ export class BetListItemComponent implements OnInit {
   win: boolean = false;
   lose: boolean = false;
   team: string = '';
+  result_string?: string;
 
   ngOnInit() {
-    this.checkResult()
-    this.checkTeam()
+    if (this.bet.match == undefined) {
+      this.bet.updateMatch()
+    }
+    this.bet.match!.updateTeams();
+    this.checkResult();
+    this.checkTeam();
+    if (this.disableEdit) {
+      this.result_string = this.bet.match!.iniDate.toLocaleString(navigator.language, {
+        weekday: "short",
+        day: "2-digit",
+        month: "2-digit",
+        year: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit"
+      });
+    }
   }
 
   private checkTeam() {
-    if (this.bet.match.localTeam.id == this.bet.teamId) {
+    if (this.bet.match?.localTeam?.id == this.bet.teamId) {
       this.team = 'l'
     } else {
       this.team = 'a'
@@ -32,12 +47,16 @@ export class BetListItemComponent implements OnInit {
   }
 
   private checkResult() {
-    if (this.bet.result) {
-      if (this.bet.result[0] == '+') {
+    if (this.bet.result != undefined) {
+      if (this.bet.result) {
         this.win = true;
-      } else if (this.bet.result[0] == '-') {
+        this.result_string = '+' + Math.round(this.bet.amount * this.bet.multiplier);
+      } else {
         this.lose = true;
+        this.result_string = '-' + this.bet.amount;
       }
+    } else {
+      this.result_string = 'waiting';
     }
   }
 

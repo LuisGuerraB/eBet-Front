@@ -10,7 +10,7 @@ import {
 } from "@angular/forms";
 import {Router} from "@angular/router";
 import {NgIf} from "@angular/common";
-import {FormErrorMessagesComponent} from "../form-error-messages/form-error-messages.component";
+import {FormErrorMessagesComponent} from "../../form-error-messages/form-error-messages.component";
 import {ConfirmationModalComponent} from "../../confirmation-modal/confirmation-modal.component";
 import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 import {noMatchValidator} from "../../../functions/validations_functions";

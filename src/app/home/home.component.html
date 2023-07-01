@@ -10,7 +10,7 @@
 </header>
 <div class="content">
   <app-sidenav #sidebar></app-sidenav>
-  <main [ngClass]="{'thinner' : thinner}">
+  <main [ngClass]="{'thinner' : thinner}" class="scroll">
     <router-outlet></router-outlet>
   </main>
 </div>

@@ -6,17 +6,16 @@
       <div class="top">
         <a class="nav-button" (click)="navigate('home/bets')">
           <i class="fa-solid fa-gavel"></i>
-          {{'bets'|translate}}
+          <span>{{'bets'|translate}}</span>
         </a>
         <a class="nav-button" href="/home/prizes">
           <i class="fa-solid fa-trophy"></i>
-          {{'prizes'|translate}}
+          <span>{{'prizes'|translate}}</span>
         </a>
       </div>
 
       <div class="bottom">
         <div class="balance nav-button">
-          <span class="contrast">{{'balance' | translate}} : </span>
           <div class="balance-points">
             <span class="contrast">{{balance}}</span>
             <img class="eBet-point" src="assets/img/Ep.svg" alt="eBet points">

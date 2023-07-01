@@ -5,7 +5,7 @@ import {MAT_DIALOG_DATA, MatDialogModule, MatDialogRef} from "@angular/material/
 import {Bet} from "../../../model/bet";
 import {TranslateModule} from "@ngx-translate/core";
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {FormErrorMessagesComponent} from "../../auth/form-error-messages/form-error-messages.component";
+import {FormErrorMessagesComponent} from "../../form-error-messages/form-error-messages.component";
 import {SessionStorageService} from "../../../service/session-storage.service";
 
 @Component({

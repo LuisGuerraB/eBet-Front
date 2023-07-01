@@ -43,6 +43,13 @@ export class MainComponent implements OnInit {
           slidesToShow: 4,
           slidesToScroll: 1
         }
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1
+        }
       }
     ]
   };
@@ -63,6 +70,9 @@ export class MainComponent implements OnInit {
     this.matchService.getMatchList(paramQuery).subscribe(
       (matches: MatchList) => {
         this.matches = matches.items;
+        for(let matches of this.matches){
+          matches.updateTeams();
+        }
       },
       (error) => {
         console.log(error.message)

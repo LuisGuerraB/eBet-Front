@@ -31,7 +31,7 @@ export class BetListComponent implements OnInit {
       const bet_items = bets.items;
       const betsMap = new Map<string, Bet[]>();
       bet_items.forEach((obj) => {
-        const date = new Date(obj.date).toLocaleDateString(navigator.language, {
+        const date = new Date(obj.play.match?.iniDate).toLocaleDateString(navigator.language, {
           weekday: 'short',
           day: '2-digit',
           month: '2-digit',

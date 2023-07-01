@@ -45,6 +45,9 @@ export class FormErrorMessagesComponent {
     if(errorKey == 'max'){
       return 'control-error.max'
     }
+    if(errorKey == 'max-size-reached'){
+      return 'control-error.max-size-reached'
+    }
     return 'control-error.unexpected';
   }
 }

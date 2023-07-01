@@ -1,9 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {CommonModule} from "@angular/common";
 import {TranslateModule} from "@ngx-translate/core";
-import {MatDialog} from "@angular/material/dialog";
-import {BetModalComponent} from "../bet-modal/bet-modal.component";
-import {ConfirmationModalComponent} from "../../confirmation-modal/confirmation-modal.component";
 import {BetEvent} from "../../../model/bet";
 
 @Component({

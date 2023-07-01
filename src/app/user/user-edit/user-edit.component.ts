@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {BackButtonComponent} from "../../back-button/back-button.component";
-import {FormErrorMessagesComponent} from "../../auth/form-error-messages/form-error-messages.component";
+import {FormErrorMessagesComponent} from "../../form-error-messages/form-error-messages.component";
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {TranslateModule} from "@ngx-translate/core";
 import {AuthService} from "../../../service/auth.service";
@@ -47,8 +47,9 @@ export class UserEditComponent implements OnInit {
   openTransaction(attribute: string) {
     this.dialog.open(ChangeAttributeModalComponent, {
       data: {
-        message: 'write-actual-' + attribute,
-        attribute: attribute
+        message: 'write-current-' + attribute,
+        attribute: attribute,
+        repeat:false,
       }
     }).afterClosed().subscribe(
       (field: string) => {
@@ -75,7 +76,8 @@ export class UserEditComponent implements OnInit {
     this.dialog.open(ChangeAttributeModalComponent, {
       data: {
         message: 'write-new-' + attribute,
-        attribute: attribute
+        attribute: attribute,
+        repeat: true,
       }
     }).afterClosed().subscribe(
       (field: string) => {

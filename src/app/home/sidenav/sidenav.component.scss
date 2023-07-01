@@ -47,15 +47,19 @@
 
       .balance {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
         width: calc(100% - 20px);
         padding: 0 10px 0 10px;
+        height: 30px;
 
         &-points {
           display: flex;
           align-items: center;
           gap: 5px;
 
+          span {
+            transform: translateY(1px);
+          }
         }
       }
 

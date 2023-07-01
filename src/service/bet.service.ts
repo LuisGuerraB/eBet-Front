@@ -5,6 +5,7 @@ import {Bet, BetList} from "../model/bet";
 import {Deserialize, IJsonObject} from "dcerialize";
 import {catchError, map, tap} from "rxjs";
 import {SessionStorageService} from "./session-storage.service";
+import {PlayMatch} from "../model/play";
 
 @Injectable({
   providedIn: 'root'
@@ -24,8 +25,8 @@ export class BetService {
       'multiplier': bet.multiplier,
       'amount': bet.amount,
       'subtype': bet.subtype,
-      'match_id': bet.match.id,
-      'team_id': bet.teamId
+      'match_id': bet.play.match.id,
+      'team_id':bet.play.teamId
     }, {withCredentials: true}).pipe(tap(() => {
         if (this.sessionStorage.getItem('user') != undefined) {
           const userData = this.sessionStorage.getItem('user')!;

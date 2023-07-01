@@ -26,12 +26,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-width: 230px;
 
   .prize-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     align-content: center;
+    min-height: 320px;
     width: 100%;
     background-color: $grey-palette-500;
   }
@@ -39,6 +41,9 @@
   .prize-item {
     margin: 25px;
     position: relative;
+    .error{
+      width: max-content;
+    }
   }
 
   .delete-button {

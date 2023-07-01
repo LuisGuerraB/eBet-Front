@@ -1,13 +1,13 @@
 <div class="item">
   <div class="teams border">
     <div class="img-container" [ngClass]="{'betted':team=='l'}">
-      <img src="{{bet.match.localTeam.img}}" alt="{{bet.match.localTeam.name}}">
+      <img src="{{bet.match?.localTeam?.img}}" alt="{{bet.match?.localTeam?.name}}">
     </div>
     <span>
       VS
     </span>
     <div class="img-container" [ngClass]="{'betted':team=='a'}">
-      <img src="{{bet.match.awayTeam.img}}" alt="{{bet.match.awayTeam.name}}">
+      <img src="{{bet.match?.awayTeam?.img}}" alt="{{bet.match?.awayTeam?.name}}">
     </div>
   </div>
   <div class="bet border">
@@ -20,7 +20,7 @@
     <span>{{bet.amount}}</span>
   </div>
   <div class="result" [ngClass]="{'winner':win,'loser':lose}">
-    {{bet.result! |translate}}
+    {{result_string! |translate}}
     <div *ngIf="!(win && lose) && !disableEdit " (click)="editBetfunction()"><i class="fa-regular fa-pen-to-square"></i>
     </div>
   </div>

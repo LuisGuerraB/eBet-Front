@@ -4,7 +4,7 @@ import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} fr
 import {AuthService} from "../../../service/auth.service";
 import {TranslateModule} from "@ngx-translate/core";
 import {Router} from "@angular/router";
-import {FormErrorMessagesComponent} from "../form-error-messages/form-error-messages.component";
+import {FormErrorMessagesComponent} from "../../form-error-messages/form-error-messages.component";
 import {ConfirmationModalComponent} from "../../confirmation-modal/confirmation-modal.component";
 import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 import {User} from "../../../model/user";

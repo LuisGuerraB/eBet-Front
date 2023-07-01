@@ -4,7 +4,7 @@
   <div class="bet-list" *ngIf="betsArray">
     <div class="bet-day" *ngFor="let betDay of betsArray">
       {{betDay[0]}}
-      <div class="bets">
+      <div class="bets scroll x">
         <app-bet-list-item *ngFor="let bet of betDay[1]" [bet]="bet" (editBet)="editBet($event)"></app-bet-list-item>
       </div>
     </div>

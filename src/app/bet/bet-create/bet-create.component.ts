@@ -19,6 +19,7 @@ import {SessionStorageService} from "../../../service/session-storage.service";
 import {forkJoin} from "rxjs";
 import {MatTabsModule} from "@angular/material/tabs";
 import { cloneDeep } from 'lodash';
+import {PlayMatch} from "../../../model/play";
 
 @Component({
   selector: 'app-bet-create',
@@ -95,11 +96,11 @@ export class BetCreateComponent implements OnInit {
       })
       return;
     }
-    let team: string;
+    let team: string | undefined;
     if (event.team == 'l') {
-      team = this.match!.localTeam.acronym;
+      team = this.match!.localTeam?.acronym;
     } else {
-      team = this.match!.awayTeam.acronym;
+      team = this.match!.awayTeam?.acronym;
     }
     console.log(event)
     this.dialog.open(BetModalComponent, {
@@ -114,14 +115,14 @@ export class BetCreateComponent implements OnInit {
     }).afterClosed().subscribe(
       (data) => {
         if (data) {
-          let team_id: number;
-          if (team == this.match?.localTeam.acronym) {
-            team_id = this.match!.localTeam.id
+          let team_id: number | undefined;
+          if (team == this.match?.localTeam?.acronym) {
+            team_id = this.match!.localTeam?.id
           } else {
-            team_id = this.match!.awayTeam.id
+            team_id = this.match!.awayTeam?.id
           }
           console.log(data)
-          let bet = new Bet(new Date(), event.type, event.multiplier, data.amount,  this.match!, team_id, event.subtype,event.set);
+          let bet = new Bet(new Date(), event.type, event.multiplier, data.amount,  new PlayMatch(this.match!,team_id!), event.subtype,event.set);
           this.betService.createBet(bet).subscribe(
             (bet) => {
               this.dialog.open(ConfirmationModalComponent, {

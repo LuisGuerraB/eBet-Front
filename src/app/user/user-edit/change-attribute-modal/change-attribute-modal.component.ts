@@ -2,7 +2,7 @@ import {Component, Inject} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {MAT_DIALOG_DATA, MatDialogModule, MatDialogRef} from "@angular/material/dialog";
-import {FormErrorMessagesComponent} from "../../../auth/form-error-messages/form-error-messages.component";
+import {FormErrorMessagesComponent} from "../../../form-error-messages/form-error-messages.component";
 import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
@@ -17,9 +17,11 @@ export class ChangeAttributeModalComponent {
   form: FormGroup;
   message : string;
   attribute : string;
+  repeat: boolean;
   constructor(public dialogRef: MatDialogRef<ChangeAttributeModalComponent>, @Inject(MAT_DIALOG_DATA) public data:any){
     this.message = data.message;
     this.attribute = data.attribute;
+    this.repeat = data.repeat;
     this.form = new FormGroup({
       attribute: new FormControl('', [Validators.required])
     })
