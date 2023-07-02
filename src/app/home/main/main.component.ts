@@ -54,7 +54,7 @@ export class MainComponent implements OnInit {
     ]
   };
 
-  constructor(private leagueService: LeagueService,private matchService: MatchService,private route: Router) {
+  constructor(private leagueService: LeagueService,private matchService: MatchService,private router: Router) {
   }
   ngOnInit() {
 
@@ -66,7 +66,7 @@ export class MainComponent implements OnInit {
         console.log(error.message)
       }
     )
-    let paramQuery : MatchListQueryParams ={league_id:-1,year:-1,month:-1,finished:false,limit:5,page:1};
+    let paramQuery : MatchListQueryParams ={team_id:-1,league_id:-1,year:-1,month:-1,finished:false,limit:5,page:1};
     this.matchService.getMatchList(paramQuery).subscribe(
       (matches: MatchList) => {
         this.matches = matches.items;
@@ -81,7 +81,7 @@ export class MainComponent implements OnInit {
   }
 
   redirect(leagueId:number){
-    this.route.navigate(['home/league',leagueId]);
+    this.router.navigate(['home/league',leagueId]);
   }
 
 }

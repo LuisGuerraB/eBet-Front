@@ -26,8 +26,10 @@ export class MatchService {
     let httpParams = new HttpParams();
 
     if (params.year != -1) {
-      console.log(params.year);
       httpParams = httpParams.append('year', params.year);
+    }
+    if (params.team_id != -1) {
+      httpParams = httpParams.append('team_id', params.team_id);
     }
     if (params.month != -1) {
       httpParams = httpParams.append('month', params.month);

@@ -30,3 +30,16 @@ export class ResultByMatch {
     this.localTeamResult = localTeamResult;
   }
 }
+
+
+export class Statistic {
+  @autoserializeAs(()=> String ) type: string;
+  @autoserializeAs(()=>Number , 'sum_values') sumValues: number;
+  @autoserializeAs(()=>Number, 'count_values') countValues: number;
+
+  constructor(type: string, sumValues: number, countValues: number){
+    this.type = type;
+    this.sumValues = sumValues;
+    this.countValues = countValues;
+  }
+}
