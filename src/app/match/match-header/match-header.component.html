@@ -4,8 +4,12 @@
     <h2 class="bold">{{match.localTeam?.acronym}}</h2>
   </div>
   <div class="center">
-    <span>{{match.planDate}}</span>
-    <h1 class="vs">VS</h1>
+    <span class="date" [ngClass]="{'line': finished}">{{match.planDate}}</span>
+    <h1 class="vs">
+      <h1 class="primary" *ngIf="match.result">{{match.result.get(match.localTeam?.acronym!)}}</h1>
+      VS
+      <h1 class="primary" *ngIf="match.result">{{match.result.get(match.awayTeam?.acronym!)}}</h1>
+    </h1>
     <div class="league">
       <img src="{{match.tournament.league.img}}">
       <span class="league__name">{{match.tournament.league.acronym}}</span>

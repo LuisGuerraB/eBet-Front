@@ -4,12 +4,16 @@
     </div>
     <nav>
       <div class="top">
-        <a class="nav-button" (click)="navigate('home/bets')">
+        <a class="nav-button" href="/home/main">
+          <i class="fa-solid fa-trophy"></i>
+          <span>{{'leagues'|translate}}</span>
+        </a>
+        <a class="nav-button" href="/home/bets">
           <i class="fa-solid fa-gavel"></i>
           <span>{{'bets'|translate}}</span>
         </a>
         <a class="nav-button" href="/home/prizes">
-          <i class="fa-solid fa-trophy"></i>
+          <i class="fa-solid fa-tags"></i>
           <span>{{'prizes'|translate}}</span>
         </a>
       </div>

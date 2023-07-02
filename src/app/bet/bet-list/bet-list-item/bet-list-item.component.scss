@@ -1,14 +1,13 @@
 @import 'src/assets/scss/variables.scss';
 
 .item {
-  display: flex;
+  display: grid;
   align-items: center;
-  justify-content: space-between;
+  grid-template-columns: 30% 50% 20%;
   background-color: $grey-palette-300;
   width: calc(100% - 20px);
   min-width: 650px;
   height: 50px;
-  border-radius: 5px;
   padding: 0 10px 0 10px;
   max-width: 700px;
 
@@ -48,7 +47,7 @@
   align-items: center;
   justify-content: space-between;
   height: 100%;
-  width: 250px;
+  width: calc(100% - 40px);
   padding: 0 20px 0 20px;
 
   .type {
@@ -64,8 +63,9 @@
 .result {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 15px;
-  padding: 0 20px 0 20px;
+  padding: 0 10px 0 10px;
 }
 
 .winner {

@@ -1,0 +1,49 @@
+@import 'src/assets/scss/variables.scss';
+
+.results-tabs {
+  width: 100%;
+}
+
+.teams {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  background-color: $grey-palette-300;
+  border-radius: 5px;
+  padding: 5px;
+
+  .team {
+    width: 30%;
+    min-width: 200px;
+    background-color: $grey-palette-400;
+    border-radius: 5px;
+
+    .stat {
+      display: grid;
+      grid-template-columns: 30px 100px 30px;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 15px;
+      height: 40px;
+      justify-items: center;
+      justify-content: center;
+
+      &__opposing {
+        @extend .stat;
+        flex-direction: row-reverse;
+      }
+    }
+  }
+
+}
+
+.img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    max-height: 30px;
+    max-width: 30px;
+  }
+}

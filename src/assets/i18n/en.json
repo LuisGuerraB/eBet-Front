@@ -106,5 +106,6 @@
   "write-new-email": "Write your new email",
   "write-new-password": "Write your new password",
   "no-prizes": "No prizes available",
-  "make-your-bet" : "Make your bet"
+  "make-your-bet" : "Make your bet",
+  "no-result": "There is no result jet"
 }
