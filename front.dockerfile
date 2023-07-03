@@ -7,7 +7,7 @@ COPY . ./
 RUN npm install
 RUN npm run build
 
-FROM nginx:stable-alpine-slim
+FROM docker.io/library/nginx:stable-alpine-slim
 
 COPY --from=build-env /app/dist/e-bet-front/ /usr/share/nginx/html
 
