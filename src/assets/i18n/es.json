@@ -108,5 +108,7 @@
   "write-new-password" : "Escribe tu nueva contraseña",
   "no-prizes": "No hay premios disponibles",
   "make-your-bet": "Haz tu apuesta",
-  "no-result": "No hay resultados todavia"
+  "no-result": "No hay resultados todavia",
+  "statistics-from-last-10-matches" : "Estadisticas de los últimos 10 partidos",
+  "next-5-recent-matches-from" : "Siguientes 5 partidos de"
 }

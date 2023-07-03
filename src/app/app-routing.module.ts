@@ -15,6 +15,7 @@ const routes: Routes = [
       {path: 'bet/:matchId', loadComponent: () => import('./bet/bet-create/bet-create.component').then(m => m.BetCreateComponent)},
       {path: 'result/:matchId',loadComponent:()=> import('./match/match-result/match-result.component').then(m=>m.MatchResultComponent)},
       {path: 'bets',canActivate: [LoginGuard], loadComponent: () => import('./bet/bet-list/bet-list.component').then(m => m.BetListComponent)},
+      {path: 'team/:teamId', loadComponent: () => import('./team/team.component').then(m => m.TeamComponent)},
       {path: 'prizes', loadComponent: () => import('./prize/prize-list/prize-list.component').then(m => m.PrizeListComponent)},
       {
         path: 'league/:leagueId',

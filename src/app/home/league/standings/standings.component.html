@@ -6,7 +6,7 @@
     <span>{{'point'|translate|uppercase}}</span>
   </div>
   <div class="rank-item-container scroll">
-    <div *ngFor="let participation of participations" class="rank-item row">
+    <div *ngFor="let participation of participations" class="rank-item row" (click)="redirect(participation.team.id)">
       <span class="position">{{participation.position}}</span>
       <span class="name">{{participation.team.acronym}}</span>
       <span class="points">{{participation.points}}</span>

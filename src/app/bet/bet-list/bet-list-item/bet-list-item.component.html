@@ -21,7 +21,7 @@
   </div>
   <div class="result" [ngClass]="{'winner':win,'loser':lose}">
     {{result_string! |translate}}
-    <div *ngIf="!(win && lose) && !disableEdit " (click)="editBetfunction()"><i class="fa-regular fa-pen-to-square"></i>
+    <div *ngIf="!(disableEdit || win || lose)" (click)="editBetfunction()"><i class="fa-regular fa-pen-to-square"></i>
     </div>
   </div>
 </div>

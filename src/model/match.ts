@@ -75,6 +75,7 @@ export class MatchList {
 export interface MatchListQueryParams {
   league_id: number;
   finished: boolean;
+  team_id : number;
   year: number;
   month: number;
   limit: number;

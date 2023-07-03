@@ -34,7 +34,7 @@ export class CarouselComponent implements OnInit {
     slidesToShow: 1,
     slidesToScroll: 1,
     dots: true,
-    autoplay: false,
+    autoplay: true,
     arrows: false,
   };
 }

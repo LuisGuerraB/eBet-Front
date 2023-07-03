@@ -37,6 +37,7 @@ export class LeagueComponent implements OnInit {
 
   filters: MatchListQueryParams = {
     finished: false,
+    team_id:-1,
     league_id:-1,
     year: -1,
     month: -1,

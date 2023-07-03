@@ -1,0 +1,47 @@
+<div class="component" *ngIf="!loading">
+  <back-button></back-button>
+  <div class="content">
+    <div class="column team">
+      <div class="team-header">
+        <div class="team-img-container">
+          <img src="{{team.img}}" alt="img-{{team.name}}">
+        </div>
+        <h1>{{team.name}} - {{team.acronym}}</h1>
+      </div>
+      <div class="statistic">
+        <div class="statistic-header">{{'statistics-from-last-10-matches' | translate}}</div>
+        <div class="statistic-list">
+          <div class="statistic-item__winner">
+            <span>{{'odd.' + winner.type |translate}} : </span>
+            <span>{{((winner.sumValues / winner.countValues) * 100).toFixed(0)}}%</span>
+          </div>
+
+          <div *ngFor="let statistic of statistics" class="statistic-item">
+            <img class="statistic-img" src="assets/img/icons/{{statistic.type}}.svg" alt="{{statistic.type}}">
+            <span>{{'odd.' + statistic.type |translate}} : </span>
+            <span>{{(statistic.sumValues / statistic.countValues).toFixed(1)}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="column recent-matches">
+      <div class="league">
+        <div class="league-img-container">
+          <img src="{{team.regularLeague.img}}" alt="{{team.regularLeague.name}}">
+        </div>
+        <div><h1>{{team.regularLeague.name}}</h1></div>
+      </div>
+      <div>
+        <div class="matches-container-header"><span>{{'next-5-recent-matches-from'|translate}} {{team.acronym}}</span></div>
+        <div class="matches-container scroll y">
+          <app-match-item *ngFor="let match of matches" [match]="match"></app-match-item>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div *ngIf="loading">
+  <app-spinner></app-spinner>
+</div>
+
