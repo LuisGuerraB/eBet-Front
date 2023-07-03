@@ -120,7 +120,6 @@ export class BetCreateComponent implements OnInit {
           } else {
             team_id = this.match!.awayTeam?.id
           }
-          console.log(data)
           let bet = new Bet(new Date(), event.type, event.multiplier, data.amount,  new PlayMatch(this.match!,team_id!), event.subtype,event.set);
           this.betService.createBet(bet).subscribe(
             (bet) => {

@@ -10,7 +10,6 @@ import {Team} from "./team";
 
 
 function functionDeserialze(data: any): string {
-  console.log(data);
   return new Date(data).toLocaleString(navigator.language, {
     weekday: "short",
     day: "2-digit",

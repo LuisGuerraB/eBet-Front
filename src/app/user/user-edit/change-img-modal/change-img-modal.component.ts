@@ -32,7 +32,6 @@ export class ChangeImgModalComponent {
       const file = inputElement.files[0];
       this.imageData = file;
       const img = new Image();
-      console.log(file.size);
       let width = 0;
       let height = 1;
       img.onload = () => {

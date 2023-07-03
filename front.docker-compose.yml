@@ -1,0 +1,9 @@
+services:
+  ebet-front:
+    container_name: ebet-front
+    build:
+      context: .
+      dockerfile: front.dockerfile
+    restart: unless-stopped
+    ports:
+      - ${FRONT_END_PORTS}
