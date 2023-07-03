@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY . ./
 
-RUN npm install
+RUN npm install --force
 RUN npm run build
 
 FROM docker.io/library/nginx:stable-alpine-slim
