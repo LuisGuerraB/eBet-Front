@@ -19,7 +19,7 @@ export class BetModalComponent {
   amount = new FormControl(0, [
     Validators.required,
     Validators.pattern('^[0-9]*$'),
-    Validators.min(0)
+    Validators.min(1)
   ]);
 
   team : string;

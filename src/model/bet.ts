@@ -36,12 +36,6 @@ export class Bet {
         this.result = result;
         this.play = play;
     }
-
-    updateMatch(){
-      this.match = this.play.match
-      this.teamId = this.play.teamId
-    }
-
 }
 
 export class BetList {

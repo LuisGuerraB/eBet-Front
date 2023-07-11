@@ -4,6 +4,7 @@ import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} fr
 import {MAT_DIALOG_DATA, MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 import {FormErrorMessagesComponent} from "../../../form-error-messages/form-error-messages.component";
 import {TranslateModule} from "@ngx-translate/core";
+import {noMatchValidator} from "../../../../functions/validations_functions";
 
 @Component({
   selector: 'app-change-attribute-modal',
@@ -25,6 +26,10 @@ export class ChangeAttributeModalComponent {
     this.form = new FormGroup({
       attribute: new FormControl('', [Validators.required])
     })
+    if(this.repeat){
+      this.form.addControl('rep-attribute', new FormControl('', [Validators.required]))
+      this.form.addValidators( noMatchValidator('attribute','rep-attribute'))
+    }
     if(this.attribute == 'email'){
       this.form.controls['attribute'].setValidators(Validators.email);
     }

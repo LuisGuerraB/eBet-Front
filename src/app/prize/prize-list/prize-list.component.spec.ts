@@ -1,6 +1,11 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { PrizeListComponent } from './prize-list.component';
+import {PrizeListComponent} from './prize-list.component';
+import {importProvidersFrom} from "@angular/core";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import {MatDialogModule} from "@angular/material/dialog";
 
 describe('PrizeListComponent', () => {
   let component: PrizeListComponent;
@@ -8,7 +13,14 @@ describe('PrizeListComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [PrizeListComponent]
+      imports: [PrizeListComponent],
+      providers: [importProvidersFrom(MatDialogModule,HttpClientModule,TranslateModule.forRoot({
+        loader: {
+          provide: TranslateLoader,
+          useFactory: (http: HttpClient) => new TranslateHttpLoader(http, './assets/i18n/', '.json'),
+          deps: [HttpClient]
+        }
+      }))]
     });
     fixture = TestBed.createComponent(PrizeListComponent);
     component = fixture.componentInstance;

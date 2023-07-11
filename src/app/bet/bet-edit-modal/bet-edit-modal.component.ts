@@ -24,7 +24,7 @@ export class BetEditModalComponent {
   constructor(public dialogRef: MatDialogRef<BetEditModalComponent>, private sessionStorage: SessionStorageService, @Inject(MAT_DIALOG_DATA) public data: Bet) {
     const user = this.sessionStorage.getItem('user');
     this.bet = data;
-    this.amount = new FormControl(this.bet.amount, [Validators.required, Validators.min(1), Validators.max(user.balance + this.bet.amount)]);
+    this.amount = new FormControl(this.bet.amount, [Validators.required, Validators.min(1), Validators.max(user?.balance + this.bet.amount)]);
     this.form = new FormGroup({
       amount: this.amount
     })

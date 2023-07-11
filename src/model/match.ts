@@ -22,7 +22,6 @@ function functionDeserialze(data: any): string {
 
 export class Match {
   @autoserializeAs(() => String) id: number;
-  @autoserializeAs(() => String) name: string;
   @autoserializeAs(() => String) sets: number;
   @autoserializeAsArray(() => PlayTeam) plays?: PlayTeam[];
   @autoserializeAs(() => Tournament) tournament: Tournament;
@@ -33,9 +32,8 @@ export class Match {
   awayTeam?: Team;
   localTeam?: Team;
 
-  constructor(id: number, name: string, sets: number, tournament: Tournament, endDate: Date, iniDate : Date, planDate: string, result: Map<string, number>) {
+  constructor(id: number, sets: number, tournament: Tournament, endDate: Date, iniDate : Date, planDate: string, result: Map<string, number>) {
     this.id = id;
-    this.name = name;
     this.sets = sets;
     this.tournament = tournament;
     this.result = result;

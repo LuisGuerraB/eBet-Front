@@ -72,7 +72,7 @@ export class UserEditComponent implements OnInit {
       })
   }
 
-  private changeAttribute(attribute: string) {
+  public changeAttribute(attribute: string) {
     this.dialog.open(ChangeAttributeModalComponent, {
       data: {
         message: 'write-new-' + attribute,

@@ -124,7 +124,7 @@ export class BetCreateComponent implements OnInit {
           this.betService.createBet(bet).subscribe(
             (bet) => {
               this.dialog.open(ConfirmationModalComponent, {
-                data: {message: "bet-succesful"}
+                data: {message: "bet-successful"}
               })
             },
             (err) => {

@@ -1,9 +1,9 @@
 <div class="item">
   <button class="buy-button" (click)="clickBuy()"><i class="fa-solid fa-bag-shopping"></i>{{'buy'|translate|uppercase}}</button>
   <div class="img-container">
-    <img src="{{prize.img}}" alt="Image">
+    <img src="{{prize?.img}}" alt="Image">
   </div>
   <div class="footer">
-    <span>{{prize.price}}</span><img src="assets/img/Ep.svg" alt="E-point">
+    <span>{{prize?.price}}</span><img src="assets/img/Ep.svg" alt="E-point">
   </div>
 </div>

@@ -5,10 +5,16 @@
       <span>{{match.localTeam?.acronym}}</span>
 
     </div>
-    <span class="vs accent">
+    <span class="vs accent" *ngIf="!ongoing && !waitingResult">
       <span class="primary" *ngIf="match.result">{{match.result.get(match.localTeam?.acronym!)}}</span>
       VS
       <span class="primary" *ngIf="match.result">{{match.result.get(match.awayTeam?.acronym!)}}</span>
+    </span>
+    <span class="vs accent" *ngIf="ongoing">
+      {{'on-going'|translate}}
+    </span>
+    <span class="vs accent" *ngIf="waitingResult">
+      {{'await-results'|translate}}
     </span>
     <div class="team team__opposing">
       <span>{{match.awayTeam?.acronym}}</span>

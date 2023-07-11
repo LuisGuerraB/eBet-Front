@@ -35,7 +35,7 @@ export class ChangeImgModalComponent {
       let width = 0;
       let height = 1;
       img.onload = () => {
-        if (file.size < 1000000) {
+        if (file.size < 1048576) {
           const reader = new FileReader();
           reader.onload = (e) => {
             this.imagePreview = (e.target as FileReader).result;

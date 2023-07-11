@@ -1,10 +1,21 @@
-import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import {RouterTestingModule} from "@angular/router/testing";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import {importProvidersFrom} from "@angular/core";
+import {HttpClient} from "@angular/common/http";
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 
 describe('AppComponent', () => {
   beforeEach(() => TestBed.configureTestingModule({
-    imports: [RouterTestingModule, AppComponent]
+    imports: [RouterTestingModule, AppComponent,TranslateModule],
+    providers: [importProvidersFrom(TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (http: HttpClient) => new TranslateHttpLoader(http, './assets/i18n/', '.json'),
+        deps: [HttpClient]
+      }
+    }))]
 }));
 
   it('should create the app', () => {
@@ -13,10 +24,4 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('eBet-Front app is running!');
-  });
 });

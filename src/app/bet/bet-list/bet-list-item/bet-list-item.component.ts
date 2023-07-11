@@ -2,6 +2,8 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {Bet} from "../../../../model/bet";
 import {TranslateModule} from "@ngx-translate/core";
+import {Router} from "@angular/router";
+import {Match} from "../../../../model/match";
 
 @Component({
   selector: 'app-bet-list-item',
@@ -19,9 +21,11 @@ export class BetListItemComponent implements OnInit {
   team: string = '';
   result_string?: string;
 
+  constructor(private route : Router) {}
+
   ngOnInit() {
     if (this.bet.match == undefined) {
-      this.bet.updateMatch()
+      this.bet.match = this.bet.play.match
     }
     this.bet.match!.updateTeams();
     this.checkResult();
@@ -62,5 +66,13 @@ export class BetListItemComponent implements OnInit {
 
   editBetfunction() {
     this.editBet.emit(this.bet)
+  }
+
+  redirectMatch(match: Match) {
+    if(match.endDate){
+      this.route.navigate(['home/result', match.id])
+    }else{
+      this.route.navigate(['home/bet',match.id])
+    }
   }
 }

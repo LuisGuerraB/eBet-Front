@@ -1,8 +1,8 @@
-import {Component, Inject} from '@angular/core';
+import {Component, } from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormErrorMessagesComponent} from "../../form-error-messages/form-error-messages.component";
-import {MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef} from "@angular/material/dialog";
-import {FormControl, FormGroup, ReactiveFormsModule, ValidatorFn, Validators} from "@angular/forms";
+import {MatDialog, MatDialogModule, MatDialogRef} from "@angular/material/dialog";
+import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {TranslateModule} from "@ngx-translate/core";
 import {noMatchValidator} from "../../../functions/validations_functions";
 
@@ -23,7 +23,6 @@ export class PrizeBuyModalComponent {
   constructor(
     public dialog: MatDialog,
     public dialogRef: MatDialogRef<PrizeBuyModalComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.form = new FormGroup({
       email: this.email,

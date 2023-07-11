@@ -1,5 +1,5 @@
 <div class="item">
-  <div class="teams border">
+  <div class="teams border" (click)="redirectMatch(bet.match!)">
     <div class="img-container" [ngClass]="{'betted':team=='l'}">
       <img src="{{bet.match?.localTeam?.img}}" alt="{{bet.match?.localTeam?.name}}">
     </div>

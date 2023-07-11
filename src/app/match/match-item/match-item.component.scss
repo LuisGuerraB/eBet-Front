@@ -12,10 +12,16 @@
 
   .teams {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     gap: 20px;
-    width: 250px;
+    width: 300px;
+
+    .vs {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
 
     .team {
       display:flex;

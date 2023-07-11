@@ -18,7 +18,6 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.scss'],
   animations: [
-
     trigger('sidebarAnimation', [
       state('open', style({
         transform: 'translateX(0)'
