@@ -26,6 +26,7 @@ export class BetListItemComponent implements OnInit {
   ngOnInit() {
     if (this.bet.match == undefined) {
       this.bet.match = this.bet.play.match
+      this.bet.teamId = this.bet.play.teamId
     }
     this.bet.match!.updateTeams();
     this.checkResult();
