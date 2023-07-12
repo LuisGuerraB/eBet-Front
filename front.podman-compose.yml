@@ -3,7 +3,7 @@ services:
     container_name: ebet-front
     build:
       context: .
-      dockerfile: front.dockerfile
+      dockerfile: front.pod
     restart: unless-stopped
     ports:
       - ${FRONT_END_PORTS}
